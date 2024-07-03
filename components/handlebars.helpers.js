@@ -60,12 +60,8 @@ export default function handlebarsHelpers(handlebars) {
     const options = args.pop(); // The last argument is the options object
     return args.some(arg => !!arg) ? options.fn(this) : options.inverse(this);
   });
-  // now - return current timestamp i.e {{now}}
-  handlebars.registerHelper('now', function() {
-    return new Date().toISOString();
-  });
   // formatDate - Format Date, for footer meta data i.e {{formatDate '2023-06-23'}}
-  handlebars.registerHelper('formatDate', function(dateString, defaultDate, format) {
+  handlebars.registerHelper('formatDate', function(dateString, defaultDate) {
     // Use the dateString if provided, otherwise use the defaultDate, otherwise error
     let date;
     if (dateString) {
@@ -84,23 +80,15 @@ export default function handlebarsHelpers(handlebars) {
     var day = date.getDate();
     var month = monthNames[date.getMonth()];
     var year = date.getFullYear();
-    // Format date based on the format string
-    switch (format) {
-    case 'YYYY':
-      return `${year}`;
-    case 'MMMM YYYY':
-      return `${month} ${year}`;
-    default:
-      return `${day} ${month} ${year}`;
-    }
+    return `${day} ${month} ${year}`;
   });
 
   // formatDateOrToday - Format Date if passed or today i.e. {{formatDateOrToday '2023-06-23'}} or {{formatDateOrToday}} <!-- This will use the current date -->
-  handlebars.registerHelper('formatDateOrToday', function(dateString, format) {
+  handlebars.registerHelper('formatDateOrToday', function(dateString) {
     // Use the current date if dateString is missing or invalid
     const dateToFormat = dateString || new Date().toISOString();
     // Call the formatDate helper with the determined date and format
-    return handlebars.helpers.formatDate(dateString, dateToFormat, format);
+    return handlebars.helpers.formatDate(dateToFormat);
   });
 }
 
