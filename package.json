@@ -1,6 +1,6 @@
 {
   "name": "@qld-gov-au/qgds-bootstrap5",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "repository": {
     "type": "git",
@@ -46,7 +46,7 @@
     "material-symbols": "^0.21.0"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^1.6.0",
+    "@chromatic-com/storybook": "^1.6.1",
     "@qld-gov-au/qgds-tokens": "^1.2.1",
     "@storybook/addon-a11y": "^8.1.11",
     "@storybook/addon-essentials": "^8.1.11",
@@ -79,8 +79,8 @@
     "handlebars": "4.7.8",
     "live-server": "1.2.2",
     "minimist": "^1.2.8",
-    "mocha": "^10.5.1",
-    "npm-run-all2": "^6.2.1",
+    "mocha": "^10.6.0",
+    "npm-run-all2": "^6.2.2",
     "onchange": "^7.1.0",
     "portfinder": "^1.0.32",
     "postcss": "^8.4.39",
