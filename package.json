@@ -1,6 +1,6 @@
 {
   "name": "@qld-gov-au/qgds-bootstrap5",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "",
   "repository": {
     "type": "git",
@@ -52,7 +52,6 @@
     "@storybook/addon-essentials": "^8.1.11",
     "@storybook/addon-interactions": "^8.1.11",
     "@storybook/addon-links": "^8.1.11",
-    "@storybook/addon-mdx-gfm": "^8.1.11",
     "@storybook/addon-themes": "^8.1.11",
     "@storybook/blocks": "^8.1.9",
     "@storybook/cli": "^8.1.11",
@@ -67,7 +66,7 @@
     "autoprefixer": "^10.4.15",
     "chai": "^5.1.1",
     "chalk": "^5.3.0",
-    "chromatic": "^11.5.4",
+    "chromatic": "^11.5.5",
     "esbuild": "0.23.0",
     "esbuild-plugin-copy": "^2.1.1",
     "esbuild-plugin-eslint": "^0.3.7",
@@ -86,7 +85,7 @@
     "postcss": "^8.4.39",
     "prettier": "3.3.2",
     "raw-loader": "^4.0.2",
-    "rimraf": "^5.0.7",
+    "rimraf": "^5.0.8",
     "run-parallel": "^1.2.0",
     "sass": "^1.77.6",
     "selenium-webdriver": "^4.22.0",
