@@ -187,7 +187,7 @@
                                 {{/if}}
                             </a>
                             {{#if dropdown_enabled}}
-                            <ul class="dropdown-menu dark" aria-labelledby="dropdown{{id}}" role="list">
+                            <ul class="dropdown-menu dark" role="list">
                                 {{#isType dropdown_options.dropdown_type "list"}}
                                     {{#if dropdown_options.dropdown_config}}
                                         {{#each dropdown_options.dropdown_config.groups}}
@@ -237,7 +237,7 @@
                 {{/if}}
                 <button aria-controls="main-nav" class="qld__header__toggle-main-nav qld__main-nav__toggle--open"
                     data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Open menu">
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
                         class="qld__icon qld__icon--lg">
                         <use href="{{@root.icon-root}}#{{@root.icons.menu-icon}}" aria-hidden="true"></use>
