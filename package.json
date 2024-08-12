@@ -1,6 +1,6 @@
 {
   "name": "@qld-gov-au/qgds-bootstrap5",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "",
   "repository": {
     "type": "git",
@@ -43,7 +43,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
     "bootstrap": "^5.3.1",
-    "material-symbols": "^0.21.2"
+    "material-symbols": "^0.22.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.1",
@@ -63,7 +63,7 @@
     "@stylistic/eslint-plugin-js": "2.1.0",
     "@vitejs/plugin-vue": "5.1.2",
     "@whitespace/storybook-addon-html": "^6.1.1",
-    "autoprefixer": "^10.4.15",
+    "autoprefixer": "^10.4.20",
     "chai": "^5.1.1",
     "chalk": "^5.3.0",
     "chromatic": "^11.5.5",
@@ -82,7 +82,7 @@
     "npm-run-all2": "^6.2.2",
     "onchange": "^7.1.0",
     "portfinder": "^1.0.32",
-    "postcss": "^8.4.40",
+    "postcss": "^8.4.41",
     "prettier": "3.3.3",
     "raw-loader": "^4.0.2",
     "rimraf": "^6.0.1",
@@ -90,7 +90,7 @@
     "sass": "^1.77.8",
     "selenium-webdriver": "^4.23.0",
     "storybook": "^8.2.1",
-    "vite": "^5.3.5",
+    "vite": "^5.4.0",
     "watch": "^1.0.2"
   },
   "peerDependencies": {
