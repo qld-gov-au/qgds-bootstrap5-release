@@ -1,27 +1,37 @@
-{{#if data.items}}
-    {{!-- The id and target attributes are place holders for the all link. This should build resilience into how these links work --}}
-    <section class="link-column {{theme}}">
+{{#if data}}
+    <section class="link-column {{ theme}}">
         <ul class="nav col-{{columns}}">
-            {{#each data.items}}  
-                <li class="nav-item">
-                    <a class="nav-link"{{#if this.id}}id="{{this.id}}"{{/if}}{{#if this.target}}target="{{target}}"{{/if}} href="{{this.url}}">
-                        {{{this.value}}}
-                    </a>
-                </li>             
-            {{/each}}
-
-            {{#if data.all_link }} 
-                <li class="nav-item all-link">
-                    {{!-- Inherits the CallToAction Component with default values if data is empty --}}
-                    {{> callToAction 
-                        label=(isdefined data.all_link.value "View all") 
-                        href=data.all_link.url 
-                        target=data.all_link.target 
-                        class=data.all_link.class 
-                        arialabel=data.all_link.value 
-                        id=data.all_link.id}}
-                </li>
-            {{/if}}
+            {{> linkColBase data}}
         </ul>
     </section>
+{{else}}
+    <section class="link-column {{theme}}">
+        <p class="nav-placeholder">No items available</p>
+    </section>
 {{/if}}
+
+
+{{#*inline "linkColBase"}}              
+    {{#each items}}
+        {{> navItem}}
+    {{/each}}
+    {{#if all_link}}
+        <li class="nav-item all-link">
+            {{> callToAction 
+                label=(isdefined all_link.value "View all")
+                href=all_link.url 
+                target=all_link.target 
+                class=all_link.class 
+                arialabel=all_link.value 
+                id=all_link.id}}
+        </li>
+    {{/if}}
+{{/inline}}
+
+{{#*inline "navItem"}}
+    <li class="nav-item">
+        <a class="nav-link"{{~#if id}} id="{{id}}"{{/if~}}{{~#if target}} target="{{target}}"{{/if~}} href="{{url}}">
+            {{~{value}~}}
+        </a>
+    </li>
+{{/inline}}
