@@ -43,7 +43,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
     "bootstrap": "^5.3.6",
-    "material-symbols": "^0.31.2"
+    "material-symbols": "^0.31.3"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
@@ -62,7 +62,7 @@
     "@storybook/test": "^8.6.14",
     "@storybook/theming": "^8.6.14",
     "@stylistic/eslint-plugin-js": "2.1.0",
-    "@vitejs/plugin-vue": "5.2.3",
+    "@vitejs/plugin-vue": "5.2.4",
     "autoprefixer": "^10.4.20",
     "chai": "^5.2.0",
     "chalk": "^5.3.0",
@@ -78,7 +78,7 @@
     "handlebars": "4.7.8",
     "http-server": "^14.1.1",
     "minimist": "^1.2.8",
-    "mocha": "^11.3.0",
+    "mocha": "^11.4.0",
     "npm-run-all2": "^8.0.2",
     "onchange": "^7.1.0",
     "portfinder": "^1.0.37",
