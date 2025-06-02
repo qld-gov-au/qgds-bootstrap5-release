@@ -33,6 +33,7 @@ import metaOpenGraph from "../components/bs5/metaOpenGraph/metaOpenGraph.hbs?raw
 import modal from "../components/bs5/modal/modal.hbs?raw";
 import navbar from "../components/bs5/navbar/navbar.hbs?raw";
 import pagination from "../components/bs5/pagination/pagination.hbs?raw";
+import promotionalPanel from "../components/bs5/promotionalPanel/promotionalPanel.hbs?raw";
 import quickexit from "../components/bs5/quickexit/quickexit.hbs?raw";
 import searchInput from "../components/bs5/searchInput/searchInput.hbs?raw";
 import select from "../components/bs5/select/select.hbs?raw";
@@ -40,6 +41,7 @@ import sidenav from "../components/bs5/sidenav/sidenav.hbs?raw";
 import sidenavWrapper from "../components/bs5/sidenavWrapper/sidenavWrapper.hbs?raw";
 import spinner from "../components/bs5/spinner/spinner.hbs?raw";
 import table from "../components/bs5/table/table.hbs?raw";
+import tabs from "../components/bs5/tabs/tabs.hbs?raw";
 import tag from "../components/bs5/tag/tag.hbs?raw";
 import textarea from "../components/bs5/textarea/textarea.hbs?raw";
 import textbox from "../components/bs5/textbox/textbox.hbs?raw";
@@ -85,6 +87,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("modal", modal);
   handlebars.registerPartial("navbar", navbar);
   handlebars.registerPartial("pagination", pagination);
+  handlebars.registerPartial("promotionalPanel", promotionalPanel);
   handlebars.registerPartial("quickexit", quickexit);
   handlebars.registerPartial("searchInput", searchInput);
   handlebars.registerPartial("select", select);
@@ -92,6 +95,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("sidenavWrapper", sidenavWrapper);
   handlebars.registerPartial("spinner", spinner);
   handlebars.registerPartial("table", table);
+  handlebars.registerPartial("tabs", tabs);
   handlebars.registerPartial("tag", tag);
   handlebars.registerPartial("textarea", textarea);
   handlebars.registerPartial("textbox", textbox);
