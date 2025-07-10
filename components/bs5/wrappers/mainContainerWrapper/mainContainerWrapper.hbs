@@ -2,7 +2,7 @@
 {{> header header}}
 {{> navbar navbar}}
 <main>
-  {{#> breadcrumbsWrapper}}
+  {{#>breadcrumbsWrapper}}
     {{> breadcrumbs breadcrumbs}}
   {{/breadcrumbsWrapper}}
   <!-- Main content-->
@@ -10,20 +10,21 @@
     <div class="qld-content">
       <div class="row">
         <!-- Side Nav -->
-        {{#> sidenavWrapper}}
+        {{#>sidenavWrapper}}
           {{> sidenav sidenav}}
         {{/sidenavWrapper}}
-        {{#> contentWrapper}}
-        {{> @partial-block }}
+
+        {{#>contentWrapper}}
+          {{> @partial-block }}
         {{/contentWrapper}}
       </div>
       <!-- end row -->
     </div>
 
     {{#>contentFooterWrapper}}
-      {{> contentFooter contentFooter }}
+      {{>contentFooter contentFooter }}
     {{/contentFooterWrapper}}
-
   </div>
 </main>
+
 {{> footer footer}}
