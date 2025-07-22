@@ -4,11 +4,11 @@
             style="background-image: url({{promoImage}});"
         {{/ifCond}}>
         <div class="image-panel">
-            {{#ifCond type '!=' 'promo'}}
-            <img class="promo-panel-image" src="{{promoImage}}" alt="Promotional Image">
-            {{else}}
-                <div class="promo-panel-image"></div>
-            {{/ifCond}}
+            <div class="promo-panel-image" 
+                {{#ifCond type '!=' 'promo'}}
+                    style="background-image: url({{promoImage}})"
+                {{/ifCond}}>
+            </div>
         </div>
         <div class="content-panel {{variantClass}}">      
             {{#if icon}}
@@ -32,18 +32,20 @@
                 {{/if}}
             </div>
             {{#if cta.items}}
-                <div class="cta-container">                            
-                    {{#each cta.items}}                        
-                        {{> callToAction label=value href=url target=target class=class arialabel=value id=id}}                        
+                <ul class="cta-container">                            
+                    {{#each cta.items}}
+                        <li>
+                            {{> callToAction label=value href=url target=target class=class arialabel=value id=id}}
+                        </li>
                     {{/each}}                            
-                </div>
+                </ul>
             {{/if}}
             {{#if btn.items}}
-                <div class="btn-container">
+                <ul class="btn-container">
                     {{#each btn.items}}
-                        {{> button islink=islink variantClass=variantClass label=label href=href target=target dataatts="data-type='class'"}}
+                        <li>{{> button islink=islink variantClass=variantClass label=label href=href target=target dataatts="data-type='class'"}}</li>
                     {{/each}}
-                </div>
+                </ul>
             {{/if}}
         </div>
     </div>
