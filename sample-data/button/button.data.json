@@ -2,7 +2,7 @@
 	"variantClass": "btn-primary",
 	"islink": true,
 	"isdisabled": false,
-	"iconClass": "qld-icon-external-link",
+	"iconClass": "fa-solid fa-arrow-up-right-from-square",
 	"iconPosition": "leading",
 	"label": "Call to action",
 	"href": "https://google.com",
