@@ -10,6 +10,7 @@ import button from "../components/bs5/button/button.hbs?raw";
 import callToAction from "../components/bs5/callToAction/callToAction.hbs?raw";
 import callout from "../components/bs5/callout/callout.hbs?raw";
 import card from "../components/bs5/card/card.hbs?raw";
+import containerLayout from "../components/bs5/containerLayout/containerLayout.hbs?raw";
 import contentFooter from "../components/bs5/contentFooter/contentFooter.hbs?raw";
 import correctincorrect from "../components/bs5/correctincorrect/correctincorrect.hbs?raw";
 import dateinput from "../components/bs5/dateinput/dateinput.hbs?raw";
@@ -64,6 +65,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("callToAction", callToAction);
   handlebars.registerPartial("callout", callout);
   handlebars.registerPartial("card", card);
+  handlebars.registerPartial("containerLayout", containerLayout);
   handlebars.registerPartial("contentFooter", contentFooter);
   handlebars.registerPartial("correctincorrect", correctincorrect);
   handlebars.registerPartial("dateinput", dateinput);
