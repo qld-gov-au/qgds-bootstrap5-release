@@ -33,7 +33,6 @@ import metaDcTerms from "../components/bs5/metaDcTerms/metaDcTerms.hbs?raw";
 import metaOpenGraph from "../components/bs5/metaOpenGraph/metaOpenGraph.hbs?raw";
 import modal from "../components/bs5/modal/modal.hbs?raw";
 import navbar from "../components/bs5/navbar/navbar.hbs?raw";
-import pageLayout from "../components/bs5/pageLayout/pageLayout.hbs?raw";
 import pagination from "../components/bs5/pagination/pagination.hbs?raw";
 import promotionalPanel from "../components/bs5/promotionalPanel/promotionalPanel.hbs?raw";
 import quickexit from "../components/bs5/quickexit/quickexit.hbs?raw";
@@ -89,7 +88,6 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("metaOpenGraph", metaOpenGraph);
   handlebars.registerPartial("modal", modal);
   handlebars.registerPartial("navbar", navbar);
-  handlebars.registerPartial("pageLayout", pageLayout);
   handlebars.registerPartial("pagination", pagination);
   handlebars.registerPartial("promotionalPanel", promotionalPanel);
   handlebars.registerPartial("quickexit", quickexit);
