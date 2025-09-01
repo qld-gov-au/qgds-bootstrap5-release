@@ -21,7 +21,6 @@ import customLinks from "../components/bs5/footer/customLinks.hbs?raw";
 import feedbackForm from "../components/bs5/footer/feedbackForm.hbs?raw";
 import followLinks from "../components/bs5/footer/followLinks.hbs?raw";
 import footer from "../components/bs5/footer/footer.hbs?raw";
-import footerForgov from "../components/bs5/footer/footerForgov.hbs?raw";
 import formcheck from "../components/bs5/formcheck/formcheck.hbs?raw";
 import fullPage from "../components/bs5/fullPageWrapper/fullPage.hbs?raw";
 import globalAlert from "../components/bs5/globalAlert/globalAlert.hbs?raw";
@@ -85,7 +84,6 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("feedbackForm", feedbackForm);
   handlebars.registerPartial("followLinks", followLinks);
   handlebars.registerPartial("footer", footer);
-  handlebars.registerPartial("footerForgov", footerForgov);
   handlebars.registerPartial("formcheck", formcheck);
   handlebars.registerPartial("fullPage", fullPage);
   handlebars.registerPartial("globalAlert", globalAlert);
