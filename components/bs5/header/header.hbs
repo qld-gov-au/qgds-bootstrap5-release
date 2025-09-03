@@ -1,24 +1,28 @@
 <header class="qld-header" role="banner">
-    <div class="qld-header-pre-header">
+    <div class="qld-header-pre-header dark">
         <div class="qld-header-container">
-            <div class="d-flex justify-content-between align-items-center">
-                <a class="qld-header-link" href="{{#if preHeader.globalLink.url}}{{preHeader.globalLink.url}}{{else}}https://qld.gov.au{{/if}}">
+            <div class="d-flex justify-content-between align-items-baseline">
+                <a class="qld-header-link"
+                    href="{{#if preHeader.globalLink.url}}{{preHeader.globalLink.url}}{{else}}https://qld.gov.au{{/if}}">
                     <span class="d-none d-lg-inline">{{preHeader.globalLink.text}}</span>
                     {{>logo className="qld-header-logo" fill="currentColor"}}
                 </a>
-
-                <div class="qld-header__cta-wrapper">
+                <div class="d-none d-lg-flex gap-20 align-items-baseline">
                     {{#if preHeader.CTA}}
                     {{#each preHeader.CTA}}
-                    <span {{#if dropdown_enabled}} class="dropdown dropdownCTA" {{/if}}>
+                    {{#if dropdown_enabled}}
+                    <div {{#if dropdown_enabled}} class="dropdown" {{/if}}>
                         <a {{#if dropdown_enabled}} id="dropdown{{id}}" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false" class="qld-header-link qld-header__cta-link" href="#" {{else}} href="{{url.value}}"
-                             {{/if}}>
-                            <span class="qld-header__cta-link-text">{{{text.value}}}</span>
+                            aria-expanded="false" class="qld-header-link" href="#" {{else}} href="{{url.value}}"
+                            {{/if}}>
+                            {{{text.value}}}
                             {{#if dropdown_enabled}}
+                            {{!-- <span
+                                class="qld-header-dropdown-icon qld-icon qld-icon-chevron-down qld-icon-xs align-middle ml-2"></span>
+                            --}}
                             <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
-                                class="qld-header__cta-link-icon">
-                                <use href="{{@root.icon-root}}#{{@root.icons.chevron_down}}" aria-hidden="true"></use>
+                                class="qld-header-dropdown-icon ">
+                                <use href="{{@root.assets.SVGSpritePath}}#{{@root.assets.icons.chevron_down}}" aria-hidden="true"></use>
                             </svg>
                             {{/if}}
                         </a>
@@ -27,8 +31,9 @@
                             {{#isType dropdown_options.dropdown_type "list"}}
                             {{#if dropdown_options.dropdown_config}}
                             {{#each dropdown_options.dropdown_config.groups}}
-                            <li class="qld-header__cta-list">
-                                <a class="qld-header-link" href="{{url}}" {{#if action}} target="{{action}}" {{/if}}>
+                            <li>
+                                <a class="qld-header-link dropdown-item" href="{{url}}" {{#if action}}
+                                    target="{{action}}" {{/if}}>
                                     {{label}}
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg" class="cta_arrow">
@@ -40,9 +45,9 @@
                             </li>
                             {{/each}}
                             {{#if dropdown_options.view_more}}
-                            <li class="qld-header__cta-list">
+                            <li>
                                 <a href="{{dropdown_options.url}}" target="{{dropdown_options.target}}"
-                                    class="qld-header-link view-all border-bottom-0">
+                                    class="qld-header-link dropdown-item border-bottom-0">
                                     {{dropdown_options.label}}
                                 </a>
                             </li>
@@ -56,24 +61,24 @@
                             {{/isType}}
                         </ul>
                         {{/if}}
-                    </span>
+                    </div>
+                    {{else}}
+                    <a class ="qld-header-link" href="{{url.value}}">{{{text.value}}}</a>
+                    {{/if}}
+
                     {{/each}}
                     {{/if}}
                 </div>
-
             </div>
 
-
-
-
             <div class="qld-header__main-nav-controls">
-                {{#if siteSearchAsset.value}}
+                {{#if assets.siteSearch.value}}
                 <button aria-controls="qld-header-search"
                     class="qld-header__toggle-main-nav qld__main-nav__toggle-search" aria-expanded="false">
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                        <use class="icon-search" href="{{@root.icon-root}}#{{@root.icons.search-icon}}"
+                        <use class="icon-search" href="{{@root.assets.SVGSpritePath}}#{{@root.assets.icons.search-icon}}"
                             aria-hidden="true" style="display: block;"></use>
-                        <use class="icon-close" href="{{@root.icon-root}}#{{@root.icons.close-icon}}"
+                        <use class="icon-close" href="{{@root.assets.SVGSpritePath}}#{{@root.assets.icons.close-icon}}"
                             style="display: none;"></use>
                     </svg>
                     <span class="qld__main-nav__toggle-text">Search</span>
@@ -83,7 +88,7 @@
                     data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Open menu">
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                        <use href="{{@root.icon-root}}#{{@root.icons.menu-icon}}" aria-hidden="true"></use>
+                        <use href="{{@root.assets.SVGSpritePath}}#{{@root.assets.icons.menu-icon}}" aria-hidden="true"></use>
                     </svg>
                     <span class="qld__main-nav__toggle-text">Menu</span>
                 </button>
@@ -91,15 +96,16 @@
 
         </div>
     </div>
+
     <div
-        class="qld-header-main {{#if siteHeader.config.masterbrand_enabled}}qld-header__main--masterbrand--{{siteHeader.config.masterbrand_enabled}}{{/if}}">
+        class="qld-header-main {{#if isMasterBrand}}is-masterbrand{{/if}}">
         <div class="container-fluid">
-            {{#if siteHeader.config.masterbrand_enabled}}
+            {{#if isMasterBrand }}
             <div class="qld-header__brand">
-                <a href="{{siteHeader.url.value}}">
+                <a href="{{mainContent.url}}">
                     <div class="qld-header__brand-image">
-                        {{#if siteHeader.logo.value}}
-                        <img src="{{siteHeader.logo.value}}" width="329.57" height="56" alt="Queensland Government" />
+                        {{#if mainContent.logoPath}}
+                        <img src="{{mainContent.logoPath}}" width="330" height="56" alt="Queensland Government" />
                         {{else}}
                         {{>logo width="330" height="56" fill="currentColor"}}
                         {{/if}}
@@ -107,24 +113,24 @@
                 </a>
             </div>
             {{/if}}
-            {{#ifAny siteHeader.config.subbrand_enabled siteHeader.config.cobrand_enabled}}
+            {{#ifAny isSubBrand isCoBrand }}
             <div class="qld-header__brand">
-                <a href="{{siteHeader.url.value}}">
-                    <div class="qld-header__brand-image qld-header__brand-image_subtype">
-                        {{#if siteHeader.logo.value}}
-                        <img src="{{siteHeader.logo.value}}" width="170" height="56" alt="Queensland Government" />
+                <a href="{{mainContent.url}}">
+                    <div class="qld-header__brand-image is-subtype">
+                        {{#if mainContent.logoPath}}
+                        <img src="{{mainContent.logoPath}}" width="170" height="56" alt="Queensland Government" />
                         {{else}}
                         {{>logo logo="coa-landscape-2lines" width="170" height="56" fill="currentColor" }}
                         {{/if}}
                     </div>
-                    {{#if siteHeader.secondaryType}}
+                    {{#if mainContent.siteTitle}}
                     <div class="qld-header__site-name">
                         <span class="qld-header__heading">
-                            {{siteHeader.secondaryType.siteTitle.value}}
+                            {{mainContent.siteTitle}}
                         </span>
-                        {{#if siteHeader.secondaryType.subline.value}}
+                        {{#if mainContent.subline}}
                         <span class="qld-header__subline">
-                            {{siteHeader.secondaryType.subline.value}}
+                            {{mainContent.subline}}
                         </span>
                         {{/if}}
                     </div>
@@ -132,25 +138,25 @@
                 </a>
             </div>
             {{/ifAny}}
-            {{#if siteHeader.config.endorsed_enabled}}
+            {{#if isEndorsedBrand}}
             <div class="qld-header__brand">
-                <a href="{{siteHeader.url.value}}">
+                <a href="{{mainContent.url}}">
                     <div class="qld-header__brand-image qld-header__brand-image_subtype">
-                        {{#if siteHeader.secondaryType.logo.value}}
+                        {{#if mainContent.logoPath}}
                         <div class="qld-header__site-name">
-                            <img class="qld-header__secondary-image" alt="{{siteHeader.secondaryType.siteTitle.value}}"
-                                src="{{siteHeader.secondaryType.logo.value}}" />
+                            <img class="qld-header__secondary-image" alt="{{mainContent.siteTitle}} {{mainContent.subline}}"
+                                src="{{mainContent.logoPath}}" />
                         </div>
                         {{/if}}
                     </div>
-                    {{#if siteHeader.secondaryType.logo.value}}
+                    {{#if mainContent.siteTitle}}
                     <div class="qld-header__site-name">
                         <span class="qld-header__heading">
-                            {{siteHeader.secondaryType.siteTitle.value}}
+                            {{mainContent.siteTitle}}
                         </span>
-                        {{#if siteHeader.secondaryType.subline.value}}
+                        {{#if mainContent.subline}}
                         <span class="qld-header__subline">
-                            {{siteHeader.secondaryType.subline.value}}
+                            {{mainContent.subline}}
                         </span>
                         {{/if}}
                     </div>
@@ -158,27 +164,27 @@
                 </a>
             </div>
             {{/if}}
-            {{#if siteHeader.config.standalone_enabled}}
+            {{#if isStandaloneBrand}}
             <div class="qld-header__brand">
-                <a href="{{siteHeader.url.value}}">
+                <a href="{{mainContent.url}}">
                     <div class="qld-header__brand-image">
-                        {{#if siteHeader.logo.value}}
-                        <img src="{{siteHeader.logo.value}}" width="170" height="56" alt="Queensland Government" />
+                        {{#if mainContent.logoPath}}
+                        <img src="{{mainContent.logoPath}}" width="170" height="56" alt="Queensland Government" />
                         {{/if}}
                     </div>
-                    {{#if siteHeader.secondaryType.logo.value}}
+                    {{#if mainContent.secondaryLogoPath}}
                     <div class="qld-header__site-name">
-                        <img class="qld-header__secondary-image" alt="{{siteHeader.secondaryType.siteTitle.value}}"
-                            src="{{siteHeader.secondaryType.logo.value}}" />
+                        <img class="qld-header__secondary-image" alt="{{mainContent.siteTitle}}"
+                            src="{{mainContent.secondaryLogoPath}}" />
                     </div>
                     {{else}}
                     <div class="qld-header__site-name">
                         <span class="qld-header__heading">
-                            {{siteHeader.secondaryType.siteTitle.value}}
+                            {{mainContent.siteTitle}}
                         </span>
-                        {{#if siteHeader.secondaryType.subline.value}}
+                        {{#if mainContent.subline}}
                         <span class="qld-header__subline">
-                            {{siteHeader.secondaryType.subline.value}}
+                            {{mainContent.subline}}
                         </span>
                         {{/if}}
                     </div>
@@ -186,10 +192,10 @@
                 </a>
             </div>
             {{/if}}
-            {{#if siteSearchAsset.value}}
+            {{#if assets.siteSearch.value}}
             <div id="qld-header-search" class="qld-header__site-search qld-header__site-search--closed">
-                <form class="site-search" role="search" {{#if siteSearchAsset.formAction.url}}
-                    action="{{siteSearchAsset.formAction.url}}" {{else}} action="https://www.qld.gov.au/search" {{/if}}>
+                <form class="site-search" role="search" {{#if assets.siteSearch.formAction.url}}
+                    action="{{assets.siteSearch.formAction.url}}" {{else}} action="https://www.qld.gov.au/search" {{/if}}>
                     {{{ searchInput }}}
                 </form>
             </div>
