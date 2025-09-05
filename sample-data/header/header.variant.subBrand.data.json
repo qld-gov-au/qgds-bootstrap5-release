@@ -5,124 +5,19 @@
       "text": "www.qld.gov.au",
       "url": "https://qld.gov.au"
     },
-    "CTA": [
+    "actions": [
       {
         "id": "CTAone",
-        "url": {
-          "value": "#"
-        },
-        "text": {
-          "value": "Contact Information"
-        },
-        "dropdown_enabled": false,
-        "dropdown_options": {
-          "dropdown_type": "list",
-          "view_more": true,
-          "label": "View all",
-          "url": "https://www.qld.gov.au/queenslanders",
-          "target": "_blank",
-          "dropdown_config": {
-            "groups": [
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Transport and motoring"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Employment and jobs"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Education and training"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Queensland and its government"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Health and wellbeing"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Community support"
-              }
-            ]
-          }
-        }
+        "url": "#",
+        "text": "Contact Information",
+        "icon": "qgds-icon-phone"
       },
-      {
-        "id": "CTAtwo",
-        "url": {
-          "value": "#"
-        },
-        "text": {
-          "value": "Business and Industry"
-        },
-        "dropdown_enabled": true,
-        "dropdown_options": {
-          "dropdown_type": "list",
-          "view_more": true,
-          "label": "View all",
-          "url": "https://www.qld.gov.au/queenslanders",
-          "target": "_blank",
-          "dropdown_config": {
-            "groups": [
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Transport and motoring"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Employment and jobs"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Education and training"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Queensland and its government"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Health and wellbeing"
-              },
-              {
-                "action": "_blank",
-                "url": "#",
-                "label": "Community support"
-              }
-            ]
-          }
-        }
-      },
+
       {
         "id": "CTAthree",
-        "url": {
-          "value": "#"
-        },
-        "text": {
-          "value": "Login"
-        },
-        "dropdown_enabled": true,
-        "dropdown_options": {
-          "dropdown_type": "form",
-          "dropdown_config": {
-            "content": "<div></div>"
-          }
-        }
+        "url": "#",
+        "text": "Login",
+        "icon": "qgds-icon-login"
       }
     ]
   },
@@ -134,12 +29,12 @@
     "subline": "Hospital and Health Service"
   },
   "assets": {
-    "SVGSpritePath": "./assets/img/svg-icons.svg",
+    "SVGSpritePath": "./assets/img/icons-sprite.svg",
     "icons": {
-      "menu-icon": "qld__icon__mobile-menu",
-      "search-icon": "qld__icon__search",
-      "close-icon": "qld__icon__close",
-      "chevron_down": "qld__icon__chevron-down"
+      "menu-icon": "qgds-icon-menu",
+      "search-icon": "qgds-icon-search",
+      "close-icon": "qgds-icon-close",
+      "chevron_down": "qgds-icon-chevron-down"
     },
     "siteSearch": {
       "value": "#",
