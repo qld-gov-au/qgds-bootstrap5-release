@@ -29,6 +29,7 @@ import icon from "../components/bs5/icons/icon.hbs?raw";
 import image from "../components/bs5/image/image.hbs?raw";
 import inpageAlert from "../components/bs5/inpageAlert/inpageAlert.hbs?raw";
 import inpagenav from "../components/bs5/inpagenav/inpagenav.hbs?raw";
+import link from "../components/bs5/link/link.hbs?raw";
 import linkColumns from "../components/bs5/linkColumns/linkColumns.hbs?raw";
 import logo from "../components/bs5/logo/logo.hbs?raw";
 import logoCOALandscape from "../components/bs5/logo/logoCOALandscape.hbs?raw";
@@ -94,6 +95,7 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("image", image);
   handlebars.registerPartial("inpageAlert", inpageAlert);
   handlebars.registerPartial("inpagenav", inpagenav);
+  handlebars.registerPartial("link", link);
   handlebars.registerPartial("linkColumns", linkColumns);
   handlebars.registerPartial("logo", logo);
   handlebars.registerPartial("logoCOALandscape", logoCOALandscape);
