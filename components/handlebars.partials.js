@@ -41,7 +41,6 @@ import metaDcTerms from "../components/bs5/metaDcTerms/metaDcTerms.hbs?raw";
 import metaOpenGraph from "../components/bs5/metaOpenGraph/metaOpenGraph.hbs?raw";
 import modal from "../components/bs5/modal/modal.hbs?raw";
 import navbar from "../components/bs5/navbar/navbar.hbs?raw";
-import pageLayout from "../components/bs5/pageLayout/pageLayout.hbs?raw";
 import contentPageWithForm from "../components/bs5/pageLayout/templates/contentPageWithForm.hbs?raw";
 import contentPageWithSideNavigation from "../components/bs5/pageLayout/templates/contentPageWithSideNavigation.hbs?raw";
 import homePage from "../components/bs5/pageLayout/templates/homePage.hbs?raw";
@@ -109,7 +108,6 @@ export default function handlebarsPartials(handlebars) {
   handlebars.registerPartial("metaOpenGraph", metaOpenGraph);
   handlebars.registerPartial("modal", modal);
   handlebars.registerPartial("navbar", navbar);
-  handlebars.registerPartial("pageLayout", pageLayout);
   handlebars.registerPartial("contentPageWithForm", contentPageWithForm);
   handlebars.registerPartial("contentPageWithSideNavigation", contentPageWithSideNavigation);
   handlebars.registerPartial("homePage", homePage);
