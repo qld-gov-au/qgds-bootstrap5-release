@@ -2,7 +2,7 @@
   "metadata": {
     "alternativeColor": false,
     "verticalOrientation": false,
-    "navbarBrandName": "Menu"
+    "navbarBrandName": "Menu 2"
   },
   "navigation": [
     {
@@ -25,7 +25,7 @@
       "dropdownOptions": {
         "alternativeText": "Patients and visitors",
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
-        "viewAllHref": "https://example.com"
+        "viewAllHref": "wired.com"
       },
       "navigationItems": [
         {
@@ -82,7 +82,7 @@
     {
       "text": "Mega menu",
       "iconName": "qld-icon-calendar",
-      "url": "https://example.com",
+      "url": "https://www.wired.html",
       "alternativeColor": true,
       "mobileOnly": false,
       "hideLabel": false,
@@ -170,7 +170,7 @@
       "target": ""
     },
     {
-      "text": "Mobile only",
+      "text": "mobile item",
       "iconName": "",
       "url": "index.html",
       "alternativeColor": false,
@@ -179,7 +179,7 @@
       "target": ""
     },
     {
-      "text": "Mobile only with icon",
+      "text": "mobile item with icon",
       "iconName": "qld-icon-chart",
       "url": "index.html",
       "alternativeColor": false,
