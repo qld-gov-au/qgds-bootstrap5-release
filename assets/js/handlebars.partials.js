@@ -825,7 +825,7 @@
   </section>
   {{/each }}
 </div>`;var R=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.6","branch":"QGDS-325-update-all-icons-to-use-the-qgds-sprite-icons","tag":"","commit":"283db8062d2436d9213975bb977dce9e47dfe498","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.6","branch":"QGDS-325-update-all-icons-to-use-the-qgds-sprite-icons","tag":"","commit":"f10dd901df3c95711b7a893b67ad1697c1a87e7f","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -2370,11 +2370,11 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
             <div class="video-thumbnail-image" style="--thumbnail:url({{thumbnail}})"></div>
             <div class="video-nav">
                 <div class="video-watch">
-                    <span class="icon qld-icon qld-icon-lg qld-icon-video" aria-hidden="true"></span><span>Watch</span>
+                    <span class="qld-icon qld-icon-lg qld-icon-video" aria-hidden="true"></span><span>Watch</span>
                 </div>
                 {{#if duration}}
                     <div title="Video duration" class="video-duration">
-                        <span class="icon qld-icon qld-icon-sm qld-icon-clock" aria-hidden="true"></span><span>{{formatDuration duration}}</span>
+                        <span class="qld-icon qld-icon-sm qld-icon-clock" aria-hidden="true"></span><span>{{formatDuration duration}}</span>
                     </div>
                 {{/if}}
             </div>
