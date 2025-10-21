@@ -386,11 +386,11 @@
       </div>
     {{/if}}  
   </div>
-`;var M=`<div class="container qld-content-footer">
+`;var y=`<div class="container qld-content-footer">
   <div class="row">
     {{> @partial-block }}
   </div>
-</div>`;var y=`<!-- Content Wrapper -->
+</div>`;var M=`<!-- Content Wrapper -->
 <div class="col-12 col-lg-8 ps-lg-64 qld-content-body" id="content">
   {{#if title}}<h1>{{title}}</h1>{{/if}}
   {{> @partial-block }}
@@ -775,8 +775,8 @@
   {{/if}}
   
   {{#each listitems}}
-  <div class="form-check {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}">
-    <input class="form-check-input" type="{{type}}" name="{{name}}" id="{{id}}" value="{{value}}" {{#if isDisabled}}disabled{{/if}} {{#if isChecked}}checked{{/if}}>
+  <div class="form-check {{#if ../isValid}}is-valid{{else}}{{#ifCond ../isValid "===" false}}is-invalid{{/ifCond}}{{/if}}">
+    <input class="form-check-input" type="{{#if ../type}}{{../type}}{{else}}{{type}}{{/if}}" name="{{name}}" id="{{id}}" value="{{value}}" {{#if isDisabled}}disabled{{/if}} {{#if isChecked}}checked{{/if}} {{#if isRequired}}required{{/if}} >
     <label class="form-check-label" for="{{id}}">
       {{label}}
     </label>
@@ -833,7 +833,7 @@
   </section>
   {{/each }}
 </div>`;var R=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.6","branch":"QGDS-252-bs5-form-validation-states","tag":"","commit":"423e9e43db90bf4ddf3193056f095172b7fee3bb","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.6","branch":"QGDS-252-bs5-form-validation-states","tag":"","commit":"d6ea2b7b21c940aa2a1ed08a776c45c011c36633","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -2402,5 +2402,5 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
     </div>
     {{! Render the transcript content in an accordion template }}
 </section>
-`;function d(e){e.registerPartial("accordion",c),e.registerPartial("backToTop",p),e.registerPartial("banner",f),e.registerPartial("blockquote",u),e.registerPartial("breadcrumbs",m),e.registerPartial("breadcrumbsWrapper",g),e.registerPartial("button",v),e.registerPartial("callToAction",h),e.registerPartial("callout",b),e.registerPartial("card",L),e.registerPartial("containerLayout",k),e.registerPartial("contentFooter",q),e.registerPartial("contentFooterWrapper",M),e.registerPartial("contentWrapper",y),e.registerPartial("correctincorrect",x),e.registerPartial("dateinput",w),e.registerPartial("directionLinks",V),e.registerPartial("customLinks",H),e.registerPartial("feedbackForm",T),e.registerPartial("followLinks",Z),e.registerPartial("footer",S),e.registerPartial("formcheck",P),e.registerPartial("fullPage",A),e.registerPartial("globalAlert",O),e.registerPartial("head",R),e.registerPartial("header",D),e.registerPartial("headerBrand",I),e.registerPartial("icon",_),e.registerPartial("image",E),e.registerPartial("inpageAlert",N),e.registerPartial("inpagenav",G),e.registerPartial("link",F),e.registerPartial("linkColumns",B),e.registerPartial("logo",Q),e.registerPartial("logoCOALandscape",j),e.registerPartial("logoCOALandscape2Lines",J),e.registerPartial("mainContainerWrapper",W),e.registerPartial("metaDcTerms",Y),e.registerPartial("metaOpenGraph",U),e.registerPartial("modal",$),e.registerPartial("navbar",z),e.registerPartial("contentPageWithForm",X),e.registerPartial("contentPageWithSideNavigation",K),e.registerPartial("homePage",e5),e.registerPartial("pagination",i5),e.registerPartial("promotionalPanel",a5),e.registerPartial("quickexit",t5),e.registerPartial("searchInput",s5),e.registerPartial("select",l5),e.registerPartial("sidenav",n5),e.registerPartial("sidenavWrapper",o5),e.registerPartial("skipLinks",C5),e.registerPartial("spinner",r5),e.registerPartial("table",d5),e.registerPartial("tabs",c5),e.registerPartial("tag",p5),e.registerPartial("textarea",f5),e.registerPartial("textbox",u5),e.registerPartial("typography",m5),e.registerPartial("video",g5)}typeof Handlebars!="undefined"&&d(Handlebars);var v5=!1;function h5(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(v5?console.log("HandleBars Helpers And Partials already loaded, loading again"):v5=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&h5(Handlebars);})();
+`;function d(e){e.registerPartial("accordion",c),e.registerPartial("backToTop",p),e.registerPartial("banner",f),e.registerPartial("blockquote",u),e.registerPartial("breadcrumbs",m),e.registerPartial("breadcrumbsWrapper",g),e.registerPartial("button",v),e.registerPartial("callToAction",h),e.registerPartial("callout",b),e.registerPartial("card",L),e.registerPartial("containerLayout",k),e.registerPartial("contentFooter",q),e.registerPartial("contentFooterWrapper",y),e.registerPartial("contentWrapper",M),e.registerPartial("correctincorrect",x),e.registerPartial("dateinput",w),e.registerPartial("directionLinks",V),e.registerPartial("customLinks",H),e.registerPartial("feedbackForm",T),e.registerPartial("followLinks",Z),e.registerPartial("footer",S),e.registerPartial("formcheck",P),e.registerPartial("fullPage",A),e.registerPartial("globalAlert",O),e.registerPartial("head",R),e.registerPartial("header",D),e.registerPartial("headerBrand",I),e.registerPartial("icon",_),e.registerPartial("image",E),e.registerPartial("inpageAlert",N),e.registerPartial("inpagenav",G),e.registerPartial("link",F),e.registerPartial("linkColumns",B),e.registerPartial("logo",Q),e.registerPartial("logoCOALandscape",j),e.registerPartial("logoCOALandscape2Lines",J),e.registerPartial("mainContainerWrapper",W),e.registerPartial("metaDcTerms",Y),e.registerPartial("metaOpenGraph",U),e.registerPartial("modal",$),e.registerPartial("navbar",z),e.registerPartial("contentPageWithForm",X),e.registerPartial("contentPageWithSideNavigation",K),e.registerPartial("homePage",e5),e.registerPartial("pagination",i5),e.registerPartial("promotionalPanel",a5),e.registerPartial("quickexit",t5),e.registerPartial("searchInput",s5),e.registerPartial("select",l5),e.registerPartial("sidenav",n5),e.registerPartial("sidenavWrapper",o5),e.registerPartial("skipLinks",C5),e.registerPartial("spinner",r5),e.registerPartial("table",d5),e.registerPartial("tabs",c5),e.registerPartial("tag",p5),e.registerPartial("textarea",f5),e.registerPartial("textbox",u5),e.registerPartial("typography",m5),e.registerPartial("video",g5)}typeof Handlebars!="undefined"&&d(Handlebars);var v5=!1;function h5(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(v5?console.log("HandleBars Helpers And Partials already loaded, loading again"):v5=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&h5(Handlebars);})();
 //# sourceMappingURL=handlebars.partials.js.map
