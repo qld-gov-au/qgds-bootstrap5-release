@@ -776,7 +776,7 @@
   
   {{#each listitems}}
   <div class="form-check {{#if ../isValid}}is-valid{{else}}{{#ifCond ../isValid "===" false}}is-invalid{{/ifCond}}{{/if}}">
-    <input class="form-check-input" type="{{#if ../type}}{{../type}}{{else}}{{type}}{{/if}}" name="{{name}}" id="{{id}}" value="{{value}}" {{#if isDisabled}}disabled{{/if}} {{#if isChecked}}checked{{/if}} {{#if isRequired}}required{{/if}} >
+    <input class="form-check-input" type="{{#if ../type}}{{../type}}{{else}}{{#if type}}{{type}}{{else}}checkbox{{/if}}{{/if}}" name="{{name}}" id="{{id}}" value="{{value}}" {{#if isDisabled}}disabled{{/if}} {{#if isChecked}}checked{{/if}} {{#if isRequired}}required{{/if}} >
     <label class="form-check-label" for="{{id}}">
       {{label}}
     </label>
@@ -833,7 +833,7 @@
   </section>
   {{/each }}
 </div>`;var R=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.6","branch":"QGDS-252-bs5-form-validation-states","tag":"","commit":"d6ea2b7b21c940aa2a1ed08a776c45c011c36633","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.6","branch":"QGDS-252-bs5-form-validation-states","tag":"","commit":"74ea783c1202610ffc3014cc68b601cccc5a8867","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
