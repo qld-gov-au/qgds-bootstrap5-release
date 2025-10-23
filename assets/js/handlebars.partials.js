@@ -136,7 +136,7 @@
       </div>
     </div>
   </div>
-</div>`;var v=`{{!-- Button icon partial --}}
+</div>`;var h=`{{!-- Button icon partial --}}
 {{#*inline "buttonIcon"~}}
 <span class="qld-icon qld-icon-md {{iconClass}} {{iconPosition}}" aria-hidden="true"></span>
 {{~/inline}} 
@@ -195,7 +195,7 @@
       {{/if}}
     {{/unless}}
     </a>
-{{/unless}}`;var h=`<!-- QGDS Component: Callout -->
+{{/unless}}`;var v=`<!-- QGDS Component: Callout -->
 
 <div class="callout">
     {{#if title}}
@@ -813,24 +813,26 @@
        
           <div class="col-12">
             {{!-- Custom contact list --}}
-            {{#ifCond contact.showList "&&" contact.list}}
-            {{#each contact.list }}
-            <div class="footer-contact-item footer-contact-{{@key}}">
-              <span class="qld-icon {{this.icon}}" aria-hidden="true"></span> {{{ this.label }}}
-            </div>
-            {{/each}}
-            
-            {{else}}
-            {{!default contact list }}
-            <div class="footer-contact-item footer-contact-phone">
-              <span class="qld-icon qld-icon-phone" aria-hidden="true"></span> <b>Phone:</b> <a href="tel:137468"
-              rel="noopener">13 QGOV (13 74 68)</a>
-            </div>
-          
-            <div class="footer-contact-item footer-contact-email">
-              <span class="qld-icon qld-icon-email" aria-hidden="true"></span> <b>Email:</b> <a
-              href="mailto:email@qld.gov.au" rel="noopener"><span class="user-select-all">email@qld.gov.au</span></a>
-            </div>
+            {{#ifCond contact.showList "!==" false}}
+              {{#ifCond contact.showList "&&" contact.list}}
+              {{#each contact.list }}
+              <div class="footer-contact-item footer-contact-{{@key}}">
+                <span class="qld-icon {{this.icon}}" aria-hidden="true"></span> {{{ this.label }}}
+              </div>
+              {{/each}}
+
+              {{else}}
+              {{!default contact list }}
+              <div class="footer-contact-item footer-contact-phone">
+                <span class="qld-icon qld-icon-phone" aria-hidden="true"></span> <b>Phone:</b> <a href="tel:137468"
+                rel="noopener">13 QGOV (13 74 68)</a>
+              </div>
+
+              <div class="footer-contact-item footer-contact-email">
+                <span class="qld-icon qld-icon-email" aria-hidden="true"></span> <b>Email:</b> <a
+                href="mailto:email@qld.gov.au" rel="noopener"><span class="user-select-all">email@qld.gov.au</span></a>
+              </div>
+              {{/ifCond}}
             {{/ifCond}}
           </div>
         </div>
@@ -1087,7 +1089,7 @@
   </section>
   {{/each }}
 </div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.7","branch":"QGDS-264-tags-design-feedback","tag":"","commit":"b3a430e4bbf3193ac422c33f4ff3f519dab918ed","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.7","branch":"QGDS-264-tags-design-feedback","tag":"","commit":"fdec0c4e3d101d93cafe3df5135e9ec07fa2cfcd","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -2394,5 +2396,5 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
     </div>
     {{! Render the transcript content in an accordion template }}
 </section>
-`;function d(e){e.registerPartial("accordion",c),e.registerPartial("backToTop",p),e.registerPartial("banner",f),e.registerPartial("blockquote",u),e.registerPartial("breadcrumbs",m),e.registerPartial("breadcrumbsWrapper",g),e.registerPartial("button",v),e.registerPartial("callout",h),e.registerPartial("callToAction",b),e.registerPartial("card",L),e.registerPartial("containerLayout",k),e.registerPartial("contentFooter",q),e.registerPartial("contentFooterWrapper",y),e.registerPartial("contentPageWithForm",M),e.registerPartial("contentPageWithSideNavigation",x),e.registerPartial("contentWrapper",w),e.registerPartial("correctincorrect",V),e.registerPartial("customLinks",H),e.registerPartial("dateinput",Z),e.registerPartial("directionLinks",T),e.registerPartial("feedbackForm",S),e.registerPartial("followLinks",P),e.registerPartial("footer",A),e.registerPartial("formcheck",O),e.registerPartial("fullPage",R),e.registerPartial("globalAlert",D),e.registerPartial("head",I),e.registerPartial("header",_),e.registerPartial("headerBrand",E),e.registerPartial("homePage",N),e.registerPartial("icon",G),e.registerPartial("image",F),e.registerPartial("inpageAlert",B),e.registerPartial("inpagenav",Q),e.registerPartial("link",j),e.registerPartial("linkColumns",J),e.registerPartial("logo",W),e.registerPartial("logoCOALandscape",Y),e.registerPartial("logoCOALandscape2Lines",U),e.registerPartial("mainContainerWrapper",$),e.registerPartial("metaDcTerms",z),e.registerPartial("metaOpenGraph",X),e.registerPartial("modal",K),e.registerPartial("navbar",e5),e.registerPartial("pagination",i5),e.registerPartial("promotionalPanel",a5),e.registerPartial("quickexit",t5),e.registerPartial("searchInput",s5),e.registerPartial("select",l5),e.registerPartial("sidenav",n5),e.registerPartial("sidenavWrapper",o5),e.registerPartial("skipLinks",C5),e.registerPartial("spinner",r5),e.registerPartial("table",d5),e.registerPartial("tabs",c5),e.registerPartial("tag",p5),e.registerPartial("textarea",f5),e.registerPartial("textbox",u5),e.registerPartial("typography",m5),e.registerPartial("video",g5)}typeof Handlebars!="undefined"&&d(Handlebars);var v5=!1;function h5(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(v5?console.log("HandleBars Helpers And Partials already loaded, loading again"):v5=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&h5(Handlebars);})();
+`;function d(e){e.registerPartial("accordion",c),e.registerPartial("backToTop",p),e.registerPartial("banner",f),e.registerPartial("blockquote",u),e.registerPartial("breadcrumbs",m),e.registerPartial("breadcrumbsWrapper",g),e.registerPartial("button",h),e.registerPartial("callout",v),e.registerPartial("callToAction",b),e.registerPartial("card",L),e.registerPartial("containerLayout",k),e.registerPartial("contentFooter",q),e.registerPartial("contentFooterWrapper",y),e.registerPartial("contentPageWithForm",M),e.registerPartial("contentPageWithSideNavigation",x),e.registerPartial("contentWrapper",w),e.registerPartial("correctincorrect",V),e.registerPartial("customLinks",H),e.registerPartial("dateinput",Z),e.registerPartial("directionLinks",T),e.registerPartial("feedbackForm",S),e.registerPartial("followLinks",P),e.registerPartial("footer",A),e.registerPartial("formcheck",O),e.registerPartial("fullPage",R),e.registerPartial("globalAlert",D),e.registerPartial("head",I),e.registerPartial("header",_),e.registerPartial("headerBrand",E),e.registerPartial("homePage",N),e.registerPartial("icon",G),e.registerPartial("image",F),e.registerPartial("inpageAlert",B),e.registerPartial("inpagenav",Q),e.registerPartial("link",j),e.registerPartial("linkColumns",J),e.registerPartial("logo",W),e.registerPartial("logoCOALandscape",Y),e.registerPartial("logoCOALandscape2Lines",U),e.registerPartial("mainContainerWrapper",$),e.registerPartial("metaDcTerms",z),e.registerPartial("metaOpenGraph",X),e.registerPartial("modal",K),e.registerPartial("navbar",e5),e.registerPartial("pagination",i5),e.registerPartial("promotionalPanel",a5),e.registerPartial("quickexit",t5),e.registerPartial("searchInput",s5),e.registerPartial("select",l5),e.registerPartial("sidenav",n5),e.registerPartial("sidenavWrapper",o5),e.registerPartial("skipLinks",C5),e.registerPartial("spinner",r5),e.registerPartial("table",d5),e.registerPartial("tabs",c5),e.registerPartial("tag",p5),e.registerPartial("textarea",f5),e.registerPartial("textbox",u5),e.registerPartial("typography",m5),e.registerPartial("video",g5)}typeof Handlebars!="undefined"&&d(Handlebars);var h5=!1;function v5(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(h5?console.log("HandleBars Helpers And Partials already loaded, loading again"):h5=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&v5(Handlebars);})();
 //# sourceMappingURL=handlebars.partials.js.map
