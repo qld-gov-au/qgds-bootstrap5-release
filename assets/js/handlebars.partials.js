@@ -1089,7 +1089,7 @@
   </section>
   {{/each }}
 </div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.7","branch":"develop","tag":"","commit":"c24c0ad3c874326d6d87272f322e29866f3900b7","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.7","branch":"develop","tag":"","commit":"b256f8f22f0164e2917a57f85e7c60971f08be42","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -2013,7 +2013,10 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
 <div class="qld-search-input {{customClass}}">
     <input id="{{ inputID }}" name="{{ inputName }}" class="form-control" type="text" autocomplete="off"
         aria-label="{{ ariaLabel }}" {{#each tags}} data-{{@key}}="{{this}}" {{/each}} />
-
+    <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}">
+        <span class="btn-icon"></span>
+        <span class="btn-label">{{ buttonLabel }}</span>
+    </button>
     {{#if suggestions}}
     <div class="suggestions suggestions__group d-none">
         <div class="default-suggestions">
@@ -2045,10 +2048,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
         <div class="dynamic-suggestions"></div>
     </div>
     {{/if}}
-    <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}">
-        <span class="btn-icon"></span>
-        <span class="btn-label">{{ buttonLabel }}</span>
-    </button>
+    
 </div>`;var l5=`<!-- QGDS Component: Select -->
 
 <!-- Label for the first input field -->
