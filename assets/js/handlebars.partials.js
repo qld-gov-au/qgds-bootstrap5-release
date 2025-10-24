@@ -526,7 +526,7 @@
 </body>
 
 
-</html>`;var x=`<!DOCTYPE html>
+</html>`;var w=`<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -691,7 +691,7 @@
 </body>
 
 
-</html>`;var w=`<!-- Content Wrapper -->
+</html>`;var x=`<!-- Content Wrapper -->
 <div class="col-12 col-lg-8 ps-lg-64 qld-content-body" id="content">
   {{#if title}}<h1>{{title}}</h1>{{/if}}
   {{> @partial-block }}
@@ -852,24 +852,26 @@
        
           <div class="col-12">
             {{!-- Custom contact list --}}
-            {{#ifCond contact.showList "&&" contact.list}}
-            {{#each contact.list }}
-            <div class="footer-contact-item footer-contact-{{@key}}">
-              <span class="qld-icon {{this.icon}}" aria-hidden="true"></span> {{{ this.label }}}
-            </div>
-            {{/each}}
-            
-            {{else}}
-            {{!default contact list }}
-            <div class="footer-contact-item footer-contact-phone">
-              <span class="qld-icon qld-icon-phone" aria-hidden="true"></span> <b>Phone:</b> <a href="tel:137468"
-              rel="noopener">13 QGOV (13 74 68)</a>
-            </div>
-          
-            <div class="footer-contact-item footer-contact-email">
-              <span class="qld-icon qld-icon-email" aria-hidden="true"></span> <b>Email:</b> <a
-              href="mailto:email@qld.gov.au" rel="noopener"><span class="user-select-all">email@qld.gov.au</span></a>
-            </div>
+            {{#ifCond contact.showList "!==" false}}
+              {{#ifCond contact.showList "&&" contact.list}}
+              {{#each contact.list }}
+              <div class="footer-contact-item footer-contact-{{@key}}">
+                <span class="qld-icon {{this.icon}}" aria-hidden="true"></span> {{{ this.label }}}
+              </div>
+              {{/each}}
+
+              {{else}}
+              {{!default contact list }}
+              <div class="footer-contact-item footer-contact-phone">
+                <span class="qld-icon qld-icon-phone" aria-hidden="true"></span> <b>Phone:</b> <a href="tel:137468"
+                rel="noopener">13 QGOV (13 74 68)</a>
+              </div>
+
+              <div class="footer-contact-item footer-contact-email">
+                <span class="qld-icon qld-icon-email" aria-hidden="true"></span> <b>Email:</b> <a
+                href="mailto:email@qld.gov.au" rel="noopener"><span class="user-select-all">email@qld.gov.au</span></a>
+              </div>
+              {{/ifCond}}
             {{/ifCond}}
           </div>
         </div>
@@ -1126,7 +1128,7 @@
   </section>
   {{/each }}
 </div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.7","branch":"fix-template-align-uikit-grid","tag":"","commit":"02a864abc4d729bd258ed84f7718d4a011c9c5d0","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.7","branch":"fix-template-align-uikit-grid","tag":"","commit":"8e5615eb0eac98392d8a7df633cbe5dc2dbc694e","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -2433,5 +2435,5 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
     </div>
     {{! Render the transcript content in an accordion template }}
 </section>
-`;function d(e){e.registerPartial("accordion",c),e.registerPartial("backToTop",p),e.registerPartial("banner",f),e.registerPartial("blockquote",u),e.registerPartial("breadcrumbs",m),e.registerPartial("breadcrumbsWrapper",g),e.registerPartial("button",v),e.registerPartial("callout",h),e.registerPartial("callToAction",b),e.registerPartial("card",L),e.registerPartial("containerLayout",k),e.registerPartial("contentFooter",q),e.registerPartial("contentFooterWrapper",M),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",x),e.registerPartial("contentWrapper",w),e.registerPartial("correctincorrect",V),e.registerPartial("customLinks",H),e.registerPartial("dateinput",S),e.registerPartial("directionLinks",Z),e.registerPartial("feedbackForm",T),e.registerPartial("followLinks",P),e.registerPartial("footer",A),e.registerPartial("formcheck",O),e.registerPartial("fullPage",D),e.registerPartial("globalAlert",R),e.registerPartial("head",I),e.registerPartial("header",E),e.registerPartial("headerBrand",_),e.registerPartial("homePage",G),e.registerPartial("icon",N),e.registerPartial("image",F),e.registerPartial("inpageAlert",Q),e.registerPartial("inpagenav",B),e.registerPartial("link",j),e.registerPartial("linkColumns",J),e.registerPartial("logo",W),e.registerPartial("logoCOALandscape",Y),e.registerPartial("logoCOALandscape2Lines",U),e.registerPartial("mainContainerWrapper",$),e.registerPartial("metaDcTerms",z),e.registerPartial("metaOpenGraph",X),e.registerPartial("modal",K),e.registerPartial("navbar",e5),e.registerPartial("pagination",i5),e.registerPartial("promotionalPanel",a5),e.registerPartial("quickexit",t5),e.registerPartial("searchInput",s5),e.registerPartial("select",l5),e.registerPartial("sidenav",n5),e.registerPartial("sidenavWrapper",o5),e.registerPartial("skipLinks",C5),e.registerPartial("spinner",r5),e.registerPartial("table",d5),e.registerPartial("tabs",c5),e.registerPartial("tag",p5),e.registerPartial("textarea",f5),e.registerPartial("textbox",u5),e.registerPartial("typography",m5),e.registerPartial("video",g5)}typeof Handlebars!="undefined"&&d(Handlebars);var v5=!1;function h5(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(v5?console.log("HandleBars Helpers And Partials already loaded, loading again"):v5=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&h5(Handlebars);})();
+`;function d(e){e.registerPartial("accordion",c),e.registerPartial("backToTop",p),e.registerPartial("banner",f),e.registerPartial("blockquote",u),e.registerPartial("breadcrumbs",m),e.registerPartial("breadcrumbsWrapper",g),e.registerPartial("button",v),e.registerPartial("callout",h),e.registerPartial("callToAction",b),e.registerPartial("card",L),e.registerPartial("containerLayout",k),e.registerPartial("contentFooter",q),e.registerPartial("contentFooterWrapper",M),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",w),e.registerPartial("contentWrapper",x),e.registerPartial("correctincorrect",V),e.registerPartial("customLinks",H),e.registerPartial("dateinput",S),e.registerPartial("directionLinks",Z),e.registerPartial("feedbackForm",T),e.registerPartial("followLinks",P),e.registerPartial("footer",A),e.registerPartial("formcheck",O),e.registerPartial("fullPage",D),e.registerPartial("globalAlert",R),e.registerPartial("head",I),e.registerPartial("header",E),e.registerPartial("headerBrand",_),e.registerPartial("homePage",G),e.registerPartial("icon",N),e.registerPartial("image",F),e.registerPartial("inpageAlert",Q),e.registerPartial("inpagenav",B),e.registerPartial("link",j),e.registerPartial("linkColumns",J),e.registerPartial("logo",W),e.registerPartial("logoCOALandscape",Y),e.registerPartial("logoCOALandscape2Lines",U),e.registerPartial("mainContainerWrapper",$),e.registerPartial("metaDcTerms",z),e.registerPartial("metaOpenGraph",X),e.registerPartial("modal",K),e.registerPartial("navbar",e5),e.registerPartial("pagination",i5),e.registerPartial("promotionalPanel",a5),e.registerPartial("quickexit",t5),e.registerPartial("searchInput",s5),e.registerPartial("select",l5),e.registerPartial("sidenav",n5),e.registerPartial("sidenavWrapper",o5),e.registerPartial("skipLinks",C5),e.registerPartial("spinner",r5),e.registerPartial("table",d5),e.registerPartial("tabs",c5),e.registerPartial("tag",p5),e.registerPartial("textarea",f5),e.registerPartial("textbox",u5),e.registerPartial("typography",m5),e.registerPartial("video",g5)}typeof Handlebars!="undefined"&&d(Handlebars);var v5=!1;function h5(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(v5?console.log("HandleBars Helpers And Partials already loaded, loading again"):v5=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&h5(Handlebars);})();
 //# sourceMappingURL=handlebars.partials.js.map
