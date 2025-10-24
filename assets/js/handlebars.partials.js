@@ -1089,7 +1089,7 @@
   </section>
   {{/each }}
 </div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.7","branch":"QGDS-266-design-qa-header","tag":"","commit":"3c6e0173c6d1d6ba1df1671a2988fc379f996ae3","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.7","branch":"QGDS-266-design-qa-header","tag":"","commit":"5b39c41f2e9cbfc2f4b07a1b68f864c93944313a","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1110,7 +1110,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                     href="{{#if preHeader.globalLink.url}}{{preHeader.globalLink.url}}{{else}}https://qld.gov.au{{/if}}">
                     <span class="d-none d-lg-inline">{{preHeader.globalLink.text}}</span>
                     {{#if hasDeliveringForQLDLogo}}
-                    {{>logo logo="coa-delivering-for-qld" className="qld-header-logo" fill="currentColor"}}
+                    {{>logo logo="coa-delivering-for-qld" className="qld-header-logo is-delivering-for-qld" fill="currentColor"}}
                     {{else}}
                     {{>logo className="qld-header-logo" fill="currentColor"}}
                     {{/if}}
@@ -1230,22 +1230,21 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 </header>`;var N=`
 <div class="qld-header-brand">
     <a class="qld-header-link d-lg-inline-flex align-middle" href="{{url}}">
-        <div class="qld-header-brand-image qld-header-logo align-self-center">
+        <div class="qld-header-brand-image align-self-center">
             {{#if logo}}
             <img src="{{logo.src}}" height="56" alt="{{#if logo.altText}}{{logo.altText}}{{else}}Queensland government{{/if}}" />
-            {{else if hasDeliveringForQLDLogo}}
-            {{>logo logo="coa-delivering-for-qld" height="56" fill="currentColor"}}
             {{else if siteTitle}}
-            {{>logo logo="coa-landscape-2lines" height="56" fill="currentColor"}}
+            {{>logo logo="coa-landscape-2lines" height="56" className="qld-header-logo" fill="currentColor"}}
+            {{else if hasDeliveringForQLDLogo}}
+            {{>logo logo="coa-delivering-for-qld" height="56" className="qld-header-logo is-delivering-for-qld" fill="currentColor"}}
             {{else}}
-            {{>logo height="56" fill="currentColor"}}
+            {{>logo height="56" className="qld-header-logo"  fill="currentColor"}}
             {{/if}}
         </div>
         {{#if secondaryLogo}}
-            <div class="qld-header-secondary-content" >
+        <div class="qld-header-secondary-content">
             <img src="{{secondaryLogo.src}}" class="qld-header-secondary-image qld-header-logo" height="56" alt="{{#if secondaryLogo.altText}}{{secondaryLogo.altText}}{{else}}{{siteTitle}}{{#if subline}}{{subline}}{{/if}}{{/if}}" />
-
-            </div>
+        </div>
         {{else}}
         {{#if siteTitle}}
         <div class="qld-header-secondary-content">
