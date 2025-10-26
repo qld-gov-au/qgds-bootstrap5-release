@@ -1089,7 +1089,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.7","branch":"QGDS-303-image-caption-design-updat","tag":"","commit":"c9f9b514fa0cc2b63d49999ef16d1f3f6faa7b74","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.7","branch":"QGDS-303-image-caption-design-updat","tag":"","commit":"0b0739534dcc9613a902b0faf21d3f182a3696ec","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1388,21 +1388,21 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 {{/inline}}
 
 {{#if src}}
-  {{#if (or description credit caption)}}
+  {{#ifAny description credit caption}}
     <figure class="{{ figureClass }}" {{#if width}}style="width:{{ width }}{{ widthUnit }}"{{/if}}>
       {{> imageTag}}
       <figcaption>
-        {{#if (or description credit)}}
+        {{#ifAny description credit}}
           {{#if description}}<span class="figure-description">{{ description }}</span>{{/if}}
           {{#if credit}}<span class="figure-credit">{{ credit }}</span>{{/if}}
         {{else}}
           {{ caption }}
-        {{/if}}
+        {{/ifAny}}
       </figcaption>
     </figure>
   {{else}}
     {{> imageTag}}
-  {{/if}}
+  {{/ifAny}}
 {{/if}}`;var B=`<div class="alert {{variantClass}} {{customClass}}" role="alert" 
     {{#if alertType}}aria-label="{{alertType}}"{{/if}}>
     {{#if heading}}
