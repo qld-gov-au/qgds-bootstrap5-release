@@ -813,24 +813,26 @@
        
           <div class="col-12">
             {{!-- Custom contact list --}}
-            {{#ifCond contact.showList "&&" contact.list}}
-            {{#each contact.list }}
-            <div class="footer-contact-item footer-contact-{{@key}}">
-              <span class="qld-icon {{this.icon}}" aria-hidden="true"></span> {{{ this.label }}}
-            </div>
-            {{/each}}
-            
-            {{else}}
-            {{!default contact list }}
-            <div class="footer-contact-item footer-contact-phone">
-              <span class="qld-icon qld-icon-phone" aria-hidden="true"></span> <b>Phone:</b> <a href="tel:137468"
-              rel="noopener">13 QGOV (13 74 68)</a>
-            </div>
-          
-            <div class="footer-contact-item footer-contact-email">
-              <span class="qld-icon qld-icon-email" aria-hidden="true"></span> <b>Email:</b> <a
-              href="mailto:email@qld.gov.au" rel="noopener"><span class="user-select-all">email@qld.gov.au</span></a>
-            </div>
+            {{#ifCond contact.showList "!==" false}}
+              {{#ifCond contact.showList "&&" contact.list}}
+              {{#each contact.list }}
+              <div class="footer-contact-item footer-contact-{{@key}}">
+                <span class="qld-icon {{this.icon}}" aria-hidden="true"></span> {{{ this.label }}}
+              </div>
+              {{/each}}
+
+              {{else}}
+              {{!default contact list }}
+              <div class="footer-contact-item footer-contact-phone">
+                <span class="qld-icon qld-icon-phone" aria-hidden="true"></span> <b>Phone:</b> <a href="tel:137468"
+                rel="noopener">13 QGOV (13 74 68)</a>
+              </div>
+
+              <div class="footer-contact-item footer-contact-email">
+                <span class="qld-icon qld-icon-email" aria-hidden="true"></span> <b>Email:</b> <a
+                href="mailto:email@qld.gov.au" rel="noopener"><span class="user-select-all">email@qld.gov.au</span></a>
+              </div>
+              {{/ifCond}}
             {{/ifCond}}
           </div>
         </div>
@@ -1095,7 +1097,7 @@
   </section>
   {{/each }}
 </div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.7","branch":"QGDS-252-bs5-form-validation-states","tag":"","commit":"f887c045cb35c73e410bded55b80c80b7a6302b4","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.7","branch":"QGDS-252-bs5-form-validation-states","tag":"","commit":"ce90fe1ffe7978f5fdeb05a6b3693c6a7a0c0597","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -2353,7 +2355,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
 <div class="invalid-feedback">{{errorMessageText}}</div>
 {{/if}}{{/contains}}
 
-<input id={{id}} class="qld-text-input form-control {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
+<input id={{id}} class="form-control {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
     type="text" placeholder="{{placeholder}}" {{#if isDisabled}}disabled{{/if}} {{#if
     isRequired}}required{{/if}} {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} />`;var m5="<!-- QGDS Partial: typography -->";var g5=`<!-- QGDS Component: Video -->
 
