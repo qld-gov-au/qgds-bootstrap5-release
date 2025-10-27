@@ -470,7 +470,7 @@
             </div>
             {{/each}}
 
-            <h3 id="form-heading">Contact details (H3)</h3>
+            <h3 id="contact-details">Contact details (H3)</h3>
 
             {{#each form.fields2}}
             <div class="form-group mb-32">
@@ -1112,7 +1112,7 @@
   </section>
   {{/each }}
 </div>`;var E=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.7","branch":"fix-template-align-uikit-grid","tag":"","commit":"a71a99b6230608239bf7f890eaf014325af86ef4","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.7","branch":"fix-template-align-uikit-grid","tag":"","commit":"0248372e8ad63332106ca75badd7060de93b5450","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
