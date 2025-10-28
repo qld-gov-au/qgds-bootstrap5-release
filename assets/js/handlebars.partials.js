@@ -1089,7 +1089,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.8","branch":"QGDS-348-spacing-uneven-navitem-dropdowns","tag":"","commit":"a691c89a4d5bde902d67cc3172450fe08ea95eaa","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.8","branch":"QGDS-348-spacing-uneven-navitem-dropdowns","tag":"","commit":"460471e0550645071f5fa2aed51c1bcbff9222c1","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
