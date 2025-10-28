@@ -773,7 +773,7 @@
       </li>
     {{/each }}
     </ul>
-{{/if}}`;var O=`<footer class="qld-footer {{ variantClass }}" role="contentinfo">
+{{/if}}`;var D=`<footer class="qld-footer {{ variantClass }}" role="contentinfo">
   <!-- Footer content container -->
   <div class="container">
     {{#if sitename}}
@@ -1016,7 +1016,7 @@
       </div>
     </div>
   </div>
-</footer>`;var D=`  
+</footer>`;var O=`  
   {{#if questionLabel}}
   <div class="qld-text-input-label {{listClasses}}">
     {{questionLabel}}
@@ -1089,7 +1089,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.8","branch":"HEAD","tag":"v2.0.8","commit":"b00b1b9ba663416df3f4b2da41b11b05dcb6c2a6","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.8","branch":"QGDS-338-search-input-component-change-lookup-behaviour-and-provide-a-colour-palette-override-option","tag":"","commit":"9552b6c560feeb76ed2e1f76fccec1dbddeef070","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1993,45 +1993,48 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
 </div>`;var l1=`<!-- 
     QGDS Component: Search input 
 -->
-<div class="qld-search-input {{customClass}}">
+<div class="qld-search-input{{#if altDropdownColor}} alt-color {{/if}} {{customClass}}">
     <input id="{{ inputID }}" name="{{ inputName }}" class="form-control" type="text" autocomplete="off"
         aria-label="{{ ariaLabel }}" {{#each tags}} data-{{@key}}="{{this}}" {{/each}} />
     <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}">
         <span class="btn-icon"></span>
         <span class="btn-label">{{ buttonLabel }}</span>
     </button>
-    {{#if suggestions}}
+    {{#ifCond dynamicSuggestions '||' defaultSuggestions}}
     <div class="suggestions suggestions__group d-none">
-        <div class="default-suggestions">
-            <div class="suggestions-category mt-16">
-                <strong class="suggestions-category-label d-block">Popular services</strong>
-                <ul class="mt-2">
-                    {{#each default_suggestions.popular_services}}
-                    <li><a href="{{link}}">{{title}}</a></li>
-                    {{/each}}
-                </ul>
-            </div>
+        {{#if defaultSuggestions}}
+            <div class="default-suggestions">
+                <div class="suggestions-category mt-16">
+                    <strong class="suggestions-category-label d-block">Popular services</strong>
+                    <ul class="mt-2">
+                        {{#each defaultSuggestions.popular_services}}
+                        <li><a href="{{link}}">{{title}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
 
-            <div class="suggestions-category mt-16">
-                <strong class="suggestions-category-label d-block">Browse by category</strong>
-                <ul class="mt-12 mb-0">
-                    {{#each default_suggestions.categories}}
-                    <li><a href="{{link}}">{{title}}</a></li>
-                    {{/each}}
-                </ul>
-            </div>
+                <div class="suggestions-category mt-16">
+                    <strong class="suggestions-category-label d-block">Browse by category</strong>
+                    <ul class="mt-12 mb-0">
+                        {{#each defaultSuggestions.categories}}
+                        <li><a href="{{link}}">{{title}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
 
-            {{#if default_suggestions.options.view_more}}
-            <div class="suggestions-category">
-                <a class="px-16 pt-12 pb-16 d-block suggestions-category-view-more"
-                    href="{{default_suggestions.options.href}}">{{default_suggestions.options.label}}</a>
+                {{#if defaultSuggestions.options.view_more}}
+                <div class="suggestions-category">
+                    <a class="px-16 pt-12 pb-16 d-block suggestions-category-view-more"
+                        href="{{defaultSuggestions.options.href}}">{{defaultSuggestions.options.label}}</a>
+                </div>
+                {{/if}}
             </div>
-            {{/if}}
-        </div>
-        <div class="dynamic-suggestions"></div>
+        {{/if}}
+        {{#if dynamicSuggestions}}
+            <div class="dynamic-suggestions"></div>
+        {{/if}}
     </div>
-    {{/if}}
-    
+    {{/ifCond}}    
 </div>`;var o1=`<!-- QGDS Component: Select -->
 
 <!-- Label for the first input field -->
@@ -2379,5 +2382,5 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
     </div>
     {{! Render the transcript content in an accordion template }}
 </section>
-`;function d(e){e.registerPartial("accordion",p),e.registerPartial("backToTop",f),e.registerPartial("banner",m),e.registerPartial("blockquote",u),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",h),e.registerPartial("button",v),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",q),e.registerPartial("contentPageWithSideNavigation",Z),e.registerPartial("contentWrapper",y),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",T),e.registerPartial("directionLinks",S),e.registerPartial("feedbackForm",A),e.registerPartial("followLinks",P),e.registerPartial("footer",O),e.registerPartial("formcheck",D),e.registerPartial("fullPage",R),e.registerPartial("globalAlert",I),e.registerPartial("head",_),e.registerPartial("header",E),e.registerPartial("headerBrand",N),e.registerPartial("homePage",F),e.registerPartial("icon",G),e.registerPartial("image",Q),e.registerPartial("inpageAlert",B),e.registerPartial("inpagenav",j),e.registerPartial("link",J),e.registerPartial("linkColumns",W),e.registerPartial("logo",Y),e.registerPartial("logoCOADeliveringForQLD",U),e.registerPartial("logoCOALandscape",$),e.registerPartial("logoCOALandscape2Lines",z),e.registerPartial("mainContainerWrapper",X),e.registerPartial("metaDcTerms",K),e.registerPartial("metaOpenGraph",e1),e.registerPartial("modal",i1),e.registerPartial("navbar",a1),e.registerPartial("pagination",t1),e.registerPartial("promotionalPanel",C1),e.registerPartial("quickexit",s1),e.registerPartial("searchInput",l1),e.registerPartial("select",o1),e.registerPartial("sidenav",n1),e.registerPartial("sidenavWrapper",r1),e.registerPartial("skipLinks",d1),e.registerPartial("spinner",c1),e.registerPartial("table",p1),e.registerPartial("tabs",f1),e.registerPartial("tag",m1),e.registerPartial("textarea",u1),e.registerPartial("textbox",g1),e.registerPartial("typography",h1),e.registerPartial("video",v1)}typeof Handlebars!="undefined"&&d(Handlebars);var b1=!1;function L1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(b1?console.log("HandleBars Helpers And Partials already loaded, loading again"):b1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&L1(Handlebars);})();
+`;function d(e){e.registerPartial("accordion",p),e.registerPartial("backToTop",f),e.registerPartial("banner",m),e.registerPartial("blockquote",u),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",h),e.registerPartial("button",v),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",q),e.registerPartial("contentPageWithSideNavigation",Z),e.registerPartial("contentWrapper",y),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",T),e.registerPartial("directionLinks",S),e.registerPartial("feedbackForm",A),e.registerPartial("followLinks",P),e.registerPartial("footer",D),e.registerPartial("formcheck",O),e.registerPartial("fullPage",R),e.registerPartial("globalAlert",I),e.registerPartial("head",_),e.registerPartial("header",E),e.registerPartial("headerBrand",N),e.registerPartial("homePage",F),e.registerPartial("icon",G),e.registerPartial("image",Q),e.registerPartial("inpageAlert",B),e.registerPartial("inpagenav",j),e.registerPartial("link",J),e.registerPartial("linkColumns",W),e.registerPartial("logo",Y),e.registerPartial("logoCOADeliveringForQLD",U),e.registerPartial("logoCOALandscape",$),e.registerPartial("logoCOALandscape2Lines",z),e.registerPartial("mainContainerWrapper",X),e.registerPartial("metaDcTerms",K),e.registerPartial("metaOpenGraph",e1),e.registerPartial("modal",i1),e.registerPartial("navbar",a1),e.registerPartial("pagination",t1),e.registerPartial("promotionalPanel",C1),e.registerPartial("quickexit",s1),e.registerPartial("searchInput",l1),e.registerPartial("select",o1),e.registerPartial("sidenav",n1),e.registerPartial("sidenavWrapper",r1),e.registerPartial("skipLinks",d1),e.registerPartial("spinner",c1),e.registerPartial("table",p1),e.registerPartial("tabs",f1),e.registerPartial("tag",m1),e.registerPartial("textarea",u1),e.registerPartial("textbox",g1),e.registerPartial("typography",h1),e.registerPartial("video",v1)}typeof Handlebars!="undefined"&&d(Handlebars);var b1=!1;function L1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(b1?console.log("HandleBars Helpers And Partials already loaded, loading again"):b1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&L1(Handlebars);})();
 //# sourceMappingURL=handlebars.partials.js.map
