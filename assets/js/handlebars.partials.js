@@ -386,11 +386,11 @@
       </div>
     {{/if}}  
   </div>
-`;var q=`<div class="container qld-content-footer">
+`;var M=`<div class="container qld-content-footer">
   <div class="row">
     {{> @partial-block }}
   </div>
-</div>`;var M=`<!DOCTYPE html>
+</div>`;var q=`<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -1097,7 +1097,7 @@
   </section>
   {{/each }}
 </div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.7","branch":"QGDS-252-bs5-form-validation-states","tag":"","commit":"ce90fe1ffe7978f5fdeb05a6b3693c6a7a0c0597","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.7","branch":"QGDS-252-bs5-form-validation-states","tag":"","commit":"3cc984c0ff4c5cbb031daa91cedc3305ba15bfce","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -2084,7 +2084,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
 <div class="invalid-feedback">{{errorMessageText}}</div>
 {{/if}}{{/contains}}
 
-<select id={{id}} class="qld-text-input form-select qld-select qld-field-width-1-quarter {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}} {{customClass}}" 
+<select id={{id}} class="form-select {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}} {{customClass}}" 
     {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} >
     <option selected>{{placeholder}}</option>
     <option value="1">Option 1</option>
@@ -2325,7 +2325,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
 {{/if}}{{/contains}}
 
 <!-- First text input field, described by the hint text above -->
-<textarea id="{{id}}" class="qld-text-input form-control {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
+<textarea id="{{id}}" class="form-control {{customClass}} {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
     placeholder="{{placeholder}}" rows="{{rows}}" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}
     {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}}></textarea>`;var u5=`<!-- QGDS Component: Textbox -->
 
@@ -2355,7 +2355,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
 <div class="invalid-feedback">{{errorMessageText}}</div>
 {{/if}}{{/contains}}
 
-<input id={{id}} class="form-control {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
+<input id={{id}} class="form-control {{customClass}} {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
     type="text" placeholder="{{placeholder}}" {{#if isDisabled}}disabled{{/if}} {{#if
     isRequired}}required{{/if}} {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} />`;var m5="<!-- QGDS Partial: typography -->";var g5=`<!-- QGDS Component: Video -->
 
@@ -2403,5 +2403,5 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
     </div>
     {{! Render the transcript content in an accordion template }}
 </section>
-`;function d(e){e.registerPartial("accordion",c),e.registerPartial("backToTop",f),e.registerPartial("banner",p),e.registerPartial("blockquote",u),e.registerPartial("breadcrumbs",m),e.registerPartial("breadcrumbsWrapper",g),e.registerPartial("button",v),e.registerPartial("callout",h),e.registerPartial("callToAction",b),e.registerPartial("card",L),e.registerPartial("containerLayout",k),e.registerPartial("contentFooter",y),e.registerPartial("contentFooterWrapper",q),e.registerPartial("contentPageWithForm",M),e.registerPartial("contentPageWithSideNavigation",V),e.registerPartial("contentWrapper",w),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",H),e.registerPartial("dateinput",T),e.registerPartial("directionLinks",Z),e.registerPartial("feedbackForm",S),e.registerPartial("followLinks",P),e.registerPartial("footer",A),e.registerPartial("formcheck",O),e.registerPartial("fullPage",R),e.registerPartial("globalAlert",D),e.registerPartial("head",I),e.registerPartial("header",_),e.registerPartial("headerBrand",E),e.registerPartial("homePage",N),e.registerPartial("icon",G),e.registerPartial("image",F),e.registerPartial("inpageAlert",B),e.registerPartial("inpagenav",Q),e.registerPartial("link",j),e.registerPartial("linkColumns",J),e.registerPartial("logo",W),e.registerPartial("logoCOALandscape",Y),e.registerPartial("logoCOALandscape2Lines",U),e.registerPartial("mainContainerWrapper",$),e.registerPartial("metaDcTerms",z),e.registerPartial("metaOpenGraph",X),e.registerPartial("modal",K),e.registerPartial("navbar",e5),e.registerPartial("pagination",i5),e.registerPartial("promotionalPanel",a5),e.registerPartial("quickexit",t5),e.registerPartial("searchInput",s5),e.registerPartial("select",l5),e.registerPartial("sidenav",n5),e.registerPartial("sidenavWrapper",o5),e.registerPartial("skipLinks",C5),e.registerPartial("spinner",r5),e.registerPartial("table",d5),e.registerPartial("tabs",c5),e.registerPartial("tag",f5),e.registerPartial("textarea",p5),e.registerPartial("textbox",u5),e.registerPartial("typography",m5),e.registerPartial("video",g5)}typeof Handlebars!="undefined"&&d(Handlebars);var v5=!1;function h5(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(v5?console.log("HandleBars Helpers And Partials already loaded, loading again"):v5=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&h5(Handlebars);})();
+`;function d(e){e.registerPartial("accordion",c),e.registerPartial("backToTop",f),e.registerPartial("banner",p),e.registerPartial("blockquote",u),e.registerPartial("breadcrumbs",m),e.registerPartial("breadcrumbsWrapper",g),e.registerPartial("button",v),e.registerPartial("callout",h),e.registerPartial("callToAction",b),e.registerPartial("card",L),e.registerPartial("containerLayout",k),e.registerPartial("contentFooter",y),e.registerPartial("contentFooterWrapper",M),e.registerPartial("contentPageWithForm",q),e.registerPartial("contentPageWithSideNavigation",V),e.registerPartial("contentWrapper",w),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",H),e.registerPartial("dateinput",T),e.registerPartial("directionLinks",Z),e.registerPartial("feedbackForm",S),e.registerPartial("followLinks",P),e.registerPartial("footer",A),e.registerPartial("formcheck",O),e.registerPartial("fullPage",R),e.registerPartial("globalAlert",D),e.registerPartial("head",I),e.registerPartial("header",_),e.registerPartial("headerBrand",E),e.registerPartial("homePage",N),e.registerPartial("icon",G),e.registerPartial("image",F),e.registerPartial("inpageAlert",B),e.registerPartial("inpagenav",Q),e.registerPartial("link",j),e.registerPartial("linkColumns",J),e.registerPartial("logo",W),e.registerPartial("logoCOALandscape",Y),e.registerPartial("logoCOALandscape2Lines",U),e.registerPartial("mainContainerWrapper",$),e.registerPartial("metaDcTerms",z),e.registerPartial("metaOpenGraph",X),e.registerPartial("modal",K),e.registerPartial("navbar",e5),e.registerPartial("pagination",i5),e.registerPartial("promotionalPanel",a5),e.registerPartial("quickexit",t5),e.registerPartial("searchInput",s5),e.registerPartial("select",l5),e.registerPartial("sidenav",n5),e.registerPartial("sidenavWrapper",o5),e.registerPartial("skipLinks",C5),e.registerPartial("spinner",r5),e.registerPartial("table",d5),e.registerPartial("tabs",c5),e.registerPartial("tag",f5),e.registerPartial("textarea",p5),e.registerPartial("textbox",u5),e.registerPartial("typography",m5),e.registerPartial("video",g5)}typeof Handlebars!="undefined"&&d(Handlebars);var v5=!1;function h5(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(v5?console.log("HandleBars Helpers And Partials already loaded, loading again"):v5=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&h5(Handlebars);})();
 //# sourceMappingURL=handlebars.partials.js.map
