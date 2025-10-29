@@ -1089,7 +1089,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.8","branch":"QGDS-303-image-caption-design-updat","tag":"","commit":"b80b74f38f343b997611a9c32caf52ce2b2fdfeb","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.8","branch":"QGDS-303-image-caption-design-updat","tag":"","commit":"ae88b92692d62d965eaf4108984958bb6d03078a","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1399,7 +1399,8 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
   {{else}}
     {{>imageTag}}
   {{/ifAny}}
-{{/if}}`;var B=`<div class="alert {{variantClass}} {{customClass}}" role="alert" 
+{{/if}}
+`;var B=`<div class="alert {{variantClass}} {{customClass}}" role="alert" 
     {{#if alertType}}aria-label="{{alertType}}"{{/if}}>
     {{#if heading}}
         {{#if headingTag}}
