@@ -1089,7 +1089,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.8","branch":"HEAD","tag":"v2.0.8","commit":"b00b1b9ba663416df3f4b2da41b11b05dcb6c2a6","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.8","branch":"QGDS-227-focus-trap-menu","tag":"","commit":"c82f0c92e0d68578611f72e2932b54ffd20b83da","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
