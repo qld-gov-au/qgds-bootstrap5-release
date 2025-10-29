@@ -1089,7 +1089,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.8","branch":"develop","tag":"","commit":"15c5a16419555d2ab91ccb210e71517b84431eed","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.8","branch":"develop","tag":"","commit":"973ae1ff74aa2dbd976b84336f49de23ab26ada3","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1388,15 +1388,19 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 {{/inline}}
 
 {{#if src}}
-  {{#if caption}}
+  {{#ifAny caption credit }}
     <figure class="{{ figureClass }}" {{#if width}}style="width:{{ width }}{{ widthUnit }}"{{/if}}>
       {{> imageTag}}
-      <figcaption>{{ caption }}</figcaption>
+      <figcaption>
+        {{caption}}
+        {{#if credit}}<span class="figure-credit">{{ credit }}</span>{{/if}}
+      </figcaption>
     </figure>
   {{else}}
-    {{> imageTag}}
-  {{/if}}
-{{/if}}`;var B=`<div class="alert {{variantClass}} {{customClass}}" role="alert" 
+    {{>imageTag}}
+  {{/ifAny}}
+{{/if}}
+`;var B=`<div class="alert {{variantClass}} {{customClass}}" role="alert" 
     {{#if alertType}}aria-label="{{alertType}}"{{/if}}>
     {{#if heading}}
         {{#if headingTag}}
