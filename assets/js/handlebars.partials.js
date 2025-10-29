@@ -31,7 +31,7 @@
         class= "up" 
     }}
   </div>
-{{/unless}}`;var m=`<!-- QGDS Banner Component -->
+{{/unless}}`;var u=`<!-- QGDS Banner Component -->
   <div class="qld-banner qld-banner-grid {{ bannerType }} {{ variantClass }} {{ backgroundType }}" role="banner">
     <div class="container-fluid">
       <div class="banner-inner">
@@ -95,7 +95,7 @@
       </div>
 
     </div>
-  </div>`;var u=`<!-- QGDS Component: Blockquote -->
+  </div>`;var m=`<!-- QGDS Component: Blockquote -->
 
 <figure class="blockquote {{classes}}">
 
@@ -394,109 +394,128 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
 </head>
 
 <body>
-    {{> globalAlert globalAlert}}
-    {{> header header}}
-    {{> navbar navbar}}
+  <!-- Global ALert -->
+  {{> globalAlert globalAlert}}
 
-    {{#if banner}}
-    {{> banner banner}}
+  <!-- Header -->
+  {{> header header }}
+
+  <!-- Navbar -->
+  {{> navbar navbar}}
+
+  {{#if banner}}
+  {{> banner banner}}
+  {{/if}}
+
+  <div class="container mt-40 mt-lg-64">
+
+    {{#if breadcrumbs}}
+    <!-- breadcrumbs -->
+    {{> breadcrumbs breadcrumbs}}
     {{/if}}
 
-    <main>
-        <div class="container mt-40 mt-lg-64">
-            {{#if breadcrumbs}}
-            <div class="row">
-                <div class="col-12">
-                    {{> breadcrumbs breadcrumbs}}
-                </div>
+    <!-- Start Main Content Body -->
+    <div class="row">
+
+      <!-- Start Side navigation column (span 3) -->
+      <div class="col-12 col-lg-3">
+        <!-- QGDS Side Navigation Component -->
+        {{> sidenav sidenav}}
+      </div>
+      <!-- End Side navigation column -->
+
+      <!-- Start Main Column (span 8) -->
+      <div class="col-12 col-lg-8 mt-40 mt-lg-0">
+
+        <!-- Main Content div, includes a 2rem/32px horizontal padding on large screens and up -->
+        <main class="px-lg-32">
+
+          <h1 id="section-heading">Single page form (H1)</h1>
+
+          <p>Your feedback is important to us. It tells us how we can improve and what we\u2019re doing well. Your feedback
+            is confidential.</p>
+
+          <h2 id="form-heading">Enquiry form (H2)</h2>
+
+          {{#if inpageAlert}}
+          <!-- Inpage Alert -->
+          <div class="mb-32">
+            {{> inpageAlert inpageAlert}}
+          </div>
+          {{/if}}
+
+          <!-- Example WYSIWYG content -->
+          <p>Any information submitted using this form will be used in line with our privacy statement.</p>
+          <p>Required fields are marked with an *</p>
+
+
+          {{#if form}}
+          <!-- Example Form, with 2rem vertical spacing -->
+          <form class="qld-form my-32">
+            {{#each form.fields1}}
+            <div class="form-group mb-32">
+              {{#ifCond type '==' 'textbox'}}
+              {{> textbox this}}
+              {{else ifCond type '==' 'textarea'}}
+              {{> textarea this}}
+              {{else ifCond type '==' 'radio'}}
+              {{> formcheck this}}
+              {{/ifCond}}
+            </div>
+            {{/each}}
+
+            <h3 id="contact-details">Contact details (H3)</h3>
+
+            {{#each form.fields2}}
+            <div class="form-group mb-32">
+              {{#ifCond type '==' 'textbox'}}
+              {{> textbox this}}
+              {{else ifCond type '==' 'select'}}
+              {{> select this}}
+              {{else ifCond type '==' 'checkbox'}}
+              {{> formcheck this}}
+              {{/ifCond}}
+            </div>
+            {{/each}}
+
+            {{#if form.buttons}}
+            <div class="form-actions d-flex mt-5 gap-4">
+              {{#each form.buttons}}
+              {{> button this}}
+              {{/each}}
             </div>
             {{/if}}
+          </form>
+          {{/if}}
 
-            <div class="row">
-                {{#if sidenav}}
-                <!-- Side navigation Col -->
-                <div class="col-12 col-lg-3 mt-5 mt-lg-0 mb-32 mb-lg-0">
-                    {{> sidenav sidenav}}
-                </div>
-                {{/if}}
+        </main>
 
-                <!-- Content Col -->
-                <div class="col-lg-8 col-md-7 ps-1 ps-md-32">
+      </div>
+      <!-- End Column (span 8) -->
 
-                    <!-- Main Content Sections -->
-                    <div class="content-section mb-5 px-1 px-md-32">
+    </div>
+    <!-- End Content Row -->
 
-                        <h1 id="section-heading">Single page form (H1)</h1>
-                        <p>
-                            Your feedback is important to us. It tells us how we can improve and what we\u2019re doing well. Your feedback is confidential.
-                        </p> 
-                        
-                        <h2 id="form-heading">Enquiry form (H2)</h2>
+    <!-- Start QGDS Content Footer -->
+    <div class="mt-64">
+      {{> contentFooter contentFooter}}
+    </div>
 
-                        {{#if inpageAlert}}
-                        <!-- Inpage Alert -->
-                        <div class="mb-32">
-                            {{> inpageAlert inpageAlert}}
-                        </div>
-                        {{/if}}
+  </div>
+  <!-- End Main .container -->
 
-                        <div class="mb-32">
-                            <p>Any information submitted using this form will be used in line with our privacy statement.</p>
-                            <p>Required fields are marked with an *</p>
-                        </div>
+  <!-- Start QGDS Footer -->
+  {{> footer footer}}
+  <!-- End QGDS Footer -->
 
-                        {{#if form}}
-                        <form class="qld-form mb-5">
-                            {{#each form.fields1}}
-                            <div class="form-group mb-32">
-                                {{#ifCond type '==' 'textbox'}}
-                                {{> textbox this}}
-                                {{else ifCond type '==' 'textarea'}}
-                                {{> textarea this}}
-                                {{else ifCond type '==' 'radio'}}
-                                {{> formcheck this}}
-                                {{/ifCond}}
-                            </div>
-                            {{/each}}
-
-                            <h3 id="form-heading">Contact details (H3)</h3>
-
-                            {{#each form.fields2}}
-                            <div class="form-group mb-32">
-                                {{#ifCond type '==' 'textbox'}}
-                                {{> textbox this}}
-                                {{else ifCond type '==' 'select'}}
-                                {{> select this}}
-                                {{else ifCond type '==' 'checkbox'}}
-                                {{> formcheck this}}
-                                {{/ifCond}}
-                            </div>
-                            {{/each}}
-                            
-                            {{#if form.buttons}}
-                            <div class="form-actions d-flex mt-5 gap-4">
-                                {{#each form.buttons}}
-                                {{> button this}}
-                                {{/each}}
-                            </div>
-                            {{/if}}
-                        </form>
-                        {{/if}}
-
-                    </div>
-                </div>
-                {{> contentFooter contentFooter}}
-            </div>
-        </div>
-    </main>
-    {{> footer footer}}
 </body>
+
 
 </html>`;var Z=`<!DOCTYPE html>
 <html lang="en">
@@ -512,7 +531,7 @@
   {{> globalAlert globalAlert}}
 
   <!-- Header -->
-  {{> header header }} 
+  {{> header header }}
 
   <!-- Navbar -->
   {{> navbar navbar}}
@@ -521,40 +540,37 @@
   {{> banner banner}}
   {{/if}}
 
-  <main>
+  <div class="container mt-40 mt-lg-64">
 
-    <div class="container mt-40 mt-lg-64">
-      {{#if breadcrumbs}}
-      <div class="row">
-        <div class="col-12">
-          <!-- breadcrumbs -->
-          {{> breadcrumbs breadcrumbs}}
-        </div>
+    {{#if breadcrumbs}}
+    <!-- breadcrumbs -->
+    {{> breadcrumbs breadcrumbs}}
+    {{/if}}
+
+    <!-- Start Main Content Body -->
+    <div class="row">
+
+      <!-- Start Side navigation column (span 3) -->
+      <div class="col-12 col-lg-3">
+        <!-- QGDS Side navigation Component -->
+        {{> sidenav sidenav}}
       </div>
-      {{/if}}
+      <!-- End Side navigation column -->
 
-      <!-- Main Grid Layout: Side navigation and content -->
-      <div class="row">
+      <!-- Start Main Column (span 8) -->
+      <div class="col-12 col-lg-8 mt-40 mt-lg-0">
 
-        <!-- Side navigation column -->
-        <div class="col-12 col-lg-3 mt-0 pe-lg-0">
-          {{> sidenav sidenav}}
-        </div>
-        <!-- End Side navigation column -->
-
-        <!-- Content Column -->
-        <div class="col-lg-8 mt-40 mt-lg-0 ms-lg-32 ps-lg-32">
+        <!-- Main Content div, includes a 2rem/32px horizontal padding on large screens and up -->
+        <main class="px-lg-32">
 
           {{#if inpagenav}}
-          <!-- Inpagenav Component (.mb-64 provides vertical spacing) -->
+          <!-- QGDS Inpagenav Component -->
           {{> inpagenav inpagenav}}
           {{/if}}
 
-
-
           <!-- Content Section with top vertical spacer (2rem mobile, 4rem LG and above) -->
           <div class="mt-32 mt-lg-64">
-            <h2 id="section-heading">Section heading (H2)</h2>      
+            <h2 id="section-heading">Section heading (H2)</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur. Sed facilisis purus eu convallis ut. Morbi condimentum volutpat
               feugiat pellentesque. Auctor amet auctor dolor metus eget diam. Facilisis vitae venenatis vestibulum
@@ -567,20 +583,20 @@
           </div>
 
 
-
           <!-- Content Section with top vertical spacer (2rem mobile, 4rem LG and above) -->
           <div class="mt-32 mt-lg-64">
 
             <h2 id="content-heading">Content heading (H2)</h2>
-          
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.</p>
 
             {{#if calloutdata}}
-            <!-- Callout Component -->
+            <!-- QGDS Callout Component -->
             {{> callout calloutdata}}
             {{/if}}
           </div>
-          
+
 
 
           <!-- Content Section with top vertical spacer (2rem mobile, 2.5rem LG and above) -->
@@ -590,12 +606,12 @@
 
             <h4 id="fees-and-charges">Fees and charges (H4)</h4>
             <p>Details about fees and charges for vehicle registration.</p>
-            
-            
+
+
             {{#if accordionItems}}
-            <!-- QGDS Accordion Component with 1.5rem vertical spacer -->
+            <!-- QGDS Accordion Component with 24px/1.5rem margin-top -->
             <div class="mt-24">
-            {{> accordion accordionItems}}
+              {{> accordion accordionItems}}
             </div>
             {{/if}}
           </div>
@@ -610,47 +626,54 @@
 
           <!-- Emphasis Container, with top vertical spacer: 2rem default (mobile), 4rem LG and above -->
           <div class="mt-40 mt-lg-64 bg-light content-emphasis">
-            
+
             <h2 id="inspection">Section heading (H2) with emphasis</h2>
-        
-            <p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. </p>
-            
+
+            <p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt
+              ultrices commodo vestibulum non netus. </p>
+
             <!-- QGDS Call To Action button -->
             {{> callToAction callToAction}}
-        
+
           </div>
-
-
 
           <!-- Top vertical spacer: 2rem default (mobile), 4rem LG and above -->
           <div class="mt-32 mt-lg-64">
             <h2 id="inspection">Section heading (H2)</h2>
-            <p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. </p>
-            
+            <p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt
+              ultrices commodo vestibulum non netus. </p>
+
             {{#if table}}
-            <!-- Table Component (.my-40 wrapper provides vertical spacing) -->
+            <!-- QGDS Table Component -->
             <div class="mt-24">
-            {{> table table}}
+              {{> table table}}
             </div>
             {{/if}}
           </div>
 
-        </div>
-        <!-- End Main Content Section -->
+        </main>
+        <!-- End Main Content div -->
 
       </div>
-      <!-- End Content Column -->
-      
+      <!-- End Column (8) -->
 
-      <!-- QGDS Content Footer Component -->
-      <div class="mt-64">
+    </div>
+    <!-- End Row -->
+
+
+    <!-- Start QGDS Content Footer -->
+    <div class="mt-64">
       {{> contentFooter contentFooter}}
-      </div>
+    </div>
 
-  </main>
-  <!-- Footer -->
+  </div>
+
+  <!-- Start QGDS Footer -->
   {{> footer footer}}
+  <!-- End QGDS Footer -->
+
 </body>
+
 
 </html>`;var y=`<!-- Content Wrapper -->
 <div class="col-12 col-lg-8 ps-lg-64 qld-content-body" id="content">
@@ -760,7 +783,7 @@
                 </div>
             </div>
         </div>
-    </div>`;var P=`{{#if followLinks }}
+    </div>`;var D=`{{#if followLinks }}
     <ul class="nav footer-link-list footer-link-list--social">    
     {{#each followLinks }}
       <li>
@@ -773,7 +796,7 @@
       </li>
     {{/each }}
     </ul>
-{{/if}}`;var O=`<footer class="qld-footer {{ variantClass }}" role="contentinfo">
+{{/if}}`;var P=`<footer class="qld-footer {{ variantClass }}" role="contentinfo">
   <!-- Footer content container -->
   <div class="container">
     {{#if sitename}}
@@ -1016,7 +1039,7 @@
       </div>
     </div>
   </div>
-</footer>`;var D=`  
+</footer>`;var O=`  
   {{#if questionLabel}}
   <div class="qld-text-input-label {{listClasses}}">
     {{questionLabel}}
@@ -1053,7 +1076,7 @@
   {{> @partial-block }}
 {{/mainContainerWrapper}}
 </body>
-</html>`;var I=`<!-- QGDS Component: Global Alert -->
+</html>`;var E=`<!-- QGDS Component: Global Alert -->
 
 <div class="global-alert-include">
   {{#each alertItems}}
@@ -1088,8 +1111,8 @@
     </div>
   </section>
   {{/each }}
-</div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.8","branch":"develop","tag":"","commit":"973ae1ff74aa2dbd976b84336f49de23ab26ada3","majorVersion":"v2"} -->
+</div>`;var I=`
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.8","branch":"develop","tag":"","commit":"8521810257cad287b51f0f1acedf3ff0223da59c","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1099,7 +1122,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 
 <script type="text/javascript" async src="{{#if cdn }}{{#ifCond cdn '==' 'PROD'}}https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'STAGING'}}https://staging-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'BETA'}}https://beta-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'TEST'}}https://test-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'DEV'}}https://dev-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{cdn}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{else}}missing{{/if}}/assets/js/bootstrap.min.js"><\/script>
 <script type="text/javascript" async src="{{#if cdn }}{{#ifCond cdn '==' 'PROD'}}https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'STAGING'}}https://staging-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'BETA'}}https://beta-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'TEST'}}https://test-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'DEV'}}https://dev-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{cdn}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{else}}missing{{/if}}/assets/js/qld.bootstrap.min.js"><\/script>
-`;var E=`<header class="qld-header " role="banner">
+`;var _=`<header class="qld-header " role="banner">
     <div class="qld-header-pre-header {{#ifCond preHeader.palette "===" "dark"}}dark{{else}}{{#ifCond
         preHeader.palette "===" "default" }}default{{else}}{{#ifCond preHeader.palette "===" "dark-alt"
         }}dark-alt{{else}}default{{/ifCond}}{{/ifCond}}{{/ifCond}}">
@@ -1424,7 +1447,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
         {{/each}}
     </ul>
 
-</div>`;var J=`{{!-- Link icon partial --}}
+</div>`;var W=`{{!-- Link icon partial --}}
 {{#*inline "linkIcon"~}}
 <span class="qld-icon qld-icon-md {{iconClass}} {{iconPosition}}" aria-hidden="true"></span>
 {{~/inline}} 
@@ -1464,7 +1487,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
         
 {{else}}
     {{~> link~}}
-{{/if}}`;var W=`{{#if data}}
+{{/if}}`;var J=`{{#if data}}
     <section class="link-column {{theme}}">
         <ul class="nav {{#if items_flow_vert}}col-vert-{{columns}}{{else}}col-{{columns}}{{/if}}">
             {{#ifCond items_flow '==' 'horizontal'}}
@@ -2263,7 +2286,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
             </section>
         {{/each }}
     </div>
-</section>`;var m1=`<!-- QGDS Component: Tag -->
+</section>`;var u1=`<!-- QGDS Component: Tag -->
 
 <ul class="tag-list {{variant}}">
   {{#each tagItems}}
@@ -2275,7 +2298,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
     </li>
   {{/each }}
 </ul>
-`;var u1=`<!-- QGDS Component: Textarea -->
+`;var m1=`<!-- QGDS Component: Textarea -->
 
 <!-- Label for the first input field -->
 <label class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}"
@@ -2383,5 +2406,5 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
     </div>
     {{! Render the transcript content in an accordion template }}
 </section>
-`;function d(e){e.registerPartial("accordion",p),e.registerPartial("backToTop",f),e.registerPartial("banner",m),e.registerPartial("blockquote",u),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",h),e.registerPartial("button",v),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",q),e.registerPartial("contentPageWithSideNavigation",Z),e.registerPartial("contentWrapper",y),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",T),e.registerPartial("directionLinks",S),e.registerPartial("feedbackForm",A),e.registerPartial("followLinks",P),e.registerPartial("footer",O),e.registerPartial("formcheck",D),e.registerPartial("fullPage",R),e.registerPartial("globalAlert",I),e.registerPartial("head",_),e.registerPartial("header",E),e.registerPartial("headerBrand",N),e.registerPartial("homePage",F),e.registerPartial("icon",G),e.registerPartial("image",Q),e.registerPartial("inpageAlert",B),e.registerPartial("inpagenav",j),e.registerPartial("link",J),e.registerPartial("linkColumns",W),e.registerPartial("logo",Y),e.registerPartial("logoCOADeliveringForQLD",U),e.registerPartial("logoCOALandscape",$),e.registerPartial("logoCOALandscape2Lines",z),e.registerPartial("mainContainerWrapper",X),e.registerPartial("metaDcTerms",K),e.registerPartial("metaOpenGraph",e1),e.registerPartial("modal",i1),e.registerPartial("navbar",a1),e.registerPartial("pagination",t1),e.registerPartial("promotionalPanel",C1),e.registerPartial("quickexit",s1),e.registerPartial("searchInput",l1),e.registerPartial("select",o1),e.registerPartial("sidenav",n1),e.registerPartial("sidenavWrapper",r1),e.registerPartial("skipLinks",d1),e.registerPartial("spinner",c1),e.registerPartial("table",p1),e.registerPartial("tabs",f1),e.registerPartial("tag",m1),e.registerPartial("textarea",u1),e.registerPartial("textbox",g1),e.registerPartial("typography",h1),e.registerPartial("video",v1)}typeof Handlebars!="undefined"&&d(Handlebars);var b1=!1;function L1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(b1?console.log("HandleBars Helpers And Partials already loaded, loading again"):b1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&L1(Handlebars);})();
+`;function d(e){e.registerPartial("accordion",p),e.registerPartial("backToTop",f),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",h),e.registerPartial("button",v),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",q),e.registerPartial("contentPageWithSideNavigation",Z),e.registerPartial("contentWrapper",y),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",T),e.registerPartial("directionLinks",S),e.registerPartial("feedbackForm",A),e.registerPartial("followLinks",D),e.registerPartial("footer",P),e.registerPartial("formcheck",O),e.registerPartial("fullPage",R),e.registerPartial("globalAlert",E),e.registerPartial("head",I),e.registerPartial("header",_),e.registerPartial("headerBrand",N),e.registerPartial("homePage",F),e.registerPartial("icon",G),e.registerPartial("image",Q),e.registerPartial("inpageAlert",B),e.registerPartial("inpagenav",j),e.registerPartial("link",W),e.registerPartial("linkColumns",J),e.registerPartial("logo",Y),e.registerPartial("logoCOADeliveringForQLD",U),e.registerPartial("logoCOALandscape",$),e.registerPartial("logoCOALandscape2Lines",z),e.registerPartial("mainContainerWrapper",X),e.registerPartial("metaDcTerms",K),e.registerPartial("metaOpenGraph",e1),e.registerPartial("modal",i1),e.registerPartial("navbar",a1),e.registerPartial("pagination",t1),e.registerPartial("promotionalPanel",C1),e.registerPartial("quickexit",s1),e.registerPartial("searchInput",l1),e.registerPartial("select",o1),e.registerPartial("sidenav",n1),e.registerPartial("sidenavWrapper",r1),e.registerPartial("skipLinks",d1),e.registerPartial("spinner",c1),e.registerPartial("table",p1),e.registerPartial("tabs",f1),e.registerPartial("tag",u1),e.registerPartial("textarea",m1),e.registerPartial("textbox",g1),e.registerPartial("typography",h1),e.registerPartial("video",v1)}typeof Handlebars!="undefined"&&d(Handlebars);var b1=!1;function L1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(b1?console.log("HandleBars Helpers And Partials already loaded, loading again"):b1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&L1(Handlebars);})();
 //# sourceMappingURL=handlebars.partials.js.map
