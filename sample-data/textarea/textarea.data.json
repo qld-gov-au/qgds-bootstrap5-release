@@ -1,5 +1,6 @@
 {
   "id": "example-1",
+  "value": "",
   "isDisabled": false,
   "isRequired": true,
   "isValid": null,
@@ -7,7 +8,7 @@
   "customClass": "",
   "rows": 3,
   "label-text": "Label",
-  "placeholder": "Leave a comment here",
+  "placeholder": "",
   "optional-text": "optional",
   "hint-text": "Hint",
   "successMessageText": "Success message",
