@@ -126,7 +126,7 @@
       {{/if}}
     {{/each}}
   </ol>
-</nav>`;var h=`<!-- breadcrumbs-->
+</nav>`;var v=`<!-- breadcrumbs-->
 <div class="container-fluid alt">
   <div class="container">
     <div class="row">
@@ -136,7 +136,7 @@
       </div>
     </div>
   </div>
-</div>`;var v=`{{!-- Button icon partial --}}
+</div>`;var h=`{{!-- Button icon partial --}}
 {{#*inline "buttonIcon"~}}
 <span class="qld-icon qld-icon-md {{iconClass}} {{iconPosition}}" aria-hidden="true"></span>
 {{~/inline}} 
@@ -390,7 +390,7 @@
   <div class="row">
     {{> @partial-block }}
   </div>
-</div>`;var q=`<!DOCTYPE html>
+</div>`;var y=`<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -517,7 +517,7 @@
 </body>
 
 
-</html>`;var Z=`<!DOCTYPE html>
+</html>`;var q=`<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -675,7 +675,7 @@
 </body>
 
 
-</html>`;var y=`<!-- Content Wrapper -->
+</html>`;var Z=`<!-- Content Wrapper -->
 <div class="col-12 col-lg-8 ps-lg-64 qld-content-body" id="content">
   {{#if title}}<h1>{{title}}</h1>{{/if}}
   {{> @partial-block }}
@@ -688,65 +688,65 @@
     </ul>
 {{/if}}`;var T=`<!-- QGDS Component: Date input -->
 
-<!-- Label -->
-<label id="dategroup-label"
+<label id="{{id}}-label"
     class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}"
-    for="example-1">
+    for="{{id}}">
     {{label-text}}
     {{#if optional-text}}
     <span class="label-text-optional">({{optional-text}})</span>
     {{/if}}
 </label>
 
-<!-- Hint text -->
 {{#if hint-text}}
-<span class="qld-hint-text" id="example-1-hint">{{hint-text}}</span>
+<span class="qld-hint-text" id="{{id}}-hint">{{hint-text}}</span>
 {{/if}}
 
-{{#contains "qld-input-success" customClass}}
-<span id="text-field-success" class="qld-input-success">
-    {{successMessageText}}
-</span>
-{{/contains}}
+{{#contains "qld-input-success" customClass}}{{! legacy support for feedback classes \`qld-input-success\`}}
+<span class="qld-input-success">{{successMessageText}}</span>
+{{else}}
+{{#if successMessageText}}{{! updated bootstrap style classes - \`valid-feedback\`}}
+<div class="valid-feedback">{{successMessageText}}</div>
+{{/if}}{{/contains}}
 
-{{#contains "qld-input-error" customClass}}
-<span id="text-field-error" class="qld-input-error">
-    {{errorMessageText}}
-</span>
-{{/contains}}
+{{#contains "qld-input-error" customClass}}{{! legacy support for feedback classes \`qld-input-error\`}}
+<span class="qld-input-error">{{errorMessageText}}</span>
+{{else}}
+{{#if errorMessageText}}{{! updated bootstrap style classes - \`invalid-feedback\`}}
+<div class="invalid-feedback">{{errorMessageText}}</div>
+{{/if}}{{/contains}}
 
-<div aria-labelledby="dategroup-label" role="group" class="row date-container {{customClass}}">
+<div aria-labelledby="{{id}}-label" role="group" class="row date-container {{customClass}}">
     <!-- day group -->
     <div class="day-group">
-        <label for="dayinput" class="date-label qld-text-input-label">Day</label>
+        <label id="{{id}}-dayinput-label" for="{{id}}-dayinput" class="date-label qld-text-input-label">Day</label>
         <div>
-            <input aria-required="true" aria-labelledby="dategroup-label" placeholder="{{day-placeholder}}" type="text"
+            <input id="{{id}}-dayinput" aria-required="true" aria-labelledby="{{id}}-label {{id}}-dayinput-label" placeholder="{{day-placeholder}}" type="text"
                 inputmode="numeric" maxlength="2"
-                class="qld-text-input form-control dayinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}}" id="dayinput" ref="day"
+                class="qld-text-input form-control dayinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}" ref="day"
                 aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required aria-required="true"
                 {{/if}}>
         </div>
     </div>
     <!-- month group -->
     <div class="date-group">
-        <label for="monthinput" class="date-label qld-text-input-label">Month</label>
+        <label id="{{id}}-monthinput-label" for="{{id}}-monthinput" class="date-label qld-text-input-label">Month</label>
         <div>
-            <input aria-required="true" aria-labelledby="dategroup-label" placeholder="{{month-placeholder}}"
+            <input id="{{id}}-monthinput" aria-required="true" aria-labelledby="{{id}}-label {{id}}-monthinput-label" placeholder="{{month-placeholder}}"
                 type="text" inputmode="numeric" maxlength="2"
-                class="qld-text-input form-control monthinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}}" id="monthinput" ref="month"
+                class="qld-text-input form-control monthinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}" ref="month"
                 aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required aria-required="true"
                 {{/if}}>
         </div>
     </div>
     <!-- year group -->
     <div class="date-group">
-        <label for="yearinput" class="date-label">Year</label>
+        <label id="{{id}}-yearinput-label" for="{{id}}-yearinput" class="date-label">Year</label>
         <div class="year-label">
-            <input aria-required="true" aria-labelledby="dategroup-label qld-text-input-label"
+            <input id="{{id}}-yearinput" aria-required="true" aria-labelledby="{{id}}-label {{id}}-yearinput-label"
                 placeholder="{{year-placeholder}}" type="text" inputmode="numeric" maxlength="4"
-                class="qld-text-input form-control yearinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}}"
-                id="yearinput" ref="year" aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if
-                isRequired}}required aria-required="true" {{/if}}>
+                class="qld-text-input form-control yearinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
+                ref="year" aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if
+                isRequired}}required{{/if}}>
         </div>
     </div>
 </div>
@@ -1052,10 +1052,18 @@
   {{#if hintLabel}}
   <span class="qld-hint-text">{{hintLabel}}</span>
   {{/if}}
+
+  {{#if successMessageText}}
+  <div class="valid-feedback">{{successMessageText}}</div>
+  {{/if}}
+
+  {{#if errorMessageText}}
+  <div class="invalid-feedback">{{errorMessageText}}</div>
+  {{/if}}
   
   {{#each listitems}}
-  <div class="form-check">
-    <input class="form-check-input" type="{{type}}" name="{{name}}" id="{{id}}" value="{{value}}" {{#if isDisabled}}disabled{{/if}} {{#if isChecked}}checked{{/if}}>
+  <div class="form-check {{#if ../isValid}}is-valid{{else}}{{#ifCond ../isValid "===" false}}is-invalid{{/ifCond}}{{/if}}">
+    <input class="form-check-input" type="{{#if ../type}}{{../type}}{{else}}{{#if type}}{{type}}{{else}}checkbox{{/if}}{{/if}}" name="{{name}}" id="{{id}}" value="{{value}}" {{#if isDisabled}}disabled{{/if}} {{#if isChecked}}checked{{/if}} {{#if isRequired}}required{{/if}} >
     <label class="form-check-label" for="{{id}}">
       {{label}}
     </label>
@@ -1112,7 +1120,7 @@
   </section>
   {{/each }}
 </div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.9","branch":"HEAD","tag":"v2.0.9","commit":"0f12969e32431b89a0e3a8c31cb7d6eb86d06886","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.9","branch":"QGDS-337-icons-color","tag":"","commit":"2a35463d70250597728148da0ef7c18849748449","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -2061,34 +2069,34 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
     
 </div>`;var o1=`<!-- QGDS Component: Select -->
 
-<!-- Label for the first input field -->
-<label class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}" for="example-1">
+<label class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}" for="{{id}}">
     {{label-text}}
     {{#if optional-text}}
-    <span class="label-text-optional">({{optional-text}})</span></label>
+    <span class="label-text-optional">({{optional-text}})</span>
     {{/if}}
+</label>
 
-<!-- Hint text for the first input field -->
 {{#if hint-text}}
-<span class="qld-hint-text" id="example-1-hint">{{hint-text}}</span>
+<span class="qld-hint-text" id="{{id}}-hint">{{hint-text}}</span>
 {{/if}}
 
-{{#contains "qld-input-success" customClass}}
-<span id="text-field-success" class="qld-input-success">
-    {{successMessageText}}
-</span>
-{{/contains}}
+{{#contains "qld-input-success" customClass}}{{! legacy support for feedback classes \`qld-input-success\`}}
+<span class="qld-input-success">{{successMessageText}}</span>
+{{else}}{{! updated bootstrap style classes - \`valid-feedback\`}}
+{{#if successMessageText}}
+<div class="valid-feedback">{{successMessageText}}</div>
+{{/if}}{{/contains}}
 
-{{#contains "qld-input-error" customClass}}
-<span id="text-field-error" class="qld-input-error">
-    {{errorMessageText}}
-</span>
-{{/contains}}
+{{#contains "qld-input-error" customClass}}{{! legacy support for feedback classes \`qld-input-error\`}}
+<span class="qld-input-error">{{errorMessageText}}</span>
+{{else}}{{! updated bootstrap style classes - \`invalid-feedback\`}}
+{{#if errorMessageText}}
+<div class="invalid-feedback">{{errorMessageText}}</div>
+{{/if}}{{/contains}}
 
-<!-- First text input field, described by the hint text above -->
-<select class="qld-text-input form-select qld-select qld-field-width-1-quarter {{customClass}}"
-    aria-label="Default select example" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required aria-required="true"{{/if}}>
-    <option selected>{{placeholder}}</option>
+<select id={{id}} class="form-select {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}} {{customClass}}" 
+    {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} >
+    <option selected value="">{{placeholder}}</option>
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>
@@ -2300,67 +2308,66 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
 </ul>
 `;var m1=`<!-- QGDS Component: Textarea -->
 
-<!-- Label for the first input field -->
 <label class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}"
-    for="example-1">
+    for="{{id}}">
     {{label-text}}
     {{#if optional-text}}
     <span class="label-text-optional">({{optional-text}})</span>
     {{/if}}
 </label>
 
-<!-- Hint text for the first input field -->
 {{#if hint-text}}
-<span class="qld-hint-text" id="example-1-hint">{{hint-text}}</span>
+<span class="qld-hint-text" id="{{id}}-hint">{{hint-text}}</span>
 {{/if}}
 
-{{#contains "qld-input-success" customClass}}
-<span id="text-field-success" class="qld-input-success">
-    {{successMessageText}}
-</span>
-{{/contains}}
+{{#contains "qld-input-success" customClass}}{{! legacy support for feedback classes \`qld-input-success\`}}
+<span class="qld-input-success">{{successMessageText}}</span>
+{{else}}
+{{#if successMessageText}}{{! updated bootstrap style classes - \`valid-feedback\`}}
+<div class="valid-feedback">{{successMessageText}}</div>
+{{/if}}{{/contains}}
 
-{{#contains "qld-input-error" customClass}}
-<span id="text-field-error" class="qld-input-error">
-    {{errorMessageText}}
-</span>
-{{/contains}}
+{{#contains "qld-input-error" customClass}}{{! legacy support for feedback classes \`qld-input-error\`}}
+<span class="qld-input-error">{{errorMessageText}}</span>
+{{else}}
+{{#if errorMessageText}}{{! updated bootstrap style classes - \`invalid-feedback\`}}
+<div class="invalid-feedback">{{errorMessageText}}</div>
+{{/if}}{{/contains}}
 
 <!-- First text input field, described by the hint text above -->
-<textarea id="example-1" class="qld-text-input form-control {{customClass}} {{#if isFilled}}form-style-filled{{/if}}"
-    placeholder="{{placeholder}}" rows="{{rows}}" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required
-    aria-required="true" {{/if}}></textarea>`;var g1=`<!-- QGDS Component: Textbox -->
+<textarea id="{{id}}" class="form-control {{customClass}} {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
+    placeholder="{{placeholder}}" rows="{{rows}}" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}
+    {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}}>{{value}}</textarea>`;var g1=`<!-- QGDS Component: Textbox -->
 
-<!-- Label for the first input field -->
 <label class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}"
-    for="example-1">
+    for="{{id}}">
     {{label-text}}
     {{#if optional-text}}
     <span class="label-text-optional">({{optional-text}})</span>
     {{/if}}
 </label>
 
-<!-- Hint text for the first input field -->
 {{#if hint-text}}
-<span class="qld-hint-text" id="example-1-hint">{{hint-text}}</span>
+<span class="qld-hint-text" id="{{id}}-hint">{{hint-text}}</span>
 {{/if}}
 
-{{#contains "qld-input-success" customClass}}
-<span id="text-field-success" class="qld-input-success">
-    {{successMessageText}}
-</span>
-{{/contains}}
+{{#contains "qld-input-success" customClass}}{{! legacy support for feedback classes \`qld-input-success\`}}
+<span class="qld-input-success">{{successMessageText}}</span>
+{{else}}
+{{#if successMessageText}}{{! updated bootstrap style classes - \`valid-feedback\`}}
+<div class="valid-feedback">{{successMessageText}}</div>
+{{/if}}{{/contains}}
 
-{{#contains "qld-input-error" customClass}}
-<span id="text-field-error" class="qld-input-error">
-    {{errorMessageText}}
-</span>
-{{/contains}}
+{{#contains "qld-input-error" customClass}}{{! legacy support for feedback classes \`qld-input-error\`}}
+<span class="qld-input-error">{{errorMessageText}}</span>
+{{else}}
+{{#if errorMessageText}}{{! updated bootstrap style classes - \`invalid-feedback\`}}
+<div class="invalid-feedback">{{errorMessageText}}</div>
+{{/if}}{{/contains}}
 
-<!-- First text input field, described by the hint text above -->
-<input id="example-1" class="qld-text-input form-control {{customClass}} {{#if isFilled}}form-style-filled{{/if}}"
-    type="text" placeholder="{{placeholder}}" aria-label="Text input example" {{#if isDisabled}}disabled{{/if}} {{#if
-    isRequired}}required aria-required="true" {{/if}} />`;var h1="<!-- QGDS Partial: typography -->";var v1=`<!-- QGDS Component: Video -->
+<input id={{id}} {{#if value}}value="{{value}}"{{/if}}  class="form-control {{customClass}} {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
+    type="text" placeholder="{{placeholder}}" {{#if isDisabled}}disabled{{/if}} {{#if
+    isRequired}}required{{/if}} {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} />`;var v1="<!-- QGDS Partial: typography -->";var h1=`<!-- QGDS Component: Video -->
 
 {{#if analyticsTrackingCode}}
 <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/{{analyticsTrackingCode}}.js">
@@ -2406,5 +2413,5 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
     </div>
     {{! Render the transcript content in an accordion template }}
 </section>
-`;function d(e){e.registerPartial("accordion",p),e.registerPartial("backToTop",f),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",h),e.registerPartial("button",v),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",q),e.registerPartial("contentPageWithSideNavigation",Z),e.registerPartial("contentWrapper",y),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",T),e.registerPartial("directionLinks",S),e.registerPartial("feedbackForm",A),e.registerPartial("followLinks",D),e.registerPartial("footer",P),e.registerPartial("formcheck",O),e.registerPartial("fullPage",R),e.registerPartial("globalAlert",E),e.registerPartial("head",I),e.registerPartial("header",_),e.registerPartial("headerBrand",N),e.registerPartial("homePage",F),e.registerPartial("icon",G),e.registerPartial("image",Q),e.registerPartial("inpageAlert",B),e.registerPartial("inpagenav",j),e.registerPartial("link",W),e.registerPartial("linkColumns",J),e.registerPartial("logo",Y),e.registerPartial("logoCOADeliveringForQLD",U),e.registerPartial("logoCOALandscape",$),e.registerPartial("logoCOALandscape2Lines",z),e.registerPartial("mainContainerWrapper",X),e.registerPartial("metaDcTerms",K),e.registerPartial("metaOpenGraph",e1),e.registerPartial("modal",i1),e.registerPartial("navbar",a1),e.registerPartial("pagination",t1),e.registerPartial("promotionalPanel",C1),e.registerPartial("quickexit",s1),e.registerPartial("searchInput",l1),e.registerPartial("select",o1),e.registerPartial("sidenav",n1),e.registerPartial("sidenavWrapper",r1),e.registerPartial("skipLinks",d1),e.registerPartial("spinner",c1),e.registerPartial("table",p1),e.registerPartial("tabs",f1),e.registerPartial("tag",u1),e.registerPartial("textarea",m1),e.registerPartial("textbox",g1),e.registerPartial("typography",h1),e.registerPartial("video",v1)}typeof Handlebars!="undefined"&&d(Handlebars);var b1=!1;function L1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(b1?console.log("HandleBars Helpers And Partials already loaded, loading again"):b1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&L1(Handlebars);})();
+`;function d(e){e.registerPartial("accordion",p),e.registerPartial("backToTop",f),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",v),e.registerPartial("button",h),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",q),e.registerPartial("contentWrapper",Z),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",T),e.registerPartial("directionLinks",S),e.registerPartial("feedbackForm",A),e.registerPartial("followLinks",D),e.registerPartial("footer",P),e.registerPartial("formcheck",O),e.registerPartial("fullPage",R),e.registerPartial("globalAlert",E),e.registerPartial("head",I),e.registerPartial("header",_),e.registerPartial("headerBrand",N),e.registerPartial("homePage",F),e.registerPartial("icon",G),e.registerPartial("image",Q),e.registerPartial("inpageAlert",B),e.registerPartial("inpagenav",j),e.registerPartial("link",W),e.registerPartial("linkColumns",J),e.registerPartial("logo",Y),e.registerPartial("logoCOADeliveringForQLD",U),e.registerPartial("logoCOALandscape",$),e.registerPartial("logoCOALandscape2Lines",z),e.registerPartial("mainContainerWrapper",X),e.registerPartial("metaDcTerms",K),e.registerPartial("metaOpenGraph",e1),e.registerPartial("modal",i1),e.registerPartial("navbar",a1),e.registerPartial("pagination",t1),e.registerPartial("promotionalPanel",C1),e.registerPartial("quickexit",s1),e.registerPartial("searchInput",l1),e.registerPartial("select",o1),e.registerPartial("sidenav",n1),e.registerPartial("sidenavWrapper",r1),e.registerPartial("skipLinks",d1),e.registerPartial("spinner",c1),e.registerPartial("table",p1),e.registerPartial("tabs",f1),e.registerPartial("tag",u1),e.registerPartial("textarea",m1),e.registerPartial("textbox",g1),e.registerPartial("typography",v1),e.registerPartial("video",h1)}typeof Handlebars!="undefined"&&d(Handlebars);var b1=!1;function L1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(b1?console.log("HandleBars Helpers And Partials already loaded, loading again"):b1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&L1(Handlebars);})();
 //# sourceMappingURL=handlebars.partials.js.map
