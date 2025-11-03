@@ -248,13 +248,13 @@
                 {{#if date}}
                 <div class="card-date">{{date}}</div>
                 {{/if}}
-                <h3 class="card-title">
+                <{{isdefined headingTag 'h3'}} class="card-title">
                     {{#if link}}
                     <a href="{{link}}" {{#ifCond action '===' 'single'}}class="stretched-link"{{/ifCond}}>{{title}}</a>
                     {{else}}
                     {{ title }}
                     {{/if }}
-                </h3>
+                </{{isdefined headingTag 'h3'}}>
                 {{#if description}}
                 <div class="card-text">
                     {{{description}}}
@@ -1112,7 +1112,7 @@
   </section>
   {{/each }}
 </div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.10","branch":"develop","tag":"v2.0.10","commit":"0c2b6d8a1c3232b2314e3f6283476abe5b254c53","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.10","branch":"develop","tag":"","commit":"77ec8167a0cccf850aee04d9d418c501235b9022","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
