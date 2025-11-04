@@ -1112,7 +1112,7 @@
   </section>
   {{/each }}
 </div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.10","branch":"QGDS-359-tags-multiple-lines","tag":"","commit":"08c2ddfcb05cdf6b918ba5471b6351ff34090643","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.10","branch":"QGDS-359-tags-multiple-lines","tag":"","commit":"d7817976b112cafefc6cf571c8759d9fa54398d9","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -2290,7 +2290,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
 
 <ul class="tag-list {{variant}} {{classes}}">
   {{#each tagItems}}
-    <li class="tag-item {{variants}} {{../size}} {{../emphasis}}">
+    <li class="tag-item {{classes}} {{../size}} {{../emphasis}}">
       {{{content}}}
       {{#if applied-filter}}
         <button class="tag-clear-filter-button" aria-label="Remove"></button>
