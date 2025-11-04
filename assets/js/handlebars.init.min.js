@@ -32,7 +32,7 @@
     }}
   </div>
 {{/unless}}`;var u=`<!-- QGDS Banner Component -->
-  <div class="qld-banner qld-banner-grid {{ bannerType }} {{ variantClass }} {{ backgroundType }}" role="banner">
+  <div class="qld-banner qld-banner-grid {{ bannerType }} {{ variantClass }} {{ backgroundType }}" >
     <div class="container-fluid">
       <div class="banner-inner">
 
@@ -1109,7 +1109,7 @@
   </section>
   {{/each }}
 </div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.10","branch":"QGDS-341-banner-image-placeholder","tag":"","commit":"05b013582d9601c769b2d3d19835b0e2ff781cc2","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.10","branch":"QGDS-341-banner-image-placeholder","tag":"","commit":"34fbe55946e2ca3959fdc0235e75ac2cb54a1327","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
