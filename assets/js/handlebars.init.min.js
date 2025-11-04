@@ -1,4 +1,4 @@
-"use strict";(()=>{function c(e,a,i){switch(a){case"==":return e==i;case"===":return e===i;case"!=":return e!=i;case"!==":return e!==i;case"<":return e<i;case"<=":return e<=i;case">":return e>i;case">=":return e>=i;case"&&":return e&&i;case"||":return e||i;case"in":return typeof e=="string"&&typeof i=="string"?i.split(",").map(t=>t.trim()).includes(e):!1;case"contains":return typeof e=="string"&&typeof i=="string"?e.toLowerCase().indexOf(i.toLowerCase())>=0:!1;default:return!1}}function r(e){e.registerHelper("contains",function(a,i,t){return a=e.escapeExpression(a),i=e.escapeExpression(i),i.indexOf(a)>-1?t.fn(this):t.inverse(this)}),e.registerHelper("ifCond",function(a,i,t,C){return c(a,i,t)?C.fn(this):C.inverse(this)}),e.registerHelper("cond",(a,i,t)=>c(a,i,t)),e.registerHelper("isType",function(a,i,t){return a===i?t.fn(this):t.inverse(this)}),e.registerHelper("ifAny",function(...a){let i=a.pop();return a.some(t=>!!t)?i.fn(this):i.inverse(this)}),e.registerHelper("now",function(){return new Date().toISOString()}),e.registerHelper("formatDate",function(a,i,t){let C;if(a&&(C=new Date(a)),isNaN(C)&&i&&(C=new Date(i)),isNaN(C))return"Invalid Date";var s=["January","February","March","April","May","June","July","August","September","October","November","December"],o=C.getDate(),l=s[C.getMonth()],n=C.getFullYear();switch(t){case"YYYY":return`${n}`;case"MMMM YYYY":return`${l} ${n}`;default:return`${o} ${l} ${n}`}}),e.registerHelper("formatDateOrToday",function(a,i){let t=a||new Date().toISOString();return e.helpers.formatDate(a,t,i)}),e.registerHelper("formatDuration",function(a,i){if(!a)return"";if(typeof a=="string"&&i!=="long")return a;let t="",C=[],s,o,l;if(typeof a=="string"){let n=a.split(":");l=n[0],n.length==2?[o="",l=""]=n:n.length==3&&([s="",o="",l=""]=n)}else[s="",o="",l=""]=a;return i==="long"?(s>0&&C.push(`${s} hour${s>1?"s":""}`),o>0&&C.push(`${o} minute${o>1?"s":""}`),l>0&&C.push(`${l} second${l>1?"s":""}`),t=C.join(" ")):(s>0&&C.push(s.toString().padStart(2,0)),C.push(o.toString().padStart(2,0)),C.push(l.toString().padStart(2,0)),t=C.join(":")),t}),e.registerHelper("isdefined",function(a,i){return a!==void 0&&a!==""?a:i}),e.registerHelper("getClassNames",function(a,i){let t=a.split(",").map(s=>s.trim()),C=[];for(let s=0;s<t.length;s++){let o=t[s];if(i){for(let l=0;l<i.length;l++)if(i[l][o]===!0){C.push(o);break}}}return C.length>0?C.join(" "):""}),e.registerHelper("join",function(a,i){return(!i||typeof i!="string")&&(i=" "),Array.isArray(a)?a.join(i):a}),e.registerHelper("toCamelCase",function(a){return typeof a!="string"?a:a.toLowerCase().replace(/(?:^\w|[A-Z]|\b\w|\s+)/g,(i,t)=>t===0?i.toLowerCase():i.toUpperCase()).replace(/\s+/g,"")})}typeof Handlebars!="undefined"&&r(Handlebars);var p=`<!-- QGDS Component: Accordion -->
+"use strict";(()=>{function c(e,a,i){switch(a){case"==":return e==i;case"===":return e===i;case"!=":return e!=i;case"!==":return e!==i;case"<":return e<i;case"<=":return e<=i;case">":return e>i;case">=":return e>=i;case"&&":return e&&i;case"||":return e||i;case"in":return typeof e=="string"&&typeof i=="string"?i.split(",").map(t=>t.trim()).includes(e):!1;case"contains":return typeof e=="string"&&typeof i=="string"?e.toLowerCase().indexOf(i.toLowerCase())>=0:!1;default:return!1}}function r(e){e.registerHelper("contains",function(a,i,t){return a=e.escapeExpression(a),i=e.escapeExpression(i),i.indexOf(a)>-1?t.fn(this):t.inverse(this)}),e.registerHelper("ifCond",function(a,i,t,C){return c(a,i,t)?C.fn(this):C.inverse(this)}),e.registerHelper("cond",(a,i,t)=>c(a,i,t)),e.registerHelper("isType",function(a,i,t){return a===i?t.fn(this):t.inverse(this)}),e.registerHelper("ifAny",function(...a){let i=a.pop();return a.some(t=>!!t)?i.fn(this):i.inverse(this)}),e.registerHelper("ifAll",function(...a){let i=a.pop();return a.every(t=>!!t)?i.fn(this):i.inverse(this)}),e.registerHelper("now",function(){return new Date().toISOString()}),e.registerHelper("formatDate",function(a,i,t){let C;if(a&&(C=new Date(a)),isNaN(C)&&i&&(C=new Date(i)),isNaN(C))return"Invalid Date";var s=["January","February","March","April","May","June","July","August","September","October","November","December"],o=C.getDate(),l=s[C.getMonth()],n=C.getFullYear();switch(t){case"YYYY":return`${n}`;case"MMMM YYYY":return`${l} ${n}`;default:return`${o} ${l} ${n}`}}),e.registerHelper("formatDateOrToday",function(a,i){let t=a||new Date().toISOString();return e.helpers.formatDate(a,t,i)}),e.registerHelper("formatDuration",function(a,i){if(!a)return"";if(typeof a=="string"&&i!=="long")return a;let t="",C=[],s,o,l;if(typeof a=="string"){let n=a.split(":");l=n[0],n.length==2?[o="",l=""]=n:n.length==3&&([s="",o="",l=""]=n)}else[s="",o="",l=""]=a;return i==="long"?(s>0&&C.push(`${s} hour${s>1?"s":""}`),o>0&&C.push(`${o} minute${o>1?"s":""}`),l>0&&C.push(`${l} second${l>1?"s":""}`),t=C.join(" ")):(s>0&&C.push(s.toString().padStart(2,0)),C.push(o.toString().padStart(2,0)),C.push(l.toString().padStart(2,0)),t=C.join(":")),t}),e.registerHelper("isdefined",function(a,i){return a!==void 0&&a!==""?a:i}),e.registerHelper("getClassNames",function(a,i){let t=a.split(",").map(s=>s.trim()),C=[];for(let s=0;s<t.length;s++){let o=t[s];if(i){for(let l=0;l<i.length;l++)if(i[l][o]===!0){C.push(o);break}}}return C.length>0?C.join(" "):""}),e.registerHelper("join",function(a,i){return(!i||typeof i!="string")&&(i=" "),Array.isArray(a)?a.join(i):a}),e.registerHelper("toCamelCase",function(a){return typeof a!="string"?a:a.toLowerCase().replace(/(?:^\w|[A-Z]|\b\w|\s+)/g,(i,t)=>t===0?i.toLowerCase():i.toUpperCase()).replace(/\s+/g,"")})}typeof Handlebars!="undefined"&&r(Handlebars);var p=`<!-- QGDS Component: Accordion -->
 <div class="accordion-group">
     {{#if toggleAll}}
         <div class="accordion-toggle">
@@ -32,7 +32,7 @@
     }}
   </div>
 {{/unless}}`;var u=`<!-- QGDS Banner Component -->
-  <div class="qld-banner qld-banner-grid {{ bannerType }} {{ variantClass }} {{ backgroundType }}" role="banner">
+  <div class="qld-banner qld-banner-grid {{ bannerType }} {{ variantClass }} {{ backgroundType }}" >
     <div class="container-fluid">
       <div class="banner-inner">
 
@@ -43,7 +43,6 @@
         <div class="banner-content">
 
           {{#if title}}
-
           {{!-- titleClasses accepts a "title-block" class --}}
           <h1 class="banner-title-wrap {{ join titleClasses }}">
             <span class="banner-title">{{~title~}}</span>
@@ -85,15 +84,13 @@
         </div>
         {{!-- End banner content --}}
 
-        {{#if image }}
+        {{#ifAll image image.url (cond backgroundType "==" "with-hero-image")}}
         <div class="banner-image {{ join image.classes }}">
           <div class="banner-image-inner" style="background-image:url({{image.url}})" role="img"
             aria-label="{{ image.alt }}"></div>
         </div>
-        {{/if}}
-
+        {{/ifAll}}
       </div>
-
     </div>
   </div>`;var m=`<!-- QGDS Component: Blockquote -->
 
@@ -1112,7 +1109,7 @@
   </section>
   {{/each }}
 </div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.10","branch":"QGDS-359-tags-multiple-lines","tag":"","commit":"94b20117c317528b59b57a314fd4afab76fb296b","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.10","branch":"QGDS-359-tags-multiple-lines","tag":"","commit":"9414d33604c56d7488910fe6acf0884a02aa2630","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
