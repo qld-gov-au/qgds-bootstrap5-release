@@ -1,4 +1,4 @@
-"use strict";(()=>{function c(e,a,i){switch(a){case"==":return e==i;case"===":return e===i;case"!=":return e!=i;case"!==":return e!==i;case"<":return e<i;case"<=":return e<=i;case">":return e>i;case">=":return e>=i;case"&&":return e&&i;case"||":return e||i;case"in":return typeof e=="string"&&typeof i=="string"?i.split(",").map(t=>t.trim()).includes(e):!1;case"contains":return typeof e=="string"&&typeof i=="string"?e.toLowerCase().indexOf(i.toLowerCase())>=0:!1;default:return!1}}function r(e){e.registerHelper("contains",function(a,i,t){return a=e.escapeExpression(a),i=e.escapeExpression(i),i.indexOf(a)>-1?t.fn(this):t.inverse(this)}),e.registerHelper("ifCond",function(a,i,t,C){return c(a,i,t)?C.fn(this):C.inverse(this)}),e.registerHelper("cond",(a,i,t)=>c(a,i,t)),e.registerHelper("isType",function(a,i,t){return a===i?t.fn(this):t.inverse(this)}),e.registerHelper("ifAny",function(...a){let i=a.pop();return a.some(t=>!!t)?i.fn(this):i.inverse(this)}),e.registerHelper("ifAll",function(...a){let i=a.pop();return a.every(t=>!!t)?i.fn(this):i.inverse(this)}),e.registerHelper("now",function(){return new Date().toISOString()}),e.registerHelper("formatDate",function(a,i,t){let C;if(a&&(C=new Date(a)),isNaN(C)&&i&&(C=new Date(i)),isNaN(C))return"Invalid Date";var s=["January","February","March","April","May","June","July","August","September","October","November","December"],o=C.getDate(),l=s[C.getMonth()],n=C.getFullYear();switch(t){case"YYYY":return`${n}`;case"MMMM YYYY":return`${l} ${n}`;default:return`${o} ${l} ${n}`}}),e.registerHelper("formatDateOrToday",function(a,i){let t=a||new Date().toISOString();return e.helpers.formatDate(a,t,i)}),e.registerHelper("formatDuration",function(a,i){if(!a)return"";if(typeof a=="string"&&i!=="long")return a;let t="",C=[],s,o,l;if(typeof a=="string"){let n=a.split(":");l=n[0],n.length==2?[o="",l=""]=n:n.length==3&&([s="",o="",l=""]=n)}else[s="",o="",l=""]=a;return i==="long"?(s>0&&C.push(`${s} hour${s>1?"s":""}`),o>0&&C.push(`${o} minute${o>1?"s":""}`),l>0&&C.push(`${l} second${l>1?"s":""}`),t=C.join(" ")):(s>0&&C.push(s.toString().padStart(2,0)),C.push(o.toString().padStart(2,0)),C.push(l.toString().padStart(2,0)),t=C.join(":")),t}),e.registerHelper("isdefined",function(a,i){return a!==void 0&&a!==""?a:i}),e.registerHelper("getClassNames",function(a,i){let t=a.split(",").map(s=>s.trim()),C=[];for(let s=0;s<t.length;s++){let o=t[s];if(i){for(let l=0;l<i.length;l++)if(i[l][o]===!0){C.push(o);break}}}return C.length>0?C.join(" "):""}),e.registerHelper("join",function(a,i){return(!i||typeof i!="string")&&(i=" "),Array.isArray(a)?a.join(i):a}),e.registerHelper("toCamelCase",function(a){return typeof a!="string"?a:a.toLowerCase().replace(/(?:^\w|[A-Z]|\b\w|\s+)/g,(i,t)=>t===0?i.toLowerCase():i.toUpperCase()).replace(/\s+/g,"")})}typeof Handlebars!="undefined"&&r(Handlebars);var p=`<!-- QGDS Component: Accordion -->
+"use strict";(()=>{function c(e,a,i){switch(a){case"==":return e==i;case"===":return e===i;case"!=":return e!=i;case"!==":return e!==i;case"<":return e<i;case"<=":return e<=i;case">":return e>i;case">=":return e>=i;case"&&":return e&&i;case"||":return e||i;case"in":return typeof e=="string"&&typeof i=="string"?i.split(",").map(t=>t.trim()).includes(e):!1;case"contains":return typeof e=="string"&&typeof i=="string"?e.toLowerCase().indexOf(i.toLowerCase())>=0:!1;default:return!1}}function r(e){e.registerHelper("contains",function(a,i,t){return a=e.escapeExpression(a),i=e.escapeExpression(i),i.indexOf(a)>-1?t.fn(this):t.inverse(this)}),e.registerHelper("ifCond",function(a,i,t,C){return c(a,i,t)?C.fn(this):C.inverse(this)}),e.registerHelper("cond",(a,i,t)=>c(a,i,t)),e.registerHelper("isType",function(a,i,t){return a===i?t.fn(this):t.inverse(this)}),e.registerHelper("ifAny",function(...a){let i=a.pop();return a.some(t=>!!t)?i.fn(this):i.inverse(this)}),e.registerHelper("ifAll",function(...a){let i=a.pop();return a.every(t=>!!t)?i.fn(this):i.inverse(this)}),e.registerHelper("now",function(){return new Date().toISOString()}),e.registerHelper("formatDate",function(a,i,t){let C;if(a&&(C=new Date(a)),isNaN(C)&&i&&(C=new Date(i)),isNaN(C))return"Invalid Date";var s=["January","February","March","April","May","June","July","August","September","October","November","December"],n=C.getDate(),l=s[C.getMonth()],o=C.getFullYear();switch(t){case"YYYY":return`${o}`;case"MMMM YYYY":return`${l} ${o}`;default:return`${n} ${l} ${o}`}}),e.registerHelper("formatDateOrToday",function(a,i){let t=a||new Date().toISOString();return e.helpers.formatDate(a,t,i)}),e.registerHelper("formatDuration",function(a,i){if(!a)return"";if(typeof a=="string"&&i!=="long")return a;let t="",C=[],s,n,l;if(typeof a=="string"){let o=a.split(":");l=o[0],o.length==2?[n="",l=""]=o:o.length==3&&([s="",n="",l=""]=o)}else[s="",n="",l=""]=a;return i==="long"?(s>0&&C.push(`${s} hour${s>1?"s":""}`),n>0&&C.push(`${n} minute${n>1?"s":""}`),l>0&&C.push(`${l} second${l>1?"s":""}`),t=C.join(" ")):(s>0&&C.push(s.toString().padStart(2,0)),C.push(n.toString().padStart(2,0)),C.push(l.toString().padStart(2,0)),t=C.join(":")),t}),e.registerHelper("isdefined",function(a,i){return a!==void 0&&a!==""?a:i}),e.registerHelper("getClassNames",function(a,i){let t=a.split(",").map(s=>s.trim()),C=[];for(let s=0;s<t.length;s++){let n=t[s];if(i){for(let l=0;l<i.length;l++)if(i[l][n]===!0){C.push(n);break}}}return C.length>0?C.join(" "):""}),e.registerHelper("join",function(a,i){return(!i||typeof i!="string")&&(i=" "),Array.isArray(a)?a.join(i):a}),e.registerHelper("toCamelCase",function(a){return typeof a!="string"?a:a.toLowerCase().replace(/(?:^\w|[A-Z]|\b\w|\s+)/g,(i,t)=>t===0?i.toLowerCase():i.toUpperCase()).replace(/\s+/g,"")}),e.registerHelper("alertTypeToIcon",function(a){return typeof a!="string"?"":{Success:"success",Information:"information",Warning:"warning",Error:"danger",Danger:"danger"}[a]||a.toLowerCase()})}typeof Handlebars!="undefined"&&r(Handlebars);var p=`<!-- QGDS Component: Accordion -->
 <div class="accordion-group">
     {{#if toggleAll}}
         <div class="accordion-toggle">
@@ -1073,7 +1073,7 @@
   {{> @partial-block }}
 {{/mainContainerWrapper}}
 </body>
-</html>`;var E=`<!-- QGDS Component: Global Alert -->
+</html>`;var I=`<!-- QGDS Component: Global Alert -->
 
 <div class="global-alert-include">
   {{#each alertItems}}
@@ -1108,8 +1108,8 @@
     </div>
   </section>
   {{/each }}
-</div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.11","branch":"HEAD","tag":"v2.0.11","commit":"c1bc176e3a8502826203a87dc48aab0bc1bc8770","majorVersion":"v2"} -->
+</div>`;var E=`
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.10","branch":"QGDS-342-inpage-alert-alt-text-icons","tag":"","commit":"949ed3ae168bf1a79ef91839c021c56af6f7c88b","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1420,16 +1420,24 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
     {{>imageTag}}
   {{/ifAny}}
 {{/if}}
-`;var B=`<div class="alert {{variantClass}} {{customClass}}" role="alert" 
+`;var B=`<div class="alert {{variantClass}} {{customClass}}" role="alert"
     {{#if alertType}}aria-label="{{alertType}}"{{/if}}>
-    {{#if heading}}
-        {{#if headingTag}}
-            <{{headingTag}} class="alert-heading">{{{ heading }}}</{{headingTag}}>
-        {{else}}
-            <h2 class="alert-heading">{{{ heading }}}</h2>
-        {{/if}}
+    {{#if alertType}}
+    <span class="alert-icon">
+        <span class="qld-icon qld-icon-md qld-icon-alert-{{alertTypeToIcon alertType}}" aria-hidden="true"></span>
+        <span class="visually-hidden">{{alertType}} alert: </span>
+    </span>
     {{/if}}
-    {{{ content }}}
+    <div class="alert-content">
+        {{#if heading}}
+            {{#if headingTag}}
+                <{{headingTag}} class="alert-heading">{{{ heading }}}</{{headingTag}}>
+            {{else}}
+                <h2 class="alert-heading">{{{ heading }}}</h2>
+            {{/if}}
+        {{/if}}
+        {{{ content }}}
+    </div>
 </div>`;var j=`<!-- QGDS Partial: inpage-nav -->
 
 <div class="qld-inpage-nav">
@@ -2056,7 +2064,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
     </div>
     {{/if}}
     
-</div>`;var o1=`<!-- QGDS Component: Select -->
+</div>`;var n1=`<!-- QGDS Component: Select -->
 
 <!-- Label for the first input field -->
 <label class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}" for="example-1">
@@ -2090,7 +2098,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>
 </select>
-`;var n1=`<nav class="qld-side-navigation" aria-label="Side Navigation">
+`;var o1=`<nav class="qld-side-navigation" aria-label="Side Navigation">
   <button
     class="accordion-button collapsed d-lg-none"
     type="button"
@@ -2285,7 +2293,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
     </div>
 </section>`;var u1=`<!-- QGDS Component: Tag -->
 
-<ul class="tag-list {{variant}} {{classes}}">
+<ul class="tag-list {{variant}}">
   {{#each tagItems}}
     <li class="tag-item {{classes}} {{../size}} {{../emphasis}}">
       {{{content}}}
@@ -2403,6 +2411,6 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
     </div>
     {{! Render the transcript content in an accordion template }}
 </section>
-`;function d(e){e.registerPartial("accordion",p),e.registerPartial("backToTop",f),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",h),e.registerPartial("button",v),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",q),e.registerPartial("contentPageWithSideNavigation",Z),e.registerPartial("contentWrapper",y),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",T),e.registerPartial("directionLinks",S),e.registerPartial("feedbackForm",A),e.registerPartial("followLinks",D),e.registerPartial("footer",P),e.registerPartial("formcheck",O),e.registerPartial("fullPage",R),e.registerPartial("globalAlert",E),e.registerPartial("head",I),e.registerPartial("header",_),e.registerPartial("headerBrand",N),e.registerPartial("homePage",F),e.registerPartial("icon",G),e.registerPartial("image",Q),e.registerPartial("inpageAlert",B),e.registerPartial("inpagenav",j),e.registerPartial("link",W),e.registerPartial("linkColumns",J),e.registerPartial("logo",Y),e.registerPartial("logoCOADeliveringForQLD",U),e.registerPartial("logoCOALandscape",$),e.registerPartial("logoCOALandscape2Lines",z),e.registerPartial("mainContainerWrapper",X),e.registerPartial("metaDcTerms",K),e.registerPartial("metaOpenGraph",e1),e.registerPartial("modal",i1),e.registerPartial("navbar",a1),e.registerPartial("pagination",t1),e.registerPartial("promotionalPanel",C1),e.registerPartial("quickexit",s1),e.registerPartial("searchInput",l1),e.registerPartial("select",o1),e.registerPartial("sidenav",n1),e.registerPartial("sidenavWrapper",r1),e.registerPartial("skipLinks",d1),e.registerPartial("spinner",c1),e.registerPartial("table",p1),e.registerPartial("tabs",f1),e.registerPartial("tag",u1),e.registerPartial("textarea",m1),e.registerPartial("textbox",g1),e.registerPartial("typography",h1),e.registerPartial("video",v1)}typeof Handlebars!="undefined"&&d(Handlebars);var b1=!1;function L1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(b1?console.log("HandleBars Helpers And Partials already loaded, loading again"):b1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&L1(Handlebars);})();
-//# @qld-gov-au/qgds-bootstrap5 - v2.0.11
+`;function d(e){e.registerPartial("accordion",p),e.registerPartial("backToTop",f),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",h),e.registerPartial("button",v),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",q),e.registerPartial("contentPageWithSideNavigation",Z),e.registerPartial("contentWrapper",y),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",T),e.registerPartial("directionLinks",S),e.registerPartial("feedbackForm",A),e.registerPartial("followLinks",D),e.registerPartial("footer",P),e.registerPartial("formcheck",O),e.registerPartial("fullPage",R),e.registerPartial("globalAlert",I),e.registerPartial("head",E),e.registerPartial("header",_),e.registerPartial("headerBrand",N),e.registerPartial("homePage",F),e.registerPartial("icon",G),e.registerPartial("image",Q),e.registerPartial("inpageAlert",B),e.registerPartial("inpagenav",j),e.registerPartial("link",W),e.registerPartial("linkColumns",J),e.registerPartial("logo",Y),e.registerPartial("logoCOADeliveringForQLD",U),e.registerPartial("logoCOALandscape",$),e.registerPartial("logoCOALandscape2Lines",z),e.registerPartial("mainContainerWrapper",X),e.registerPartial("metaDcTerms",K),e.registerPartial("metaOpenGraph",e1),e.registerPartial("modal",i1),e.registerPartial("navbar",a1),e.registerPartial("pagination",t1),e.registerPartial("promotionalPanel",C1),e.registerPartial("quickexit",s1),e.registerPartial("searchInput",l1),e.registerPartial("select",n1),e.registerPartial("sidenav",o1),e.registerPartial("sidenavWrapper",r1),e.registerPartial("skipLinks",d1),e.registerPartial("spinner",c1),e.registerPartial("table",p1),e.registerPartial("tabs",f1),e.registerPartial("tag",u1),e.registerPartial("textarea",m1),e.registerPartial("textbox",g1),e.registerPartial("typography",h1),e.registerPartial("video",v1)}typeof Handlebars!="undefined"&&d(Handlebars);var b1=!1;function L1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(b1?console.log("HandleBars Helpers And Partials already loaded, loading again"):b1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&L1(Handlebars);})();
+//# @qld-gov-au/qgds-bootstrap5 - v2.0.10
 //# sourceMappingURL=handlebars.partials.js.map
