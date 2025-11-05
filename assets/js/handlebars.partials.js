@@ -1109,7 +1109,7 @@
   </section>
   {{/each }}
 </div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.10","branch":"develop","tag":"","commit":"47dda0de0b3587fd3c9ef6877133e36b79218e36","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.10","branch":"develop","tag":"","commit":"7cd9cbdb314945ceeecabcc0df00e37711ee789d","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -2285,7 +2285,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
     </div>
 </section>`;var u1=`<!-- QGDS Component: Tag -->
 
-<ul class="tag-list {{variant}}">
+<ul class="tag-list {{variant}} {{classes}}">
   {{#each tagItems}}
     <li class="tag-item {{classes}} {{../size}} {{../emphasis}}">
       {{{content}}}
