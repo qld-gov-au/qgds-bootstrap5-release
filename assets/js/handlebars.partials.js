@@ -793,7 +793,7 @@
       </li>
     {{/each }}
     </ul>
-{{/if}}`;var P=`<footer class="qld-footer {{ variantClass }}" role="contentinfo">
+{{/if}}`;var O=`<footer class="qld-footer {{ variantClass }}" role="contentinfo">
   <!-- Footer content container -->
   <div class="container">
     {{#if sitename}}
@@ -1036,7 +1036,7 @@
       </div>
     </div>
   </div>
-</footer>`;var O=`  
+</footer>`;var P=`  
   {{#if questionLabel}}
   <div class="qld-text-input-label {{listClasses}}">
     {{questionLabel}}
@@ -1117,7 +1117,7 @@
   </section>
   {{/each }}
 </div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.11","branch":"develop","tag":"","commit":"f7cc7fc1ee32bacdb2630d0ac8f10c4d9a75ff2d","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.11","branch":"develop","tag":"","commit":"76ac1deee7e82435c5f6634bbb7fccdc5fc2e5e8","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -2032,38 +2032,40 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
         <span class="btn-icon"></span>
         <span class="btn-label">{{ buttonLabel }}</span>
     </button>
-    {{#if suggestions}}
-    <div class="suggestions suggestions__group d-none">
-        <div class="default-suggestions">
-            <div class="suggestions-category mt-16">
-                <strong class="suggestions-category-label d-block">Popular services</strong>
-                <ul class="mt-2">
-                    {{#each default_suggestions.popular_services}}
-                    <li><a href="{{link}}">{{title}}</a></li>
-                    {{/each}}
-                </ul>
-            </div>
+    {{#ifCond hasDynamicSuggestions '||' hasDefaultSuggestions}}
+    <div class="suggestions suggestions__group d-none default">
+        {{#if hasDefaultSuggestions}}
+            <div class="default-suggestions">
+                <div class="suggestions-category">
+                    <strong class="suggestions-category-label d-block">{{defaultSuggestions.popularServicesTitle}}</strong>
+                    <ul>
+                        {{#each defaultSuggestions.popularServices}}
+                        <li><a href="{{link}}">{{title}}</a></li>
+                        {{/each}}
+                        {{#if defaultSuggestions.popularServicesLink}}
+                            <li><a href="{{defaultSuggestions.popularServicesLink.href}}" class="view-more">{{#if defaultSuggestions.popularServicesLink.label}}{{defaultSuggestions.popularServicesLink.label}}{{else}}View More{{/if}}</a></li>
+                        {{/if}}
+                    </ul>
+                </div>
 
-            <div class="suggestions-category mt-16">
-                <strong class="suggestions-category-label d-block">Browse by category</strong>
-                <ul class="mt-12 mb-0">
-                    {{#each default_suggestions.categories}}
-                    <li><a href="{{link}}">{{title}}</a></li>
-                    {{/each}}
-                </ul>
+                <div class="suggestions-category">
+                    <strong class="suggestions-category-label d-block">{{defaultSuggestions.categoriesTitle}}</strong>
+                    <ul>
+                        {{#each defaultSuggestions.categories}}
+                        <li><a href="{{link}}">{{title}}</a></li>
+                        {{/each}}
+                        {{#if defaultSuggestions.categoriesLink}}
+                            <li><a href="{{defaultSuggestions.categoriesLink.href}}" class="view-more">{{#if defaultSuggestions.categoriesLink.label}}{{defaultSuggestions.categoriesLink.label}}{{else}}View More{{/if}}</a></li>
+                        {{/if}}
+                    </ul>
+                </div>
             </div>
-
-            {{#if default_suggestions.options.view_more}}
-            <div class="suggestions-category">
-                <a class="px-16 pt-12 pb-16 d-block suggestions-category-view-more"
-                    href="{{default_suggestions.options.href}}">{{default_suggestions.options.label}}</a>
-            </div>
-            {{/if}}
-        </div>
-        <div class="dynamic-suggestions"></div>
+        {{/if}}
+        {{#if hasDynamicSuggestions}}
+            <div class="dynamic-suggestions" {{#if dynamicSuggestionsServiceLink.href}}data-view-more="{{dynamicSuggestionsServiceLink.href}}"{{/if}}></div>
+        {{/if}}
     </div>
-    {{/if}}
-    
+    {{/ifCond}}    
 </div>`;var o1=`<!-- QGDS Component: Select -->
 
 <label class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}" for="{{id}}">
@@ -2410,6 +2412,6 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
     </div>
     {{! Render the transcript content in an accordion template }}
 </section>
-`;function d(e){e.registerPartial("accordion",p),e.registerPartial("backToTop",f),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",v),e.registerPartial("button",h),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",q),e.registerPartial("contentWrapper",Z),e.registerPartial("correctincorrect",w),e.registerPartial("customLinks",x),e.registerPartial("dateinput",T),e.registerPartial("directionLinks",S),e.registerPartial("feedbackForm",A),e.registerPartial("followLinks",D),e.registerPartial("footer",P),e.registerPartial("formcheck",O),e.registerPartial("fullPage",R),e.registerPartial("globalAlert",E),e.registerPartial("head",I),e.registerPartial("header",_),e.registerPartial("headerBrand",N),e.registerPartial("homePage",F),e.registerPartial("icon",G),e.registerPartial("image",Q),e.registerPartial("inpageAlert",B),e.registerPartial("inpagenav",j),e.registerPartial("link",W),e.registerPartial("linkColumns",J),e.registerPartial("logo",Y),e.registerPartial("logoCOADeliveringForQLD",U),e.registerPartial("logoCOALandscape",$),e.registerPartial("logoCOALandscape2Lines",z),e.registerPartial("mainContainerWrapper",X),e.registerPartial("metaDcTerms",K),e.registerPartial("metaOpenGraph",e1),e.registerPartial("modal",i1),e.registerPartial("navbar",a1),e.registerPartial("pagination",t1),e.registerPartial("promotionalPanel",C1),e.registerPartial("quickexit",s1),e.registerPartial("searchInput",l1),e.registerPartial("select",o1),e.registerPartial("sidenav",n1),e.registerPartial("sidenavWrapper",r1),e.registerPartial("skipLinks",d1),e.registerPartial("spinner",c1),e.registerPartial("table",p1),e.registerPartial("tabs",f1),e.registerPartial("tag",u1),e.registerPartial("textarea",m1),e.registerPartial("textbox",g1),e.registerPartial("typography",v1),e.registerPartial("video",h1)}typeof Handlebars!="undefined"&&d(Handlebars);var b1=!1;function L1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(b1?console.log("HandleBars Helpers And Partials already loaded, loading again"):b1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&L1(Handlebars);})();
+`;function d(e){e.registerPartial("accordion",p),e.registerPartial("backToTop",f),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",v),e.registerPartial("button",h),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",q),e.registerPartial("contentWrapper",Z),e.registerPartial("correctincorrect",w),e.registerPartial("customLinks",x),e.registerPartial("dateinput",T),e.registerPartial("directionLinks",S),e.registerPartial("feedbackForm",A),e.registerPartial("followLinks",D),e.registerPartial("footer",O),e.registerPartial("formcheck",P),e.registerPartial("fullPage",R),e.registerPartial("globalAlert",E),e.registerPartial("head",I),e.registerPartial("header",_),e.registerPartial("headerBrand",N),e.registerPartial("homePage",F),e.registerPartial("icon",G),e.registerPartial("image",Q),e.registerPartial("inpageAlert",B),e.registerPartial("inpagenav",j),e.registerPartial("link",W),e.registerPartial("linkColumns",J),e.registerPartial("logo",Y),e.registerPartial("logoCOADeliveringForQLD",U),e.registerPartial("logoCOALandscape",$),e.registerPartial("logoCOALandscape2Lines",z),e.registerPartial("mainContainerWrapper",X),e.registerPartial("metaDcTerms",K),e.registerPartial("metaOpenGraph",e1),e.registerPartial("modal",i1),e.registerPartial("navbar",a1),e.registerPartial("pagination",t1),e.registerPartial("promotionalPanel",C1),e.registerPartial("quickexit",s1),e.registerPartial("searchInput",l1),e.registerPartial("select",o1),e.registerPartial("sidenav",n1),e.registerPartial("sidenavWrapper",r1),e.registerPartial("skipLinks",d1),e.registerPartial("spinner",c1),e.registerPartial("table",p1),e.registerPartial("tabs",f1),e.registerPartial("tag",u1),e.registerPartial("textarea",m1),e.registerPartial("textbox",g1),e.registerPartial("typography",v1),e.registerPartial("video",h1)}typeof Handlebars!="undefined"&&d(Handlebars);var b1=!1;function L1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(b1?console.log("HandleBars Helpers And Partials already loaded, loading again"):b1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&L1(Handlebars);})();
 //# @qld-gov-au/qgds-bootstrap5 - v2.0.11
 //# sourceMappingURL=handlebars.partials.js.map
