@@ -1117,7 +1117,7 @@
   </section>
   {{/each }}
 </div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.11","branch":"QGDS-342-inpage-alert-alt-text-icons","tag":"","commit":"ea36de7624080face3ed615aaf0d02d7a9d3e071","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.11","branch":"QGDS-342-inpage-alert-alt-text-icons","tag":"","commit":"882f60af519d6bf3e6c1d04ceca28c5997f1810e","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1431,7 +1431,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 `;var B=`<div class="alert {{variantClass}} {{customClass}}" role="alert"
     {{#if alertType}}aria-label="{{alertType}}"{{/if}}>
     <span class="alert-icon">
-        <span class="qld-icon qld-icon-md qld-icon-{{#ifCond variantClass '==' 'alert-error'}}alert-danger{{else}}{{variantClass}}{{/ifCond}}" aria-hidden="true"></span>
+        <span class="qld-icon qld-icon-md qld-icon-{{#ifCond variantClass '==' 'alert-error'}}alert-danger{{else}}{{#ifCond variantClass '==' 'alert-info'}}alert-information{{else}}{{variantClass}}{{/ifCond}}{{/ifCond}}" aria-hidden="true"></span>
         <span class="visually-hidden">{{variantClass}} alert: </span>
     </span>
     <div class="alert-content">
