@@ -788,7 +788,7 @@
               <span class="qld-icon qld-icon-md qld-icon-{{icon}} d-lg-none" aria-hidden="true"></span>
               <span class="qld-icon qld-icon-sm qld-icon-{{icon}} d-none d-lg-block" aria-hidden="true"></span>
               <span class="nav-link-label d-none d-lg-block">{{ label }}</span>
-              <span class="sr-only">{{ label }}</span>
+              <span class="sr-only">{{isdefined accessibleLabel label}}</span>
           </a>
       </li>
     {{/each }}
@@ -1117,7 +1117,7 @@
   </section>
   {{/each }}
 </div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.12","branch":"HEAD","tag":"v2.0.12","commit":"8a144c9ab3a88493219cbc779eb61a0ca8b8d059","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.12","branch":"fix-light-background-color-var","tag":"","commit":"9e3820c1ed7b4bc80d71a701551983fd830b81d6","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
