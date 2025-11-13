@@ -145,7 +145,7 @@
 
 {{#unless islink}}
 
-  <button class="btn {{variantClass}} {{#if isprogress}}btn-progress{{/if}} {{label}}" onclick="{{{onclick}}}" {{#if isdisabled}}disabled{{/if}} {{#if isprogress}}disabled aria-live="polite"{{/if}} {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{{dataatts}}} {{#if progressLabel}}data-progress-label="{{progressLabel}}"{{/if}}>
+  <button class="btn {{variantClass}} {{#if isprogress}}btn-progress{{/if}}" onclick="{{{onclick}}}" {{#if isdisabled}}disabled{{/if}} {{#if isprogress}}disabled aria-live="polite"{{/if}} {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{{dataatts}}} {{#if progressLabel}}data-progress-label="{{progressLabel}}"{{/if}}>
     {{#if isprogress}}
       {{~>progressSpinner~}}
     {{else}}
@@ -678,7 +678,7 @@
   {{> @partial-block }}
 </div>
 `;var w="";var x=`{{#if customLinks }}
-    <ul class="nav footer-link-list footer-link-list--custom flex-column">      
+    <ul class="nav footer-link-list footer-link-list--custom flex-column">
         {{#each customLinks }}
         <li><a class="nav-link" href="{{ link }}" {{#if target }} target="_blank" {{/if}}>{{ label }}</a></li>
         {{/each }}
@@ -1117,7 +1117,7 @@
   </section>
   {{/each }}
 </div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.12","branch":"QGDS-338-search-input-component-change-lookup-behaviour-design-test-fix","tag":"","commit":"b53642d52fa74fd01572fabb22e56106f55ef4d0","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.0.12","branch":"QGDS-338-search-input-component-change-lookup-behaviour-design-test-fix","tag":"","commit":"4aa0c9734a1dd48f1a989181d719df7ba16064fc","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
