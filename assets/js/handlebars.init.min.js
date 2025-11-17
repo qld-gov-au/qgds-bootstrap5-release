@@ -1111,7 +1111,7 @@
   </section>
   {{/each }}
 </div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.0","branch":"QGDS-368-input-selection-highlight-and-data-validation","tag":"","commit":"b54bd24e38613b508431f509c0020dd7db043f63","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.0","branch":"QGDS-368-input-selection-highlight-and-data-validation","tag":"","commit":"5e4f19b20abeafb052d8d757e51c9a85a97fbf80","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
