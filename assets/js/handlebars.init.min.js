@@ -1124,7 +1124,7 @@
   </section>
   {{/each }}
 </div>`;var E=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.0","branch":"QGDS-240-accessibility-non-text-content","tag":"","commit":"f752fb7ca6114a8ce668822094616d87a7d0d702","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.0","branch":"QGDS-240-accessibility-non-text-content","tag":"","commit":"ebf1032f78e4aec64569304c8db7bdd6d91a4a2a","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1956,7 +1956,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
         {{/ifCond}}>
         <div class="image-panel">
             {{#ifCond type '!=' 'promo'}}
-            <img class="promo-panel-image" src="{{promoImage}}" alt="Promotional Image">
+            <img class="promo-panel-image" src="{{promoImage}}" alt="{{isdefined promoImageDescription "Promotional image"}}">
             {{else}}
                 <div class="promo-panel-image"></div>
             {{/ifCond}}
