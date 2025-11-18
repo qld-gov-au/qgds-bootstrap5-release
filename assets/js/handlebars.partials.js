@@ -202,9 +202,9 @@
 </div>
 `;var L=`<a class="qld-cta-link {{getClassNames "small, view-all" class}}"
     {{#if id}}id="{{id}}"{{/if}}
-    href="{{href}}" 
-    target="{{target}}" 
-    {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} 
+    href="{{href}}"
+    target="{{target}}"
+    aria-label="{{#if arialabel}}{{arialabel}}{{else}}{{label}}{{/if}}"
     >
      {{label}}
     <span class="icon" aria-hidden="true"></span>
@@ -677,7 +677,7 @@
   {{#if title}}<h1>{{title}}</h1>{{/if}}
   {{> @partial-block }}
 </div>
-`;var w="";var x=`{{#if customLinks }}
+`;var x="";var w=`{{#if customLinks }}
     <ul class="nav footer-link-list footer-link-list--custom flex-column">
         {{#each customLinks }}
         <li><a class="nav-link" href="{{ link }}" {{#if target }} target="_blank" {{/if}}>{{ label }}</a></li>
@@ -793,7 +793,7 @@
       </li>
     {{/each }}
     </ul>
-{{/if}}`;var O=`<footer class="qld-footer {{ variantClass }}" role="contentinfo">
+{{/if}}`;var P=`<footer class="qld-footer {{ variantClass }}" role="contentinfo">
   <!-- Footer content container -->
   <div class="container">
     {{#if sitename}}
@@ -1036,7 +1036,7 @@
       </div>
     </div>
   </div>
-</footer>`;var P=`  
+</footer>`;var O=`  
   {{#if questionLabel}}
   <div class="qld-text-input-label {{listClasses}}">
     {{questionLabel}}
@@ -1081,12 +1081,18 @@
   {{> @partial-block }}
 {{/mainContainerWrapper}}
 </body>
-</html>`;var E=`<!-- QGDS Component: Global Alert -->
+</html>`;var I=`<!-- QGDS Component: Global Alert -->
 
 <div class="global-alert-include">
   {{#each alertItems}}
   <section role="region" class="global-alert alert container-full d-none {{variant}}" data-variant="{{variant}}"
-    aria-label="{{ariaLabel}}" {{#if id}} data-id="{{id}}" {{/if}}{{#if dismissedExpiryDays}}
+    {{#if ariaLabel}} aria-label="{{ ariaLabel }}"
+    {{~else ifCond variant "==" "global-alert-critical"}} aria-label="Critical alert"
+    {{~else ifCond variant "==" "global-alert-info"}} aria-label="Informational alert"
+    {{~else ifCond variant "==" "global-alert-warning"}} aria-label="Warning alert"
+    {{~else}} aria-label="Informational alert"
+    {{~/if}}
+    {{#if id}} data-id="{{id}}" {{/if}}{{#if dismissedExpiryDays}}
     data-expiry-days="{{dismissedExpiryDays}}" {{/if}}>
     <div class="qld-global-alert-main">
       <div class="global-alert-icon">
@@ -1096,6 +1102,7 @@
         <span class="qld-icon qld-icon-sm qld-icon-alert-information" aria-hidden="true"></span>
         {{else ifCond variant '==' 'global-alert-warning'}}
         <span class="qld-icon qld-icon-sm qld-icon-alert-warning" aria-hidden="true"></span>
+        {{else}}<span class="qld-icon qld-icon-sm qld-icon-alert-information" aria-hidden="true"></span>
         {{/ifCond}}
       </div>
 
@@ -1116,8 +1123,8 @@
     </div>
   </section>
   {{/each }}
-</div>`;var I=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.0","branch":"HEAD","tag":"v2.1.0","commit":"1610f625e3e2ba5c9420ba3ef0ebb53ed35820f6","majorVersion":"v2"} -->
+</div>`;var E=`
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.0","branch":"QGDS-177-bugfix-accessibility","tag":"","commit":"69da524a9375d276ebe80f96b5bbfd3dcfd14b4c","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1923,10 +1930,13 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
         <li class="page-item {{customClasses}}">
             {{#if more}}
             {{! More button }}
-            <span></span>
+            <span class="page-link">...</span>
+            {{else if (ifCond customClasses "includes" "active")}}
+            {{! Active page - not a link }}
+            <span class="page-link" aria-current="page" aria-label="{{#if arialabel}}{{arialabel}}{{else}}Page {{linktext}}, current page{{/if}}">{{ linktext }}</span>
             {{else}}
             {{! Page button }}
-            <a class="page-link" href="{{href}}" aria-label="{{arialabel}}">{{ linktext }}</a>
+            <a class="page-link" href="{{href}}" aria-label="{{#if arialabel}}{{arialabel}}{{else}}Page {{linktext}}{{/if}}">{{ linktext }}</a>
             {{/if}}
         </li>
 
@@ -1949,7 +1959,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
         {{/ifCond}}>
         <div class="image-panel">
             {{#ifCond type '!=' 'promo'}}
-            <img class="promo-panel-image" src="{{promoImage}}" alt="Promotional Image">
+            <img class="promo-panel-image" src="{{promoImage}}" alt="{{isdefined promoImageDescription "Promotional image"}}">
             {{else}}
                 <div class="promo-panel-image"></div>
             {{/ifCond}}
@@ -2036,8 +2046,8 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
 <div class="qld-search-input {{customClass}}">
     <input id="{{ inputID }}" name="{{ inputName }}" class="form-control" type="text" autocomplete="off"
         aria-label="{{ ariaLabel }}" {{#each tags}} data-{{@key}}="{{this}}" {{/each}} placeholder="{{placeholder}}" />
-    <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}">
-        <span class="btn-icon"></span>
+    <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}" aria-label="{{ buttonLabel }}">
+        <span class="btn-icon" aria-hidden="true"></span>
         <span class="btn-label">{{ buttonLabel }}</span>
     </button>
     {{#ifCond hasDynamicSuggestions '||' hasDefaultSuggestions}}
@@ -2422,6 +2432,6 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
     </div>
     {{! Render the transcript content in an accordion template }}
 </section>
-`;function d(e){e.registerPartial("accordion",f),e.registerPartial("backToTop",p),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",v),e.registerPartial("button",h),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",q),e.registerPartial("contentWrapper",Z),e.registerPartial("correctincorrect",w),e.registerPartial("customLinks",x),e.registerPartial("dateinput",S),e.registerPartial("directionLinks",T),e.registerPartial("feedbackForm",A),e.registerPartial("followLinks",D),e.registerPartial("footer",O),e.registerPartial("formcheck",P),e.registerPartial("fullPage",R),e.registerPartial("globalAlert",E),e.registerPartial("head",I),e.registerPartial("header",_),e.registerPartial("headerBrand",N),e.registerPartial("homePage",F),e.registerPartial("icon",G),e.registerPartial("image",Q),e.registerPartial("inpageAlert",B),e.registerPartial("inpagenav",j),e.registerPartial("link",W),e.registerPartial("linkColumns",J),e.registerPartial("logo",Y),e.registerPartial("logoCOADeliveringForQLD",U),e.registerPartial("logoCOALandscape",$),e.registerPartial("logoCOALandscape2Lines",z),e.registerPartial("mainContainerWrapper",X),e.registerPartial("metaDcTerms",K),e.registerPartial("metaOpenGraph",e1),e.registerPartial("modal",i1),e.registerPartial("navbar",a1),e.registerPartial("pagination",t1),e.registerPartial("promotionalPanel",C1),e.registerPartial("quickexit",s1),e.registerPartial("searchInput",l1),e.registerPartial("select",n1),e.registerPartial("sidenav",o1),e.registerPartial("sidenavWrapper",r1),e.registerPartial("skipLinks",d1),e.registerPartial("spinner",c1),e.registerPartial("table",f1),e.registerPartial("tabs",p1),e.registerPartial("tag",u1),e.registerPartial("textarea",m1),e.registerPartial("textbox",g1),e.registerPartial("typography",v1),e.registerPartial("video",h1)}typeof Handlebars!="undefined"&&d(Handlebars);var b1=!1;function L1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(b1?console.log("HandleBars Helpers And Partials already loaded, loading again"):b1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&L1(Handlebars);})();
+`;function d(e){e.registerPartial("accordion",f),e.registerPartial("backToTop",p),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",v),e.registerPartial("button",h),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",q),e.registerPartial("contentWrapper",Z),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",S),e.registerPartial("directionLinks",T),e.registerPartial("feedbackForm",A),e.registerPartial("followLinks",D),e.registerPartial("footer",P),e.registerPartial("formcheck",O),e.registerPartial("fullPage",R),e.registerPartial("globalAlert",I),e.registerPartial("head",E),e.registerPartial("header",_),e.registerPartial("headerBrand",N),e.registerPartial("homePage",F),e.registerPartial("icon",G),e.registerPartial("image",Q),e.registerPartial("inpageAlert",B),e.registerPartial("inpagenav",j),e.registerPartial("link",W),e.registerPartial("linkColumns",J),e.registerPartial("logo",Y),e.registerPartial("logoCOADeliveringForQLD",U),e.registerPartial("logoCOALandscape",$),e.registerPartial("logoCOALandscape2Lines",z),e.registerPartial("mainContainerWrapper",X),e.registerPartial("metaDcTerms",K),e.registerPartial("metaOpenGraph",e1),e.registerPartial("modal",i1),e.registerPartial("navbar",a1),e.registerPartial("pagination",t1),e.registerPartial("promotionalPanel",C1),e.registerPartial("quickexit",s1),e.registerPartial("searchInput",l1),e.registerPartial("select",n1),e.registerPartial("sidenav",o1),e.registerPartial("sidenavWrapper",r1),e.registerPartial("skipLinks",d1),e.registerPartial("spinner",c1),e.registerPartial("table",f1),e.registerPartial("tabs",p1),e.registerPartial("tag",u1),e.registerPartial("textarea",m1),e.registerPartial("textbox",g1),e.registerPartial("typography",v1),e.registerPartial("video",h1)}typeof Handlebars!="undefined"&&d(Handlebars);var b1=!1;function L1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(b1?console.log("HandleBars Helpers And Partials already loaded, loading again"):b1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&L1(Handlebars);})();
 //# @qld-gov-au/qgds-bootstrap5 - v2.1.0
 //# sourceMappingURL=handlebars.partials.js.map
