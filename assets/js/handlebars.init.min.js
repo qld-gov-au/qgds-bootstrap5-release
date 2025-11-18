@@ -1124,7 +1124,7 @@
   </section>
   {{/each }}
 </div>`;var E=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.0","branch":"QGDS-177-bugfix-accessibility","tag":"","commit":"69da524a9375d276ebe80f96b5bbfd3dcfd14b4c","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.0","branch":"QGDS-177-bugfix-accessibility","tag":"","commit":"5f5eb157f7ad51f1337300e7f9f7f8d9e698f5fb","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1931,12 +1931,14 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
             {{#if more}}
             {{! More button }}
             <span class="page-link">...</span>
-            {{else if (ifCond customClasses "includes" "active")}}
-            {{! Active page - not a link }}
-            <span class="page-link" aria-current="page" aria-label="{{#if arialabel}}{{arialabel}}{{else}}Page {{linktext}}, current page{{/if}}">{{ linktext }}</span>
             {{else}}
-            {{! Page button }}
-            <a class="page-link" href="{{href}}" aria-label="{{#if arialabel}}{{arialabel}}{{else}}Page {{linktext}}{{/if}}">{{ linktext }}</a>
+                {{#ifCond customClasses "includes" "active"}}
+                {{! Active page - not a link }}
+                <span class="page-link" aria-current="page" aria-label="{{#if arialabel}}{{arialabel}}{{else}}Page {{linktext}}, current page{{/if}}">{{ linktext }}</span>
+                {{else}}
+                {{! Page button }}
+                <a class="page-link" href="{{href}}" aria-label="{{#if arialabel}}{{arialabel}}{{else}}Page {{linktext}}{{/if}}">{{ linktext }}</a>
+                {{/ifCond}}
             {{/if}}
         </li>
 
