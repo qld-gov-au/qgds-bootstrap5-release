@@ -685,9 +685,7 @@
     </ul>
 {{/if}}`;var S=`<!-- QGDS Component: Date input -->
 
-<label id="{{id}}-label"
-    class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}"
-    for="{{id}}">
+<label id="{{id}}-label" class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}" for="{{id}}">
     {{label-text}}
     {{#if optional-text}}
     <span class="label-text-optional">({{optional-text}})</span>
@@ -697,53 +695,49 @@
 {{#if hint-text}}
 <span class="qld-hint-text" id="{{id}}-hint">{{hint-text}}</span>
 {{/if}}
-
 {{#contains "qld-input-success" customClass}}{{! legacy support for feedback classes \`qld-input-success\`}}
 <span class="qld-input-success">{{successMessageText}}</span>
-{{else}}
-{{#if successMessageText}}{{! updated bootstrap style classes - \`valid-feedback\`}}
+{{else if successMessageText}}{{! updated bootstrap style classes - \`valid-feedback\`}}
 <div class="valid-feedback">{{successMessageText}}</div>
-{{/if}}{{/contains}}
-
+{{/contains}}
 {{#contains "qld-input-error" customClass}}{{! legacy support for feedback classes \`qld-input-error\`}}
 <span class="qld-input-error">{{errorMessageText}}</span>
-{{else}}
-{{#if errorMessageText}}{{! updated bootstrap style classes - \`invalid-feedback\`}}
+{{else if errorMessageText}}{{! updated bootstrap style classes - \`invalid-feedback\`}}
 <div class="invalid-feedback">{{errorMessageText}}</div>
-{{/if}}{{/contains}}
+{{/contains}}
 
 <div aria-labelledby="{{id}}-label" role="group" class="row date-container {{customClass}}">
     <!-- day group -->
     <div class="day-group">
         <label id="{{id}}-dayinput-label" for="{{id}}-dayinput" class="date-label qld-text-input-label">Day</label>
         <div>
-            <input id="{{id}}-dayinput" aria-required="true" aria-labelledby="{{id}}-label {{id}}-dayinput-label" placeholder="{{day-placeholder}}" type="text"
-                inputmode="numeric" maxlength="2"
-                class="qld-text-input form-control dayinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}" ref="day"
-                aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required aria-required="true"
-                {{/if}}>
+            <input id="{{id}}-dayinput" aria-labelledby="{{id}}-label {{id}}-dayinput-label" placeholder="{{day-placeholder}}" type="text"
+                inputmode="numeric" maxlength="2" minlength="2" min="1" max="31" pattern="^(0?[1-9]|[12][0-9]|3[01])$"
+                class="form-control dayinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} 
+                {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}" ref="day"
+                aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}>
         </div>
     </div>
     <!-- month group -->
     <div class="date-group">
         <label id="{{id}}-monthinput-label" for="{{id}}-monthinput" class="date-label qld-text-input-label">Month</label>
         <div>
-            <input id="{{id}}-monthinput" aria-required="true" aria-labelledby="{{id}}-label {{id}}-monthinput-label" placeholder="{{month-placeholder}}"
-                type="text" inputmode="numeric" maxlength="2"
-                class="qld-text-input form-control monthinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}" ref="month"
-                aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required aria-required="true"
-                {{/if}}>
+            <input id="{{id}}-monthinput" aria-labelledby="{{id}}-label {{id}}-monthinput-label" placeholder="{{month-placeholder}}"
+                type="text" inputmode="numeric" maxlength="2" minlength="2" min="1" max="12" pattern="^(0?[1-9]|[1][0-2])$"
+                class="form-control monthinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} 
+                {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}" ref="month"
+                aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}>
         </div>
     </div>
     <!-- year group -->
     <div class="date-group">
-        <label id="{{id}}-yearinput-label" for="{{id}}-yearinput" class="date-label">Year</label>
+        <label id="{{id}}-yearinput-label" for="{{id}}-yearinput" class="date-label qld-text-input-label">Year</label>
         <div class="year-label">
-            <input id="{{id}}-yearinput" aria-required="true" aria-labelledby="{{id}}-label {{id}}-yearinput-label"
-                placeholder="{{year-placeholder}}" type="text" inputmode="numeric" maxlength="4"
-                class="qld-text-input form-control yearinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
-                ref="year" aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if
-                isRequired}}required{{/if}}>
+            <input id="{{id}}-yearinput" aria-labelledby="{{id}}-label {{id}}-yearinput-label"
+                placeholder="{{year-placeholder}}" type="text" inputmode="numeric" maxlength="4" minlength="4" pattern="[0-9]*" 
+                {{#if yearMin}}min="{{yearMin}}"{{/if}} {{#if yearMax}}max="{{yearMax}}"{{/if}}
+                class="form-control yearinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
+                ref="year" aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}>
         </div>
     </div>
 </div>
@@ -1124,7 +1118,7 @@
   </section>
   {{/each }}
 </div>`;var E=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.0","branch":"QGDS-177-bugfix-accessibility","tag":"","commit":"f4e559dcaf73c07eb74f3f694dcf54913ee5ae82","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.0","branch":"QGDS-177-bugfix-accessibility","tag":"","commit":"c8454a1a29b7014dba26d673a135618e02f8de82","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
