@@ -716,7 +716,7 @@
                 inputmode="numeric" maxlength="2" minlength="2" min="1" max="31" pattern="^(0?[1-9]|[12][0-9]|3[01])$"
                 class="form-control dayinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} 
                 {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}" ref="day"
-                aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} tabindex="{{isdefined day-tabindex 0}}" >
+                aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} tabindex="0" >
         </div>
     </div>
     <!-- month group -->
@@ -727,7 +727,7 @@
                 type="text" inputmode="numeric" maxlength="2" minlength="2" min="1" max="12" pattern="^(0?[1-9]|[1][0-2])$"
                 class="form-control monthinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} 
                 {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}" ref="month"
-                aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} tabindex="{{isdefined month-tabindex 0}}">
+                aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} tabindex="0">
         </div>
     </div>
     <!-- year group -->
@@ -738,7 +738,7 @@
                 placeholder="{{year-placeholder}}" type="text" inputmode="numeric" maxlength="4" minlength="4" pattern="[0-9]*" 
                 {{#if yearMin}}min="{{yearMin}}"{{/if}} {{#if yearMax}}max="{{yearMax}}"{{/if}}
                 class="form-control yearinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
-                ref="year" aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} tabindex="{{isdefined year-tabindex 0}}">
+                ref="year" aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} tabindex="0">
         </div>
     </div>
 </div>
@@ -1119,7 +1119,7 @@
   </section>
   {{/each }}
 </div>`;var E=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.1","branch":"QGDS-486-safari-checkinput-focus-state","tag":"","commit":"633682126c7ae26021986ad59986279bf042ada4","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.1","branch":"QGDS-486-safari-checkinput-focus-state","tag":"","commit":"d7b8de9632f22706a635279d4caae2cc3601a963","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
