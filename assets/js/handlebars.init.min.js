@@ -145,11 +145,7 @@
 
 {{#unless islink}}
 
-  <button class="btn {{variantClass}} {{#if isprogress}}btn-progress{{/if}}" 
-    onclick="{{{onclick}}}" 
-    tabindex="{{isdefined tabindex 0}}" 
-    {{#if isdisabled}}disabled{{/if}} {{#if isprogress}}disabled aria-live="polite"{{/if}} {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{#if progressLabel}}data-progress-label="{{progressLabel}}"{{/if}} {{{dataatts}}} 
-    >
+  <button class="btn {{variantClass}} {{#if isprogress}}btn-progress{{/if}}" onclick="{{{onclick}}}" tabindex="0" {{#if isdisabled}}disabled{{/if}} {{#if isprogress}}disabled aria-live="polite"{{/if}} {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{#if progressLabel}}data-progress-label="{{progressLabel}}"{{/if}} {{{dataatts}}} >
     
     {{#if isprogress}}
       {{~>progressSpinner~}}
@@ -1123,7 +1119,7 @@
   </section>
   {{/each }}
 </div>`;var E=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.1","branch":"QGDS-486-safari-checkinput-focus-state","tag":"","commit":"e6e6b8478ec56bc5b005caee47397871e70b6387","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.1","branch":"QGDS-486-safari-checkinput-focus-state","tag":"","commit":"633682126c7ae26021986ad59986279bf042ada4","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -2115,7 +2111,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
 {{/if}}{{/contains}}
 
 <select id={{id}} class="form-select {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}} {{customClass}}" 
-    {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} tabindex="{{isdefined tabindex 0}}" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} >
+    {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} tabindex="0" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} >
     <option selected value="">{{placeholder}}</option>
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
@@ -2356,7 +2352,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
 
 <!-- First text input field, described by the hint text above -->
 <textarea id="{{id}}" class="form-control {{customClass}} {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
-    placeholder="{{placeholder}}" rows="{{rows}}" tabindex="{{isdefined tabindex 0}}" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}
+    placeholder="{{placeholder}}" rows="{{rows}}" tabindex="0" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}
     {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}}>{{value}}</textarea>`;var g1=`<!-- QGDS Component: Textbox -->
 
 <label class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}"
@@ -2386,7 +2382,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
 {{/if}}{{/contains}}
 
 <input id={{id}} {{#if value}}value="{{value}}"{{/if}}  class="form-control {{customClass}} {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
-    type="text" placeholder="{{placeholder}}" tabindex="{{isdefined tabindex 0}}" {{#if isDisabled}}disabled{{/if}} {{#if
+    type="text" placeholder="{{placeholder}}" tabindex="0" {{#if isDisabled}}disabled{{/if}} {{#if
     isRequired}}required{{/if}} {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} />`;var v1="<!-- QGDS Partial: typography -->";var h1=`<!-- QGDS Component: Video -->
 
 {{#if analyticsTrackingCode}}
