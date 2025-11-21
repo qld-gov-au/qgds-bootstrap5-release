@@ -145,7 +145,12 @@
 
 {{#unless islink}}
 
-  <button class="btn {{variantClass}} {{#if isprogress}}btn-progress{{/if}}" onclick="{{{onclick}}}" {{#if isdisabled}}disabled{{/if}} {{#if isprogress}}disabled aria-live="polite"{{/if}} {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{{dataatts}}} {{#if progressLabel}}data-progress-label="{{progressLabel}}"{{/if}}>
+  <button class="btn {{variantClass}} {{#if isprogress}}btn-progress{{/if}}" 
+    onclick="{{{onclick}}}" 
+    tabindex="{{isdefined tabindex 0}}" 
+    {{#if isdisabled}}disabled{{/if}} {{#if isprogress}}disabled aria-live="polite"{{/if}} {{#if arialabel}}aria-label="{{arialabel}}"{{/if}} {{#if progressLabel}}data-progress-label="{{progressLabel}}"{{/if}} {{{dataatts}}} 
+    >
+    
     {{#if isprogress}}
       {{~>progressSpinner~}}
     {{else}}
@@ -715,7 +720,7 @@
                 inputmode="numeric" maxlength="2" minlength="2" min="1" max="31" pattern="^(0?[1-9]|[12][0-9]|3[01])$"
                 class="form-control dayinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} 
                 {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}" ref="day"
-                aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}>
+                aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} tabindex="{{isdefined day-tabindex 0}}" >
         </div>
     </div>
     <!-- month group -->
@@ -726,7 +731,7 @@
                 type="text" inputmode="numeric" maxlength="2" minlength="2" min="1" max="12" pattern="^(0?[1-9]|[1][0-2])$"
                 class="form-control monthinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} 
                 {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}" ref="month"
-                aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}>
+                aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} tabindex="{{isdefined month-tabindex 0}}">
         </div>
     </div>
     <!-- year group -->
@@ -737,7 +742,7 @@
                 placeholder="{{year-placeholder}}" type="text" inputmode="numeric" maxlength="4" minlength="4" pattern="[0-9]*" 
                 {{#if yearMin}}min="{{yearMin}}"{{/if}} {{#if yearMax}}max="{{yearMax}}"{{/if}}
                 class="form-control yearinput {{customClass}} {{#if isFilled}}form-style-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
-                ref="year" aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}>
+                ref="year" aria-invalid="false" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} tabindex="{{isdefined year-tabindex 0}}">
         </div>
     </div>
 </div>
@@ -1054,7 +1059,7 @@
   
   {{#each listitems}}
   <div class="form-check {{#if ../isValid}}is-valid{{else}}{{#ifCond ../isValid "===" false}}is-invalid{{/ifCond}}{{/if}}">
-    <input class="form-check-input" type="{{#if ../type}}{{../type}}{{else}}{{#if type}}{{type}}{{else}}checkbox{{/if}}{{/if}}" name="{{name}}" id="{{id}}" value="{{value}}" {{#if isDisabled}}disabled{{/if}} {{#if isChecked}}checked{{/if}} {{#if isRequired}}required{{/if}} >
+    <input class="form-check-input" type="{{#if ../type}}{{../type}}{{else}}{{#if type}}{{type}}{{else}}checkbox{{/if}}{{/if}}" name="{{name}}" id="{{id}}" value="{{value}}" tabindex="{{isdefined ../tabindex 0}}" {{#if isDisabled}}disabled{{/if}} {{#if isChecked}}checked{{/if}} {{#if isRequired}}required{{/if}} >
     <label class="form-check-label" for="{{id}}">
       {{label}}
     </label>
@@ -1118,7 +1123,7 @@
   </section>
   {{/each }}
 </div>`;var E=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.1","branch":"HEAD","tag":"v2.1.1","commit":"e9b014307ee0b957ab946f973a0bd735811415db","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.1","branch":"QGDS-486-safari-checkinput-focus-state","tag":"","commit":"e6e6b8478ec56bc5b005caee47397871e70b6387","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -2110,7 +2115,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
 {{/if}}{{/contains}}
 
 <select id={{id}} class="form-select {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}} {{customClass}}" 
-    {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} >
+    {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} tabindex="{{isdefined tabindex 0}}" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} >
     <option selected value="">{{placeholder}}</option>
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
@@ -2351,7 +2356,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
 
 <!-- First text input field, described by the hint text above -->
 <textarea id="{{id}}" class="form-control {{customClass}} {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
-    placeholder="{{placeholder}}" rows="{{rows}}" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}
+    placeholder="{{placeholder}}" rows="{{rows}}" tabindex="{{isdefined tabindex 0}}" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}
     {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}}>{{value}}</textarea>`;var g1=`<!-- QGDS Component: Textbox -->
 
 <label class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}"
@@ -2381,7 +2386,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
 {{/if}}{{/contains}}
 
 <input id={{id}} {{#if value}}value="{{value}}"{{/if}}  class="form-control {{customClass}} {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
-    type="text" placeholder="{{placeholder}}" {{#if isDisabled}}disabled{{/if}} {{#if
+    type="text" placeholder="{{placeholder}}" tabindex="{{isdefined tabindex 0}}" {{#if isDisabled}}disabled{{/if}} {{#if
     isRequired}}required{{/if}} {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} />`;var v1="<!-- QGDS Partial: typography -->";var h1=`<!-- QGDS Component: Video -->
 
 {{#if analyticsTrackingCode}}
