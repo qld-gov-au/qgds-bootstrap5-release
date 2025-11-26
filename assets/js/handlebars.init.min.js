@@ -1119,7 +1119,7 @@
   </section>
   {{/each }}
 </div>`;var E=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.2","branch":"QGDS-388-mega-menu-focus-trap-incorrect-order","tag":"","commit":"c54cbdf5b16554ef1df5f001bfddf12f4a7375d3","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.2","branch":"QGDS-388-mega-menu-focus-trap-incorrect-order","tag":"","commit":"1e4a88d79f00f7db7de384ca133d6e7239c8bf20","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1849,7 +1849,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                                     {{text}}
                                 {{/if}}
                                 </a>
-                                <button class="nav-link dropdown-toggle"{{#if currentPage}} aria-current="page"{{/if}}  data-bs-toggle="dropdown" aria-expanded="false" aria-selected="false" aria-label="Toggle navigation">                                
+                                <button class="nav-link dropdown-toggle"{{#if currentPage}} aria-current="page"{{/if}}  data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false" aria-selected="false" aria-label="Toggle navigation">                                
                                     <span class="visually-hidden">Expand</span>
                                 </button>
                                 <ul class="dropdown-menu">
