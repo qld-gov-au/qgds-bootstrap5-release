@@ -1119,7 +1119,7 @@
   </section>
   {{/each }}
 </div>`;var E=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.3","branch":"QGDS-520-Fix-global-alert-padding-and-margins","tag":"","commit":"0dd814f3db5b268ab1ee178b4de29dc3b7b07fd6","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.3","branch":"QGDS-520-Fix-global-alert-padding-and-margins","tag":"","commit":"2a4a6cbbd427496a8c8d3cf96c3d8f6f8bdc8940","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1849,7 +1849,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                                     {{text}}
                                 {{/if}}
                                 </a>
-                                <button class="nav-link dropdown-toggle"{{#if currentPage}} aria-current="page"{{/if}}  data-bs-toggle="dropdown" aria-expanded="false" aria-selected="false" aria-label="Toggle navigation">                                
+                                <button class="nav-link dropdown-toggle"{{#if currentPage}} aria-current="page"{{/if}}  data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false" aria-selected="false" aria-label="Toggle navigation">                                
                                     <span class="visually-hidden">Expand</span>
                                 </button>
                                 <ul class="dropdown-menu">
