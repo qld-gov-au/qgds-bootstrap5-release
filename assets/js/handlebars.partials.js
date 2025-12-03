@@ -1080,7 +1080,7 @@
 
 <div class="global-alert-include">
   {{#each alertItems}}
-  <section role="region" class="global-alert alert container-full d-none {{variant}}" data-variant="{{variant}}"
+  <section role="region" class="global-alert d-none {{variant}}" data-variant="{{variant}}"
     {{#if ariaLabel}} aria-label="{{ ariaLabel }}"
     {{~else ifCond variant "==" "global-alert-critical"}} aria-label="Critical alert"
     {{~else ifCond variant "==" "global-alert-info"}} aria-label="Informational alert"
@@ -1089,7 +1089,7 @@
     {{~/if}}
     {{#if id}} data-id="{{id}}" {{/if}}{{#if dismissedExpiryDays}}
     data-expiry-days="{{dismissedExpiryDays}}" {{/if}}>
-    <div class="qld-global-alert-main">
+    <div class="qld-global-alert-main container">
       <div class="global-alert-icon">
         {{#ifCond variant '==' 'global-alert-critical'}}
         <span class="qld-icon qld-icon-sm qld-icon-alert-danger" aria-hidden="true"></span>
@@ -1119,7 +1119,7 @@
   </section>
   {{/each }}
 </div>`;var E=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.3","branch":"develop","tag":"","commit":"66a2009bd713f94ab8c6e15332247a543bb42c87","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.3","branch":"develop","tag":"","commit":"c9b181d855909156cb814183c6936e73e81d80d6","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
