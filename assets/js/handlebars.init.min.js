@@ -538,6 +538,10 @@
   {{> banner banner}}
   {{/if}}
 
+  {{#if quickexit.enableQuickExit }}
+  {{> quickexit quickexit}}
+  {{/if }}
+
   <div class="container mt-40 mt-lg-64">
 
     {{#if breadcrumbs}}
@@ -1119,7 +1123,7 @@
   </section>
   {{/each }}
 </div>`;var E=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.4","branch":"HEAD","tag":"v2.1.4","commit":"119a2bb84ace0878da734ff1026c633117afc4bc","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.4","branch":"QGDS-524-fix-quick-exit-layout","tag":"","commit":"76070c96bda52f670e8a3d2b471a99eb624ce93f","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -2000,7 +2004,7 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
     </div>
 </section>`;var s1=`<!-- QGDS Component: Loading Quick exit -->
 
-<div class="qld-quick-exit"><!-- dark -->
+<div class="qld-quick-exit">
   <div class="container">
     <div class="qld-quick-exit-inner container-fluid {{#if hasIconInfo}} has-icon-info{{/if}}{{#if hasTooltip}} has-tooltip{{/if}}">
       <div class="qg-quick-exit__tips">
