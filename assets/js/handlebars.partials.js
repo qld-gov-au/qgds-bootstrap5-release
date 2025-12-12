@@ -1119,7 +1119,7 @@
   </section>
   {{/each }}
 </div>`;var E=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.4","branch":"develop","tag":"v2.1.4","commit":"119a2bb84ace0878da734ff1026c633117afc4bc","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.4","branch":"develop","tag":"","commit":"fb6c1a41e6c9a4a72607d570b46662fdc80bd7eb","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
