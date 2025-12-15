@@ -1119,7 +1119,7 @@
   </section>
   {{/each }}
 </div>`;var E=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.4","branch":"develop","tag":"","commit":"fb6c1a41e6c9a4a72607d570b46662fdc80bd7eb","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.4","branch":"develop","tag":"","commit":"dc9bc737297223c735e189df8cec24bbaa90d539","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1450,19 +1450,19 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
     {{{ content }}}
 </div>`;var j=`<!-- QGDS Partial: inpage-nav -->
 
-<div class="qld-inpage-nav">
+<nav class="qld-inpage-nav" aria-label="In page navigation">
 
-    <h2 class="nav-title">{{navtitle}}</h2>
+  <h2 class="nav-title">{{navtitle}}</h2>
 
-    <ul class="nav">
-        {{#each navitems}}
-        <li class="nav-item">
-            <a class="nav-link" href="#{{linkid}}">{{linktext}}</a>
-        </li>
-        {{/each}}
-    </ul>
+  <ul class="nav">
+    {{#each navitems}}
+      <li class="nav-item">
+        <a class="nav-link" href="#{{linkid}}">{{linktext}}</a>
+      </li>
+    {{/each}}
+  </ul>
 
-</div>`;var W=`{{!-- Link icon partial --}}
+</nav>`;var W=`{{!-- Link icon partial --}}
 {{#*inline "linkIcon"~}}
 <span class="qld-icon qld-icon-md {{iconClass}} {{iconPosition}}" aria-hidden="true"></span>
 {{~/inline}} 
