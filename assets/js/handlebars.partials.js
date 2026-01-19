@@ -749,7 +749,6 @@
     {{~#if target}} target="{{target}}"{{/if~}}
     {{~#if arialabel}} aria-label="{{arialabel}}" {{/if~}}>
   {{{label}}}
-  {{!-- <span class="icon" aria-hidden="true"></span> --}}
   <span class="qld-icon qld-icon-md qld-icon-arrow-{{class}}" aria-hidden="true"></span>
 </a>`;var A=`<div class="col-12 col-md-6 col-lg-12">
         <!-- <h3 class="footer-heading">{{#if feedbackForm.title}}{{feedbackForm.title}}{{else}}Website feedback{{/if}}</h3> -->
@@ -1119,7 +1118,7 @@
   </section>
   {{/each }}
 </div>`;var E=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.2","branch":"QGDS-372-storybook-table-of-contents","tag":"","commit":"e39c3c19610be017cbb63565f07c92f6ea7f2083","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.2","branch":"QGDS-372-storybook-table-of-contents","tag":"","commit":"0415eed21dd9f864fc483d7b27c4162840d8533f","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1902,14 +1901,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
             </div>
         </div>
         <div id="overlay"></div>
-</nav>`;var t1=`{{!
-Component Name: QGDS QOL Pagination
-Component Version: 1.0
-Framework: Bootstrap 5.3
-Reference: https://getbootstrap.com/docs/5.0/components/pagination/
-}}
-
-<nav aria-label="{{ arialabel }}">
+</nav>`;var t1=`<nav aria-label="{{ arialabel }}">
 
     <ul class="pagination">
 
