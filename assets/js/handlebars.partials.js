@@ -1119,7 +1119,7 @@
   </section>
   {{/each }}
 </div>`;var E=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.8","branch":"HEAD","tag":"v2.1.8","commit":"725614dd2b3f362a82c568aaf0dd15676b17b6af","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.8","branch":"QGDS-565-card-image-for-multi-action-cards","tag":"","commit":"0f5f377c6faabb77befb2f812e651246b8985a63","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
