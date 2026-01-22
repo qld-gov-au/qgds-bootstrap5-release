@@ -1119,7 +1119,7 @@
   </section>
   {{/each }}
 </div>`;var E=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.8","branch":"develop","tag":"","commit":"b508e5b0de64acf44c45b9dee6403efe25cc5f9b","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.8","branch":"develop","tag":"","commit":"e5a2dc83947a288fe1f49ddc5cc4b4c1fd42dd83","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1855,7 +1855,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                                 <ul class="dropdown-menu">
                                     {{#unless dropdownOptions.hasNoLink}}
                                         <li>
-                                            <a class="dropdown-item parent-link" role="button"{{#if currentPage}} aria-current="page"{{/if}}{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{#if dropdownOptions.alternativeText}}{{dropdownOptions.alternativeText}}{{else}}{{text}}{{/if}}</a>
+                                            <a class="dropdown-item parent-link" href="{{url}}" {{#if currentPage}} aria-current="page"{{/if}}{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{#if dropdownOptions.alternativeText}}{{dropdownOptions.alternativeText}}{{else}}{{text}}{{/if}}</a>
                                             {{#if dropdownOptions.description}}
                                                 <p>{{dropdownOptions.description}}</p>
                                             {{/if}}
@@ -1867,7 +1867,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                                                 {{{htmlContent}}}
                                             {{/if}}
                                             {{#unless isHTML}}
-                                                <a class="dropdown-item" href="{{url}}"{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{text}}</a>
+                                                <a class="dropdown-item" href="{{url}}"{{#if target}} {{#if currentPage}} aria-current="page"{{/if}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{text}}</a>
                                                 {{#if description}}
                                                     <p>{{description}}</p>
                                                 {{/if}}
@@ -1876,7 +1876,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                                     {{/each}}
                                     {{#if dropdownOptions.viewAllHref}}
                                         <li>
-                                            <a class="dropdown-item view-all" href="{{dropdownOptions.viewAllHref}}">View all</a>
+                                            <a class="dropdown-item view-all" {{#if currentPage}} aria-current="page"{{/if}} href="{{dropdownOptions.viewAllHref}}">View all</a>
                                         </li>
                                     {{/if}}
                                 </ul>
