@@ -1119,7 +1119,7 @@
   </section>
   {{/each }}
 </div>`;var E=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.8","branch":"HEAD","tag":"v2.1.8","commit":"725614dd2b3f362a82c568aaf0dd15676b17b6af","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.9","branch":"HEAD","tag":"v2.1.9","commit":"228f45b9dea4dd6674147c93a086038ac167746f","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1855,7 +1855,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                                 <ul class="dropdown-menu">
                                     {{#unless dropdownOptions.hasNoLink}}
                                         <li>
-                                            <a class="dropdown-item parent-link" role="button"{{#if currentPage}} aria-current="page"{{/if}}{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{#if dropdownOptions.alternativeText}}{{dropdownOptions.alternativeText}}{{else}}{{text}}{{/if}}</a>
+                                            <a class="dropdown-item parent-link" href="{{url}}" {{#if currentPage}} aria-current="page"{{/if}}{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{#if dropdownOptions.alternativeText}}{{dropdownOptions.alternativeText}}{{else}}{{text}}{{/if}}</a>
                                             {{#if dropdownOptions.description}}
                                                 <p>{{dropdownOptions.description}}</p>
                                             {{/if}}
@@ -1867,7 +1867,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                                                 {{{htmlContent}}}
                                             {{/if}}
                                             {{#unless isHTML}}
-                                                <a class="dropdown-item" href="{{url}}"{{#if target}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{text}}</a>
+                                                <a class="dropdown-item" href="{{url}}"{{#if target}} {{#if currentPage}} aria-current="page"{{/if}} target="{{target}}"{{/if}}{{#ifCond target '==' '_blank'}} rel="noopener noreferrer"{{/ifCond}}>{{text}}</a>
                                                 {{#if description}}
                                                     <p>{{description}}</p>
                                                 {{/if}}
@@ -1876,7 +1876,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                                     {{/each}}
                                     {{#if dropdownOptions.viewAllHref}}
                                         <li>
-                                            <a class="dropdown-item view-all" href="{{dropdownOptions.viewAllHref}}">View all</a>
+                                            <a class="dropdown-item view-all" {{#if currentPage}} aria-current="page"{{/if}} href="{{dropdownOptions.viewAllHref}}">View all</a>
                                         </li>
                                     {{/if}}
                                 </ul>
@@ -2430,5 +2430,5 @@ Reference: https://getbootstrap.com/docs/5.0/components/pagination/
     {{! Render the transcript content in an accordion template }}
 </section>
 `;function d(e){e.registerPartial("accordion",f),e.registerPartial("backToTop",p),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",v),e.registerPartial("button",h),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",q),e.registerPartial("contentWrapper",Z),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",S),e.registerPartial("directionLinks",T),e.registerPartial("feedbackForm",A),e.registerPartial("followLinks",D),e.registerPartial("footer",P),e.registerPartial("formcheck",O),e.registerPartial("fullPage",R),e.registerPartial("globalAlert",I),e.registerPartial("head",E),e.registerPartial("header",_),e.registerPartial("headerBrand",N),e.registerPartial("homePage",F),e.registerPartial("icon",G),e.registerPartial("image",Q),e.registerPartial("inpageAlert",B),e.registerPartial("inpagenav",j),e.registerPartial("link",W),e.registerPartial("linkColumns",J),e.registerPartial("logo",Y),e.registerPartial("logoCOADeliveringForQLD",U),e.registerPartial("logoCOALandscape",$),e.registerPartial("logoCOALandscape2Lines",z),e.registerPartial("mainContainerWrapper",X),e.registerPartial("metaDcTerms",K),e.registerPartial("metaOpenGraph",e1),e.registerPartial("modal",i1),e.registerPartial("navbar",a1),e.registerPartial("pagination",t1),e.registerPartial("promotionalPanel",C1),e.registerPartial("quickexit",s1),e.registerPartial("searchInput",l1),e.registerPartial("select",n1),e.registerPartial("sidenav",o1),e.registerPartial("sidenavWrapper",r1),e.registerPartial("skipLinks",d1),e.registerPartial("spinner",c1),e.registerPartial("table",f1),e.registerPartial("tabs",p1),e.registerPartial("tag",u1),e.registerPartial("textarea",m1),e.registerPartial("textbox",g1),e.registerPartial("typography",v1),e.registerPartial("video",h1)}typeof Handlebars!="undefined"&&d(Handlebars);var b1=!1;function L1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(b1?console.log("HandleBars Helpers And Partials already loaded, loading again"):b1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&L1(Handlebars);})();
-//# @qld-gov-au/qgds-bootstrap5 - v2.1.8
+//# @qld-gov-au/qgds-bootstrap5 - v2.1.9
 //# sourceMappingURL=handlebars.partials.js.map
