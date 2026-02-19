@@ -1,49 +1,43 @@
 <!-- QGDS Component: Table -->
 
-<div class="table-responsive qld-table {{customClass}}">
+<div class="table-responsive qld-table">
 
-    <table class="table {{variantClass}}">
+    <table class="table {{classes}}">
 
-        {{#if caption}}
+        {{#data.caption}}
         <caption class="caption">
-            {{caption}}
-            {{#if subcaption}}
+            {{data.caption}}
             <span class="sub-caption">{{{ subcaption }}}</span>
-            {{/if}}
         </caption>
-        {{/if}}
+        {{/data.caption}}
 
-        {{#if headers}}
         <thead>
             <tr>
-                {{#each headers}}
-                <th scope="col">{{this}}</th>
-                {{/each}}
+                {{#headers}}
+                <th scope="col">{{.}}</th>
+                {{/headers}}
             </tr>
         </thead>
-        {{/if}}
 
         <tbody>
             {{#rows}}
             <tr class="">
-                {{#each cells}}
-                <td>{{this}}</td>
-                {{/each}}
+                {{#cells}}
+                <td>{{.}}</td>
+                {{/cells}}
             </tr>
             {{/rows}}
         </tbody>
 
-        {{#if footer}}
         <tfoot>
-            {{#each footer}}
+            {{#footer}}
             <tr class="">
-                {{#each cells}}
-                <td>{{this}}</td>
-                {{/each}}
+                {{#cells}}
+                <td>{{.}}</td>
+                {{/cells}}
             </tr>
-            {{/each}}
-        </tfoot>
-        {{/if}}
+            {{/footer}}
+            </tbody>
 
     </table>
 </div>
