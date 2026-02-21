@@ -743,7 +743,7 @@
     </div>
 </div>
 `;var T=`<!-- QGDS Component: Details -->
-<details class="qld-details{{#if size}} qld-details-{{size}}{{/if}}{{#if open}} open{{/if}}">
+<details class="qld-details{{#if size}} qld-details-{{size}}{{/if}}"{{#if open}} open{{/if}}>
 	<summary class="qld-details-summary">
 		{{summaryText}}
 	</summary>
@@ -1127,7 +1127,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.12","branch":"QGDS-720-details-bootstrap","tag":"","commit":"e73829d2b7b9f9fab0b64829e2c9c762b12f90bc","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.1.12","branch":"QGDS-720-details-bootstrap","tag":"","commit":"e9006361bdc42598c83955aa847178eb25d6eaa9","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
