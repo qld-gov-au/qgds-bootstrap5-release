@@ -1128,7 +1128,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.2.3","branch":"QGDS-1144-consolidated-QA-fix","tag":"","commit":"f7f1d112038732008d91104796a0131033d7f636","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.2.3","branch":"QGDS-1144-consolidated-QA-fix","tag":"","commit":"af46e54032af959f7300c4b19c43e55dca8c4bff","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1959,7 +1959,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
         {{/ifCond}}>
         <div class="image-panel">
             {{#ifCond type '!=' 'promo'}}
-            <img class="promo-panel-image" src="{{promoImage}}" alt="{{isdefined promoImageDescription "Promotional image"}}">
+            <img class="promo-panel-image" src="{{promoImage}}" alt="{{promoImageDescription}}">
             {{else}}
                 <div class="promo-panel-image"></div>
             {{/ifCond}}
