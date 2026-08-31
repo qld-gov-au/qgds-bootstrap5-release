@@ -14,7 +14,7 @@
                 </button>
             </{{isdefined ../headingTag 'h2'}}>
 
-            <div id="collapse-{{id}}" class="accordion-collapse collapse {{#if expanded}}show{{/if}}" aria-labelledby="heading-{{id}}" role="region">
+            <div id="collapse-{{id}}" class="accordion-collapse collapse {{#if expanded}}show{{/if}}" aria-labelledby="heading-{{id}}" role="region"{{#unless expanded}} hidden="until-found"{{/unless}}>
                 <div class="accordion-body">
                     {{{content}}}
                 </div>
@@ -684,7 +684,7 @@
         <li><a class="nav-link" href="{{ link }}" {{#if target }} target="_blank" {{/if}}>{{ label }}</a></li>
         {{/each }}
     </ul>
-{{/if}}`;var T=`<!-- QGDS Component: Date input -->
+{{/if}}`;var S=`<!-- QGDS Component: Date input -->
 
 <label id="{{id}}-label" class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}" for="{{id}}">
     {{label-text}}
@@ -742,7 +742,7 @@
         </div>
     </div>
 </div>
-`;var S=`<!-- QGDS Component: Details -->
+`;var T=`<!-- QGDS Component: Details -->
 <details class="qld-details{{#if size}} qld-details-{{size}}{{/if}}"{{#if open}} open{{/if}}>
 	<summary class="qld-details-summary">
 		<span class="qld-details-summary-text">{{summaryText}}</span>
@@ -1070,7 +1070,7 @@
     </label>
   </div>
   {{/each}}
-  `;var I=`<!DOCTYPE html>
+  `;var E=`<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -1085,7 +1085,7 @@
   {{> @partial-block }}
 {{/mainContainerWrapper}}
 </body>
-</html>`;var E=`<!-- QGDS Component: Global Alert -->
+</html>`;var I=`<!-- QGDS Component: Global Alert -->
 
 <div class="global-alert-include">
   {{#each alertItems}}
@@ -1128,7 +1128,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.2.4","branch":"main","tag":"","commit":"7c97a9d4cd377b689f479f0b9130602d577fa972","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.2.3","branch":"QGDS-1190-sub-brand-logo-color","tag":"","commit":"3acf45d1341456b4d93539c1ba8fead52a4139be","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1141,10 +1141,11 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 `;var N=`<header class="qld-header " role="banner">
     <div class="qld-header-pre-header {{#ifCond preHeader.palette "===" "dark"}}dark{{else}}{{#ifCond
         preHeader.palette "===" "default" }}default{{else}}{{#ifCond preHeader.palette "===" "dark-alt"
-        }}dark-alt{{else}}default{{/ifCond}}{{/ifCond}}{{/ifCond}}">
+        }}dark-alt{{else}}default{{/ifCond}}{{/ifCond}}{{/ifCond}}
+        ">
         <div class="container">
             <div class="d-flex justify-content-between">
-
+                <!-- Logo in PRE header -->
                 <a class="qld-header-link align-self-center"
                     href="{{#if preHeader.globalLink.url}}{{preHeader.globalLink.url}}{{else}}https://qld.gov.au{{/if}}"
                     aria-label="{{#if preHeader.globalLink.text}}{{preHeader.globalLink.text}}{{else}}Queensland Government{{/if}}">
@@ -1229,9 +1230,11 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 
     <div class="qld-header-main {{#ifCond mainContent.palette "===" "dark"}}dark{{else ifCond
         mainContent.palette "===" "default" }}default{{else ifCond mainContent.palette "===" "dark-alt"
-        }}dark-alt{{else}}default{{/ifCond}}">
+        }}dark-alt{{else}}default{{/ifCond}} {{#if isSubBrand}}is-sub-brand{{/if}} {{#if isCoBrand}}is-co-brand{{/if}} {{#if isEndorsedBrand}}is-endorsed-brand{{/if}} {{#if isStandAloneBrand}}is-stand-alone-brand{{/if}}
+">
         <div class="container">
             <div class="row align-items-center">
+                <!-- Logo in Main header -->
                 <div class="col">
                     {{#ifAny isMasterBrand isSubBrand isCoBrand}}
                     {{>headerBrand
@@ -1256,10 +1259,12 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                 {{#if assets.siteSearch.value}}
                 <div class="col-lg-4">
                     <div id="qld-header-search" class="qld-header-site-search is-closed">
-                        <form class="site-search" role="search" {{#if assets.siteSearch.formAction.url}}
-                            action="{{assets.siteSearch.formAction.url}}" {{else}}
-                            action="https://www.qld.gov.au/search" {{/if}}>
-                            {{{ searchInput }}}
+                        <form 
+                        class="{{isdefined assets.siteSearch.customClass "site-search"}}" 
+                        action="{{isdefined assets.siteSearch.formAction.url "https://www.qld.gov.au/search"}}"
+                        role="search" 
+                        >
+                          {{{ searchInput }}}
                         </form>
                     </div>
                 </div>
@@ -1959,7 +1964,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
         {{/ifCond}}>
         <div class="image-panel">
             {{#ifCond type '!=' 'promo'}}
-            <img class="promo-panel-image" src="{{promoImage}}" alt="{{isdefined promoImageDescription "Promotional image"}}">
+            <img class="promo-panel-image" src="{{promoImage}}" alt="{{promoImageDescription}}">
             {{else}}
                 <div class="promo-panel-image"></div>
             {{/ifCond}}
@@ -2432,6 +2437,6 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
     </div>
     {{! Render the transcript content in an accordion template }}
 </section>
-`;function d(e){e.registerPartial("accordion",f),e.registerPartial("backToTop",p),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",v),e.registerPartial("button",h),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",q),e.registerPartial("contentWrapper",Z),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",T),e.registerPartial("details",S),e.registerPartial("directionLinks",A),e.registerPartial("feedbackForm",D),e.registerPartial("followLinks",P),e.registerPartial("footer",O),e.registerPartial("formcheck",R),e.registerPartial("fullPage",I),e.registerPartial("globalAlert",E),e.registerPartial("head",_),e.registerPartial("header",N),e.registerPartial("headerBrand",G),e.registerPartial("homePage",F),e.registerPartial("icon",Q),e.registerPartial("image",B),e.registerPartial("inpageAlert",j),e.registerPartial("inpagenav",W),e.registerPartial("link",J),e.registerPartial("linkColumns",Y),e.registerPartial("logo",U),e.registerPartial("logoCOADeliveringForQLD",$),e.registerPartial("logoCOALandscape",z),e.registerPartial("logoCOALandscape2Lines",X),e.registerPartial("mainContainerWrapper",K),e.registerPartial("metaDcTerms",e1),e.registerPartial("metaOpenGraph",i1),e.registerPartial("modal",a1),e.registerPartial("navbar",t1),e.registerPartial("pagination",C1),e.registerPartial("promotionalPanel",s1),e.registerPartial("quickexit",l1),e.registerPartial("searchInput",n1),e.registerPartial("select",o1),e.registerPartial("sidenav",r1),e.registerPartial("sidenavWrapper",d1),e.registerPartial("skipLinks",c1),e.registerPartial("spinner",f1),e.registerPartial("table",p1),e.registerPartial("tabs",u1),e.registerPartial("tag",m1),e.registerPartial("textarea",g1),e.registerPartial("textbox",v1),e.registerPartial("typography",h1),e.registerPartial("video",b1)}typeof Handlebars!="undefined"&&d(Handlebars);var L1=!1;function H1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(L1?console.log("HandleBars Helpers And Partials already loaded, loading again"):L1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&H1(Handlebars);})();
-//# @qld-gov-au/qgds-bootstrap5 - v2.2.4
+`;function d(e){e.registerPartial("accordion",f),e.registerPartial("backToTop",p),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",v),e.registerPartial("button",h),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",q),e.registerPartial("contentWrapper",Z),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",S),e.registerPartial("details",T),e.registerPartial("directionLinks",A),e.registerPartial("feedbackForm",D),e.registerPartial("followLinks",P),e.registerPartial("footer",O),e.registerPartial("formcheck",R),e.registerPartial("fullPage",E),e.registerPartial("globalAlert",I),e.registerPartial("head",_),e.registerPartial("header",N),e.registerPartial("headerBrand",G),e.registerPartial("homePage",F),e.registerPartial("icon",Q),e.registerPartial("image",B),e.registerPartial("inpageAlert",j),e.registerPartial("inpagenav",W),e.registerPartial("link",J),e.registerPartial("linkColumns",Y),e.registerPartial("logo",U),e.registerPartial("logoCOADeliveringForQLD",$),e.registerPartial("logoCOALandscape",z),e.registerPartial("logoCOALandscape2Lines",X),e.registerPartial("mainContainerWrapper",K),e.registerPartial("metaDcTerms",e1),e.registerPartial("metaOpenGraph",i1),e.registerPartial("modal",a1),e.registerPartial("navbar",t1),e.registerPartial("pagination",C1),e.registerPartial("promotionalPanel",s1),e.registerPartial("quickexit",l1),e.registerPartial("searchInput",n1),e.registerPartial("select",o1),e.registerPartial("sidenav",r1),e.registerPartial("sidenavWrapper",d1),e.registerPartial("skipLinks",c1),e.registerPartial("spinner",f1),e.registerPartial("table",p1),e.registerPartial("tabs",u1),e.registerPartial("tag",m1),e.registerPartial("textarea",g1),e.registerPartial("textbox",v1),e.registerPartial("typography",h1),e.registerPartial("video",b1)}typeof Handlebars!="undefined"&&d(Handlebars);var L1=!1;function H1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(L1?console.log("HandleBars Helpers And Partials already loaded, loading again"):L1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&H1(Handlebars);})();
+//# @qld-gov-au/qgds-bootstrap5 - v2.2.3
 //# sourceMappingURL=handlebars.partials.js.map
