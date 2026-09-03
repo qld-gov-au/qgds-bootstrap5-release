@@ -194,7 +194,7 @@
     {{/unless}}
     </a>
 {{/unless}}`;var b=`<!-- QGDS Component: Callout -->
-<div role="region" class="callout"
+<div role="note" class="callout"
     {{#ifAll id title}} aria-labelledby="{{id}}"
     {{else}}
     {{#if ariaLabel}} aria-label="{{ariaLabel}}"{{/if}}
@@ -1127,7 +1127,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.2.3","branch":"develop","tag":"","commit":"2a1d4cc359234cc98059d407cb62939ac5bfea21","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.2.3","branch":"develop","tag":"","commit":"23fd3a133195904e01d643dc9a15eb10d4d2da6d","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
