@@ -1131,7 +1131,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.2.3","branch":"QGDS-1176-breadcrumbs-hidden-focus-esc-key","tag":"","commit":"47e67642ee3dad27b1d0f8c11160930fa0e11caf","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.2.3","branch":"QGDS-1176-breadcrumbs-hidden-focus-esc-key","tag":"","commit":"502ccb6cf91788d8d0a0c642de8917ea8b8c35b3","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
