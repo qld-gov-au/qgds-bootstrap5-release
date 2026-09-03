@@ -687,7 +687,7 @@
         <li><a class="nav-link" href="{{ link }}" {{#if target }} target="_blank" {{/if}}>{{ label }}</a></li>
         {{/each }}
     </ul>
-{{/if}}`;var T=`<!-- QGDS Component: Date input -->
+{{/if}}`;var S=`<!-- QGDS Component: Date input -->
 
 <label id="{{id}}-label" class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}" for="{{id}}">
     {{label-text}}
@@ -745,7 +745,7 @@
         </div>
     </div>
 </div>
-`;var S=`<!-- QGDS Component: Details -->
+`;var T=`<!-- QGDS Component: Details -->
 <details class="qld-details{{#if size}} qld-details-{{size}}{{/if}}"{{#if open}} open{{/if}}>
 	<summary class="qld-details-summary">
 		<span class="qld-details-summary-text">{{summaryText}}</span>
@@ -1131,7 +1131,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.2.3","branch":"QGDS-1174-callout-add-region-role","tag":"","commit":"e2f23fdbd3439984d1df58d50ceb093152aabf3b","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.2.3","branch":"QGDS-1174-callout-add-region-role","tag":"","commit":"3441c9878653760ec8faeb2c6a55d704ae419f26","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1141,13 +1141,19 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 
 <script type="text/javascript" async src="{{#if cdn }}{{#ifCond cdn '==' 'PROD'}}https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'STAGING'}}https://staging-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'BETA'}}https://beta-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'TEST'}}https://test-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'DEV'}}https://dev-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{cdn}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{else}}missing{{/if}}/assets/js/bootstrap.min.js"><\/script>
 <script type="text/javascript" async src="{{#if cdn }}{{#ifCond cdn '==' 'PROD'}}https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'STAGING'}}https://staging-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'BETA'}}https://beta-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'TEST'}}https://test-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'DEV'}}https://dev-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{cdn}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{else}}missing{{/if}}/assets/js/qld.bootstrap.min.js"><\/script>
-`;var N=`<header class="qld-header " role="banner">
+`;var N=`<header class="qld-header
+  {{#if isSubBrand}}is-sub-brand{{/if}} 
+  {{#if isCoBrand}}is-co-brand{{/if}} 
+  {{#if isEndorsedBrand}}is-endorsed-brand{{/if}} 
+  {{#if isStandAloneBrand}}is-stand-alone-brand{{/if}}
+  ">
+  
     <div class="qld-header-pre-header {{#ifCond preHeader.palette "===" "dark"}}dark{{else}}{{#ifCond
         preHeader.palette "===" "default" }}default{{else}}{{#ifCond preHeader.palette "===" "dark-alt"
         }}dark-alt{{else}}default{{/ifCond}}{{/ifCond}}{{/ifCond}}">
         <div class="container">
             <div class="d-flex justify-content-between">
-
+                <!-- Logo in PRE header -->
                 <a class="qld-header-link align-self-center"
                     href="{{#if preHeader.globalLink.url}}{{preHeader.globalLink.url}}{{else}}https://qld.gov.au{{/if}}"
                     aria-label="{{#if preHeader.globalLink.text}}{{preHeader.globalLink.text}}{{else}}Queensland Government{{/if}}">
@@ -1232,9 +1238,12 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 
     <div class="qld-header-main {{#ifCond mainContent.palette "===" "dark"}}dark{{else ifCond
         mainContent.palette "===" "default" }}default{{else ifCond mainContent.palette "===" "dark-alt"
-        }}dark-alt{{else}}default{{/ifCond}}">
+        }}dark-alt{{else}}default{{/ifCond}} 
+        ">
+        
         <div class="container">
             <div class="row align-items-center">
+                <!-- Logo in Main header -->
                 <div class="col">
                     {{#ifAny isMasterBrand isSubBrand isCoBrand}}
                     {{>headerBrand
@@ -2424,12 +2433,12 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
         </a>
         <div class="video-embed ratio ratio-{{aspectRatio}}">
             {{#ifCond source '===' 'vimeo'}}
-                <iframe title="Vimeo video" class="embed-responsive-item video-vimeo" allow="autoplay; fullscreen" allowfullscreen muted="muted" src="https://player.vimeo.com/video/{{videoId}}?rel=0&autoplay={{urlParams.autoplay}}&background={{urlParams.background}}&controls={{urlParams.controls}}"></iframe>
+                <iframe title="{{isdefined title "Vimeo video"}}" class="embed-responsive-item video-vimeo" allow="autoplay; fullscreen" allowfullscreen muted="muted" src="https://player.vimeo.com/video/{{videoId}}?rel=0&autoplay={{urlParams.autoplay}}&background={{urlParams.background}}&controls={{urlParams.controls}}"><a href="https://player.vimeo.com/video/{{videoId}}">{{isdefined title "Vimeo video"}}</a></iframe>
             {{else ifCond source '===' 'youtube'}}
-                <iframe title="YouTube video" class="embed-responsive-item video-youtube" allow="autoplay; fullscreen" allowfullscreen src="https://www.youtube.com/embed/{{videoId}}?rel=0&autoplay={{urlParams.autoplay}}&controls={{urlParams.controls}}"></iframe>
+                <iframe title="{{isdefined title "YouTube video"}}" class="embed-responsive-item video-youtube" allow="autoplay; fullscreen" allowfullscreen src="https://www.youtube.com/embed/{{videoId}}?rel=0&autoplay={{urlParams.autoplay}}&controls={{urlParams.controls}}"><a href="https://www.youtube.com/watch?v={{videoId}}">{{isdefined title "Youtube video"}}</a></iframe>
             {{else ifCond source '===' 'custom'}}
-                <iframe title="Custom video" class="embed-responsive-item video-custom" allow="autoplay; fullscreen" allowfullscreen
-                src="{{videoId}}"></iframe>
+                <iframe title="{{isdefined title "Custom video"}}" class="embed-responsive-item video-custom" allow="autoplay; fullscreen" allowfullscreen
+                src="{{videoId}}"><a href="{{videoId}}">{{isdefined title "Custom video"}}</a></iframe>
             {{else}}
                 <p class="text-center position-absolute top-50">A video has not been provided.</p>
             {{/ifCond}}
@@ -2437,6 +2446,6 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
     </div>
     {{! Render the transcript content in an accordion template }}
 </section>
-`;function d(e){e.registerPartial("accordion",f),e.registerPartial("backToTop",p),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",v),e.registerPartial("button",h),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",q),e.registerPartial("contentWrapper",Z),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",T),e.registerPartial("details",S),e.registerPartial("directionLinks",A),e.registerPartial("feedbackForm",D),e.registerPartial("followLinks",P),e.registerPartial("footer",O),e.registerPartial("formcheck",R),e.registerPartial("fullPage",I),e.registerPartial("globalAlert",E),e.registerPartial("head",_),e.registerPartial("header",N),e.registerPartial("headerBrand",G),e.registerPartial("homePage",F),e.registerPartial("icon",Q),e.registerPartial("image",B),e.registerPartial("inpageAlert",j),e.registerPartial("inpagenav",W),e.registerPartial("link",J),e.registerPartial("linkColumns",Y),e.registerPartial("logo",U),e.registerPartial("logoCOADeliveringForQLD",$),e.registerPartial("logoCOALandscape",z),e.registerPartial("logoCOALandscape2Lines",X),e.registerPartial("mainContainerWrapper",K),e.registerPartial("metaDcTerms",e1),e.registerPartial("metaOpenGraph",i1),e.registerPartial("modal",a1),e.registerPartial("navbar",t1),e.registerPartial("pagination",C1),e.registerPartial("promotionalPanel",s1),e.registerPartial("quickexit",l1),e.registerPartial("searchInput",n1),e.registerPartial("select",o1),e.registerPartial("sidenav",r1),e.registerPartial("sidenavWrapper",d1),e.registerPartial("skipLinks",c1),e.registerPartial("spinner",f1),e.registerPartial("table",p1),e.registerPartial("tabs",u1),e.registerPartial("tag",m1),e.registerPartial("textarea",g1),e.registerPartial("textbox",v1),e.registerPartial("typography",h1),e.registerPartial("video",b1)}typeof Handlebars!="undefined"&&d(Handlebars);var L1=!1;function H1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(L1?console.log("HandleBars Helpers And Partials already loaded, loading again"):L1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&H1(Handlebars);})();
+`;function d(e){e.registerPartial("accordion",f),e.registerPartial("backToTop",p),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",v),e.registerPartial("button",h),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",q),e.registerPartial("contentWrapper",Z),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",S),e.registerPartial("details",T),e.registerPartial("directionLinks",A),e.registerPartial("feedbackForm",D),e.registerPartial("followLinks",P),e.registerPartial("footer",O),e.registerPartial("formcheck",R),e.registerPartial("fullPage",I),e.registerPartial("globalAlert",E),e.registerPartial("head",_),e.registerPartial("header",N),e.registerPartial("headerBrand",G),e.registerPartial("homePage",F),e.registerPartial("icon",Q),e.registerPartial("image",B),e.registerPartial("inpageAlert",j),e.registerPartial("inpagenav",W),e.registerPartial("link",J),e.registerPartial("linkColumns",Y),e.registerPartial("logo",U),e.registerPartial("logoCOADeliveringForQLD",$),e.registerPartial("logoCOALandscape",z),e.registerPartial("logoCOALandscape2Lines",X),e.registerPartial("mainContainerWrapper",K),e.registerPartial("metaDcTerms",e1),e.registerPartial("metaOpenGraph",i1),e.registerPartial("modal",a1),e.registerPartial("navbar",t1),e.registerPartial("pagination",C1),e.registerPartial("promotionalPanel",s1),e.registerPartial("quickexit",l1),e.registerPartial("searchInput",n1),e.registerPartial("select",o1),e.registerPartial("sidenav",r1),e.registerPartial("sidenavWrapper",d1),e.registerPartial("skipLinks",c1),e.registerPartial("spinner",f1),e.registerPartial("table",p1),e.registerPartial("tabs",u1),e.registerPartial("tag",m1),e.registerPartial("textarea",g1),e.registerPartial("textbox",v1),e.registerPartial("typography",h1),e.registerPartial("video",b1)}typeof Handlebars!="undefined"&&d(Handlebars);var L1=!1;function H1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(L1?console.log("HandleBars Helpers And Partials already loaded, loading again"):L1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&H1(Handlebars);})();
 //# @qld-gov-au/qgds-bootstrap5 - v2.2.3
 //# sourceMappingURL=handlebars.partials.js.map
