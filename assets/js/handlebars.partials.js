@@ -899,27 +899,24 @@
         
         <div class="footer-column pe-lg-16">
 
-        {{#if footerLinks}}
-
           {{#if footerLinks.title}}
           <h3 class="footer-heading" id="footer-wog-links-heading">{{footerLinks.title}}</h3>
           {{else}}
           <h3 class="footer-heading sr-only" id="footer-wog-links-heading">Site links</h3>
           {{/if}}
-        
-          {{!-- <nav class="nav footer-link-list flex-column"> --}}
+
           <ul class="nav footer-link-list flex-column pt-lg-2">
+
+          {{#if footerLinks.list}}
+
             {{#each footerLinks.list }}
             <li><a class="nav-link" href="{{ this.link }}" {{#if this.target }}target="{{this.target}}" {{/if}}>{{
                 this.label }}</a></li>
             {{/each }}
-          </ul>
-          {{!-- </nav> --}}
 
-        {{else}}
-        {{!default list }}
+          {{else}}
 
-          <ul class="nav footer-link-list flex-column">
+            {{!default list }}
             <li><a class="nav-link" href="https://www.qld.gov.au/help">Help</a></li>
             <li><a class="nav-link" href="https://www.qld.gov.au/legal/copyright">Copyright</a></li>  
             <li><a class="nav-link" href="https://www.qld.gov.au/legal/disclaimer">Disclaimer</a></li>
@@ -928,9 +925,9 @@
             <li><a class="nav-link" href="https://www.qld.gov.au/help/accessibility">Accessibility</a></li>
             <li><a class="nav-link" href="https://smartjobs.qld.gov.au" target="_blank">Jobs in Queensland Government</a></li>
             <li><a class="nav-link" href="https://www.qld.gov.au/help/languages">Other languages</a></li>
-          </ul>
 
-        {{/if}}
+          {{/if}}
+          </ul>
         
         </div>
       </nav>
@@ -1130,7 +1127,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.2.3","branch":"QGDS-1193-Footer-accessibility-fix","tag":"","commit":"376477523555611a0193ea4e41dba46cb5364c4a","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.2.3","branch":"QGDS-1193-Footer-accessibility-fix","tag":"","commit":"e01b411d8fdc4c5d05eb7123eb43ffe6e8d0e0f6","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
