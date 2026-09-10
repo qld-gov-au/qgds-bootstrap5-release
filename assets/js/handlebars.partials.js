@@ -1127,7 +1127,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"main","tag":"","commit":"93e2f0e04f58067f724ce1e2fddff44869952a92","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"QGDS-1206--Sidenav-current-page--A11y","tag":"","commit":"1369e0b3a97a146f98b33762512fc64bffa606f4","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -2157,7 +2157,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
         <li class="nav-item {{class}}">
 
           {{#contains "active" class}}
-            <span class="nav-link">{{label}}</span>
+            <span class="nav-link" aria-current="page">{{label}}</span>
           {{else}}
             <a class="nav-link" href="{{link}}" target="{{target}}">
               {{label}}
