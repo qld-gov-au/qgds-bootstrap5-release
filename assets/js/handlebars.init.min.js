@@ -1127,7 +1127,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"main","tag":"","commit":"93e2f0e04f58067f724ce1e2fddff44869952a92","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"QGDS-1233-bugfix-a11y-tab-pane-ids","tag":"","commit":"f4fc8d1e934fad9614c690a98d8581db346de1fa","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -2294,7 +2294,15 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
         <ul class="nav nav-tabs {{#ifCond type_variant '==' 'section-tabs'}}{{~#if tab_variant}} {{tab_variant}} {{else}} default{{/if~}}{{/ifCond}}"  role="tablist">
             {{#each data.items }}
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link {{#if @first}}active{{/if}}" id="{{toCamelCase this.tab_text}}-tab" data-bs-toggle="tab" data-bs-target="#{{toCamelCase this.tab_text}}-{{../unique_id}}-tab-pane" type="button" role="tab" aria-controls="#{{this.tab_text}}-tab-pane" aria-selected="{{#if @first}}true{{else}}false{{/if}}" {{#if this.disabled}}disabled{{/if}}>
+                    <button 
+                    type="button" 
+                    role="tab" 
+                    class="nav-link {{#if @first}}active{{/if}}" 
+                    id="tab-{{@index}}" 
+                    data-bs-toggle="tab" 
+                    data-bs-target="#tab-pane-{{@index}}-{{../unique_id}}" 
+                    aria-controls="tab-pane-{{@index}}-{{../unique_id}}" 
+                    aria-selected="{{#if @first}}true{{else}}false{{/if}}">
                         <span>
                             {{#if this.icon}}
                                 <i class="{{this.icon}}"></i>
@@ -2302,7 +2310,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                         </span>
                     </button>
                 </li>
-            {{/each }}
+            {{/each}}
         </ul>
         <button class="scroll scroll-left" aria-hidden="true" aria-label="Scroll tab buttons left" tabindex="-1">
             <i></i>
@@ -2313,7 +2321,12 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
     </div>
     <div class="tab-content container">
         {{#each data.items }}
-            <section class="tab-pane fade {{#if @first}}show active{{/if}}" id="{{toCamelCase this.tab_text}}-{{../unique_id}}-tab-pane" role="tabpanel" aria-labelledby="{{this.tab_text}}-tab" tabindex="0">
+            <section 
+              class="tab-pane fade {{#if @first}}show active{{/if}}" 
+              id="tab-pane-{{@index}}-{{../unique_id}}" 
+              role="tabpanel" 
+              aria-labelledby="tab-{{@index}}" 
+              tabindex="0">
                 {{#ifCond ../type_variant '==' 'section-tabs'}}
                     <h2>{{this.title}}</h2>
                 {{else}}
