@@ -1127,7 +1127,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"QGDS-1228--Responsive-font-scaling--A11y","tag":"","commit":"decada03985481fcf6e863c6a8e8af74d00ab8f0","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"QGDS-1228--Responsive-font-scaling--A11y","tag":"","commit":"fc70cdafa7884e592e94b3af3421dff0555c2e28","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1162,7 +1162,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                 </a>
 
                 {{#if preHeader.actions}}
-                <div class="d-none d-lg-flex align-items-baseline">
+                <div class="d-none d-lg-flex align-items-center">
                     {{#each preHeader.actions}}
                     {{#if dropdown}}
                     <div class="dropdown">
