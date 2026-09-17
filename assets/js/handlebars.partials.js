@@ -1127,7 +1127,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.1","branch":"main","tag":"v2.4.1","commit":"97df97a6d6c4a0d4756a1390ef8b4278566588a4","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"QGDS-1228--Responsive-font-scaling--A11y","tag":"","commit":"4dca223d764ab08fc95dfdd64e5fdb6c7744ca19","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1148,7 +1148,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
         preHeader.palette "===" "default" }}default{{else}}{{#ifCond preHeader.palette "===" "dark-alt"
         }}dark-alt{{else}}default{{/ifCond}}{{/ifCond}}{{/ifCond}}">
         <div class="container">
-            <div class="d-flex justify-content-between">
+            <div class="d-flex flex-wrap justify-content-between">
                 <!-- Logo in PRE header -->
                 <a class="qld-header-link align-self-center"
                     href="{{#if preHeader.globalLink.url}}{{preHeader.globalLink.url}}{{else}}https://qld.gov.au{{/if}}"
@@ -1843,13 +1843,13 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
   </div>
 </div>`;var t1=`<!-- QGDS Partial: Primary navigation -->
 
-<nav id="main-nav" class="navbar navbar-expand-lg{{#if metadata.alternativeColor}} dark{{/if}}{{#if metadata.verticalOrientation}} vertical{{/if}}" aria-label="Website navigation" role="navigation">
+<nav id="main-nav" class="navbar navbar-expand-lg{{#if metadata.alternativeColor}} dark{{/if}}{{#if metadata.verticalOrientation}} vertical{{/if}}" aria-label="Main" >
     <div id="navbarNav" class="container">
             <div class="nav-header">
                 <span class="navbar-brand" href="#">{{#if metadata.navbarBrandName}}{{metadata.navbarBrandName}}{{/if}}</span>
                 <button id="burgerCloseBtn" type="button" class="navbar-btn" data-bs-toggle="collapse"
                     aria-label="Close" data-bs-target="#main-nav" aria-expanded="false"
-                    aria-controls="collapseExample">Close</button>
+                    aria-controls="main-nav">Close</button>
             </div>
             <div class="navbar-collapse">
                 <ul class="navbar-nav">
@@ -2157,7 +2157,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
         <li class="nav-item {{class}}">
 
           {{#contains "active" class}}
-            <span class="nav-link">{{label}}</span>
+            <span class="nav-link" aria-current="page">{{label}}</span>
           {{else}}
             <a class="nav-link" href="{{link}}" target="{{target}}">
               {{label}}
@@ -2294,7 +2294,15 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
         <ul class="nav nav-tabs {{#ifCond type_variant '==' 'section-tabs'}}{{~#if tab_variant}} {{tab_variant}} {{else}} default{{/if~}}{{/ifCond}}"  role="tablist">
             {{#each data.items }}
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link {{#if @first}}active{{/if}}" id="{{toCamelCase this.tab_text}}-tab" data-bs-toggle="tab" data-bs-target="#{{toCamelCase this.tab_text}}-{{../unique_id}}-tab-pane" type="button" role="tab" aria-controls="#{{this.tab_text}}-tab-pane" aria-selected="{{#if @first}}true{{else}}false{{/if}}" {{#if this.disabled}}disabled{{/if}}>
+                    <button 
+                    type="button" 
+                    role="tab" 
+                    class="nav-link {{#if @first}}active{{/if}}" 
+                    id="tab-{{@index}}" 
+                    data-bs-toggle="tab" 
+                    data-bs-target="#tab-pane-{{@index}}-{{../unique_id}}" 
+                    aria-controls="tab-pane-{{@index}}-{{../unique_id}}" 
+                    aria-selected="{{#if @first}}true{{else}}false{{/if}}">
                         <span>
                             {{#if this.icon}}
                                 <i class="{{this.icon}}"></i>
@@ -2302,7 +2310,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                         </span>
                     </button>
                 </li>
-            {{/each }}
+            {{/each}}
         </ul>
         <button class="scroll scroll-left" aria-hidden="true" aria-label="Scroll tab buttons left" tabindex="-1">
             <i></i>
@@ -2313,7 +2321,12 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
     </div>
     <div class="tab-content container">
         {{#each data.items }}
-            <section class="tab-pane fade {{#if @first}}show active{{/if}}" id="{{toCamelCase this.tab_text}}-{{../unique_id}}-tab-pane" role="tabpanel" aria-labelledby="{{this.tab_text}}-tab" tabindex="0">
+            <section 
+              class="tab-pane fade {{#if @first}}show active{{/if}}" 
+              id="tab-pane-{{@index}}-{{../unique_id}}" 
+              role="tabpanel" 
+              aria-labelledby="tab-{{@index}}" 
+              tabindex="0">
                 {{#ifCond ../type_variant '==' 'section-tabs'}}
                     <h2>{{this.title}}</h2>
                 {{else}}
@@ -2406,20 +2419,18 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 {{! By default, 'not-ready' class is added and will be removed by javascript event handler.
     When thumbnail attribute is empty / does not exist, 'empty-thumbnail' css class is added. }}
 <section class="video not-ready {{#unless thumbnail}}empty-thumbnail{{/unless}} {{videoSize}}">
-    <div class="video-description">
-        {{{ description }}}
-    </div>
-    {{#if transcriptContent}}
-        {{{ transcriptAccordion }}}
-    {{/if}}
     <div class="video-player ratio ratio-{{aspectRatio}}">
+
         <a href="#" class="video-thumbnail video-controls" title="Play Video" 
             aria-label="Watch video {{#if duration}}- duration {{formatDuration duration "long"}}{{/if}}">
+
             <div class="video-thumbnail-image" style="--thumbnail:url({{thumbnail}})"></div>
+
             <div class="video-nav">
                 <div class="video-watch">
                     <span class="icon"></span><span>Watch</span>
                 </div>
+
                 {{#if duration}}
                     <div title="Video duration" class="video-duration">
                         <span class="icon"></span><span>{{formatDuration duration}}</span>
@@ -2427,6 +2438,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                 {{/if}}
             </div>
         </a>
+
         <div class="video-embed ratio ratio-{{aspectRatio}}">
             {{#ifCond source '===' 'vimeo'}}
                 <iframe title="{{isdefined title "Vimeo video"}}" class="embed-responsive-item video-vimeo" allow="autoplay; fullscreen" allowfullscreen muted="muted" src="https://player.vimeo.com/video/{{videoId}}?rel=0&autoplay={{urlParams.autoplay}}&background={{urlParams.background}}&controls={{urlParams.controls}}"><a href="https://player.vimeo.com/video/{{videoId}}">{{isdefined title "Vimeo video"}}</a></iframe>
@@ -2437,11 +2449,21 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                 src="{{videoId}}"><a href="{{videoId}}">{{isdefined title "Custom video"}}</a></iframe>
             {{else}}
                 <p class="text-center position-absolute top-50">A video has not been provided.</p>
+
             {{/ifCond}}
         </div>
     </div>
+
+    <div class="video-description">
+        {{{ description }}}
+    </div>
+
     {{! Render the transcript content in an accordion template }}
+    {{#if transcriptContent}}
+        {{{ transcriptAccordion }}}
+    {{/if}}
+
 </section>
 `;function d(e){e.registerPartial("accordion",f),e.registerPartial("backToTop",p),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",v),e.registerPartial("button",h),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",q),e.registerPartial("contentWrapper",Z),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",S),e.registerPartial("details",T),e.registerPartial("directionLinks",A),e.registerPartial("feedbackForm",D),e.registerPartial("followLinks",P),e.registerPartial("footer",O),e.registerPartial("formcheck",R),e.registerPartial("fullPage",I),e.registerPartial("globalAlert",E),e.registerPartial("head",_),e.registerPartial("header",N),e.registerPartial("headerBrand",G),e.registerPartial("homePage",F),e.registerPartial("icon",Q),e.registerPartial("image",B),e.registerPartial("inpageAlert",j),e.registerPartial("inpagenav",W),e.registerPartial("link",J),e.registerPartial("linkColumns",Y),e.registerPartial("logo",U),e.registerPartial("logoCOADeliveringForQLD",$),e.registerPartial("logoCOALandscape",z),e.registerPartial("logoCOALandscape2Lines",X),e.registerPartial("mainContainerWrapper",K),e.registerPartial("metaDcTerms",e1),e.registerPartial("metaOpenGraph",i1),e.registerPartial("modal",a1),e.registerPartial("navbar",t1),e.registerPartial("pagination",C1),e.registerPartial("promotionalPanel",s1),e.registerPartial("quickexit",l1),e.registerPartial("searchInput",n1),e.registerPartial("select",o1),e.registerPartial("sidenav",r1),e.registerPartial("sidenavWrapper",d1),e.registerPartial("skipLinks",c1),e.registerPartial("spinner",f1),e.registerPartial("table",p1),e.registerPartial("tabs",u1),e.registerPartial("tag",m1),e.registerPartial("textarea",g1),e.registerPartial("textbox",v1),e.registerPartial("typography",h1),e.registerPartial("video",b1)}typeof Handlebars!="undefined"&&d(Handlebars);var L1=!1;function H1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(L1?console.log("HandleBars Helpers And Partials already loaded, loading again"):L1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&H1(Handlebars);})();
-//# @qld-gov-au/qgds-bootstrap5 - v2.4.1
+//# @qld-gov-au/qgds-bootstrap5 - v2.4.0
 //# sourceMappingURL=handlebars.partials.js.map
