@@ -1127,7 +1127,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"develop","tag":"","commit":"74f998a09cd077a4c443f94f9f41b8c97e90e8b1","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"develop","tag":"","commit":"1ec303b1e3020fbbbecb1731027e5ede4a9440aa","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1267,7 +1267,6 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                         <form 
                         class="{{isdefined assets.siteSearch.customClass "site-search"}}" 
                         action="{{isdefined assets.siteSearch.formAction.url "https://www.qld.gov.au/search"}}"
-                        role="search" 
                         >
                           {{{ searchInput }}}
                         </form>
@@ -2053,10 +2052,10 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 </div>`;var n1=`<!-- 
     QGDS Component: Search input 
 -->
-<div class="qld-search-input {{customClass}}">
+<div class="qld-search-input {{customClass}}" role="search" {{#if ariaLabelContainer}}aria-label="{{ ariaLabelContainer }}"{{/if}}>
     <input id="{{ inputID }}" name="{{ inputName }}" class="form-control" type="text" autocomplete="off"
-        aria-label="{{ ariaLabel }}" {{#each tags}} data-{{@key}}="{{this}}" {{/each}} placeholder="{{placeholder}}" />
-    <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}" aria-label="{{ buttonLabel }}">
+        aria-label="{{ ariaLabel }}" {{#each tags}} data-{{@key}}="{{this}}" {{/each}} placeholder="{{placeholder}}" role="searchbox" enterkeyhint="search"/>
+    <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}" >
         <span class="btn-icon" aria-hidden="true"></span>
         <span class="btn-label">{{ buttonLabel }}</span>
     </button>
