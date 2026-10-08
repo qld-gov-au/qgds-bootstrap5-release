@@ -1143,7 +1143,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"QGDS-1319-CSS-Icons-disappears-on-high-contrast","tag":"","commit":"fccac363504644ad237ba42225cc8dd3fa0ec0ec","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"QGDS-1319-CSS-Icons-disappears-on-high-contrast","tag":"","commit":"bba52b7dd58acaf43378819d5e28dca9e5a4af03","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
