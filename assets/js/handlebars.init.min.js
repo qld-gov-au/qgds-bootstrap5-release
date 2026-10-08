@@ -654,6 +654,20 @@
             {{/if}}
           </div>
 
+          <div class="mt-32 mt-lg-64">
+            <h2 id="related-services">Related services (H2)</h2>
+            <p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus.</p>
+            {{#if cards}}
+            <div class="row">
+              {{#each cards}}
+              <div class="col-12 col-md-6 mb-24">
+                {{> card this}}
+              </div>
+              {{/each}}
+            </div>
+            {{/if}}
+          </div>
+
         </main>
         <!-- End Main Content div -->
 
@@ -1129,7 +1143,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"QGDS-1319-CSS-Icons-disappears-on-high-contrast","tag":"","commit":"cf53e3f5f0398c893f899b67449c46141b184e0a","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"QGDS-1319-CSS-Icons-disappears-on-high-contrast","tag":"","commit":"fccac363504644ad237ba42225cc8dd3fa0ec0ec","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
