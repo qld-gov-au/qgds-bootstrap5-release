@@ -467,6 +467,8 @@
               {{> textarea this}}
               {{else ifCond type '==' 'radio'}}
               {{> formcheck this}}
+              {{else ifCond type '==' 'checkbox'}}
+              {{> formcheck this}}
               {{/ifCond}}
             </div>
             {{/each}}
@@ -1127,7 +1129,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"QGDS-1319-CSS-Icons-disappears-on-high-contrast","tag":"","commit":"30b67570de673bb873f85143e6eca0543fe9c3a4","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"QGDS-1319-CSS-Icons-disappears-on-high-contrast","tag":"","commit":"cf53e3f5f0398c893f899b67449c46141b184e0a","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
