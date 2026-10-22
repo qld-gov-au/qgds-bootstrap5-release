@@ -2,7 +2,7 @@
 <div class="accordion-group">
     {{#if toggleAll}}
         <div class="accordion-toggle">
-            <button class="accordion-toggle-btn accordion-toggle-btn--closed" type="button">Open all</button>
+            <button class="accordion-toggle-btn accordion-toggle-btn--closed" type="button" aria-expanded="false" aria-controls="{{#each accordionItems}}collapse-{{id}}{{#unless @last}} {{/unless}}{{/each}}">Open all</button>
         </div>
     {{/if}}
     <div class="accordion" id="{{groupid}}">
@@ -1144,7 +1144,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"develop","tag":"","commit":"d25597f905ded4c0789783846c3c8188714dd07f","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"develop","tag":"","commit":"96971edbb8255832760f01c4569a7d4d46f8418f","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
