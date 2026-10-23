@@ -8,8 +8,14 @@
 </head>
 
 <body>
-  <!-- Global ALert -->
-  {{> globalAlert globalAlert}}
+  <!-- Global Alert (critical) renders before skip links -->
+  {{> globalAlert globalAlertCritical}}
+
+  <!-- Skip links -->
+  {{> skipLinks}}
+
+  <!-- Global Alert (warning) -->
+  {{> globalAlert globalAlertWarning}}
 
   <!-- Header -->
   {{> header header }}
@@ -42,7 +48,7 @@
       <div class="col-12 col-lg-8 mt-40 mt-lg-0">
 
         <!-- Main Content div, includes a 2rem/32px horizontal padding on large screens and up -->
-        <main class="px-lg-32">
+        <main id="content" class="px-lg-32">
 
           {{#if inpagenav}}
           <!-- QGDS Inpagenav Component -->
@@ -128,6 +134,21 @@
             <!-- QGDS Table Component -->
             <div class="mt-24">
               {{> table table}}
+            </div>
+            {{/if}}
+          </div>
+
+          <div class="mt-32 mt-lg-64">
+            <h2 id="related-services">Related services (H2)</h2>
+            <p>Lorem ipsum dolor sit amet consectetur. Sed facilisis purus eu convallis ut. Morbi condimentum volutpat
+              feugiat pellentesque. Auctor amet auctor dolor metus eget diam.</p>
+            {{#if cards}}
+            <div class="row">
+              {{#each cards}}
+              <div class="col-12 col-md-6 mb-24">
+                {{> card this}}
+              </div>
+              {{/each}}
             </div>
             {{/if}}
           </div>
