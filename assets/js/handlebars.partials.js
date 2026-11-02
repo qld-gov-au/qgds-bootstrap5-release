@@ -1,8 +1,8 @@
-"use strict";(()=>{function c(e,a,i){switch(a){case"==":return e==i;case"===":return e===i;case"!=":return e!=i;case"!==":return e!==i;case"<":return e<i;case"<=":return e<=i;case">":return e>i;case">=":return e>=i;case"&&":return e&&i;case"||":return e||i;case"in":return typeof e=="string"&&typeof i=="string"?i.split(",").map(t=>t.trim()).includes(e):!1;case"contains":return typeof e=="string"&&typeof i=="string"?e.toLowerCase().indexOf(i.toLowerCase())>=0:!1;default:return!1}}function r(e){e.registerHelper("contains",function(a,i,t){return a=e.escapeExpression(a),i=e.escapeExpression(i),i.indexOf(a)>-1?t.fn(this):t.inverse(this)}),e.registerHelper("ifCond",function(a,i,t,C){return c(a,i,t)?C.fn(this):C.inverse(this)}),e.registerHelper("cond",(a,i,t)=>c(a,i,t)),e.registerHelper("isType",function(a,i,t){return a===i?t.fn(this):t.inverse(this)}),e.registerHelper("ifAny",function(...a){let i=a.pop();return a.some(t=>!!t)?i.fn(this):i.inverse(this)}),e.registerHelper("ifAll",function(...a){let i=a.pop();return a.every(t=>!!t)?i.fn(this):i.inverse(this)}),e.registerHelper("now",function(){return new Date().toISOString()}),e.registerHelper("formatDate",function(a,i,t){let C;if(a&&(C=new Date(a)),isNaN(C)&&i&&(C=new Date(i)),isNaN(C))return"Invalid Date";var s=["January","February","March","April","May","June","July","August","September","October","November","December"],n=C.getDate(),l=s[C.getMonth()],o=C.getFullYear();switch(t){case"YYYY":return`${o}`;case"MMMM YYYY":return`${l} ${o}`;default:return`${n} ${l} ${o}`}}),e.registerHelper("formatDateOrToday",function(a,i){let t=a||new Date().toISOString();return e.helpers.formatDate(a,t,i)}),e.registerHelper("formatDuration",function(a,i){if(!a)return"";if(typeof a=="string"&&i!=="long")return a;let t="",C=[],s,n,l;if(typeof a=="string"){let o=a.split(":");l=o[0],o.length==2?[n="",l=""]=o:o.length==3&&([s="",n="",l=""]=o)}else[s="",n="",l=""]=a;return i==="long"?(s>0&&C.push(`${s} hour${s>1?"s":""}`),n>0&&C.push(`${n} minute${n>1?"s":""}`),l>0&&C.push(`${l} second${l>1?"s":""}`),t=C.join(" ")):(s>0&&C.push(s.toString().padStart(2,0)),C.push(n.toString().padStart(2,0)),C.push(l.toString().padStart(2,0)),t=C.join(":")),t}),e.registerHelper("isdefined",function(a,i){return a!==void 0&&a!==""?a:i}),e.registerHelper("getClassNames",function(a,i){let t=a.split(",").map(s=>s.trim()),C=[];for(let s=0;s<t.length;s++){let n=t[s];if(i){for(let l=0;l<i.length;l++)if(i[l][n]===!0){C.push(n);break}}}return C.length>0?C.join(" "):""}),e.registerHelper("join",function(a,i){return(!i||typeof i!="string")&&(i=" "),Array.isArray(a)?a.join(i):a}),e.registerHelper("toCamelCase",function(a){return typeof a!="string"?a:a.toLowerCase().replace(/(?:^\w|[A-Z]|\b\w|\s+)/g,(i,t)=>t===0?i.toLowerCase():i.toUpperCase()).replace(/\s+/g,"")})}typeof Handlebars!="undefined"&&r(Handlebars);var f=`<!-- QGDS Component: Accordion -->
+"use strict";(()=>{function c(e,a,i){switch(a){case"==":return e==i;case"===":return e===i;case"!=":return e!=i;case"!==":return e!==i;case"<":return e<i;case"<=":return e<=i;case">":return e>i;case">=":return e>=i;case"&&":return e&&i;case"||":return e||i;case"in":return typeof e=="string"&&typeof i=="string"?i.split(",").map(t=>t.trim()).includes(e):!1;case"contains":return typeof e=="string"&&typeof i=="string"?e.toLowerCase().indexOf(i.toLowerCase())>=0:!1;default:return!1}}function r(e){e.registerHelper("contains",function(a,i,t){return a=e.escapeExpression(a),i=e.escapeExpression(i),i.indexOf(a)>-1?t.fn(this):t.inverse(this)}),e.registerHelper("ifCond",function(a,i,t,C){return c(a,i,t)?C.fn(this):C.inverse(this)}),e.registerHelper("cond",(a,i,t)=>c(a,i,t)),e.registerHelper("isType",function(a,i,t){return a===i?t.fn(this):t.inverse(this)}),e.registerHelper("ifAny",function(...a){let i=a.pop();return a.some(t=>!!t)?i.fn(this):i.inverse(this)}),e.registerHelper("ifAll",function(...a){let i=a.pop();return a.every(t=>!!t)?i.fn(this):i.inverse(this)}),e.registerHelper("now",function(){return new Date().toISOString()}),e.registerHelper("formatDate",function(a,i,t){let C;if(a&&(C=new Date(a)),isNaN(C)&&i&&(C=new Date(i)),isNaN(C))return"Invalid Date";var s=["January","February","March","April","May","June","July","August","September","October","November","December"],n=C.getDate(),l=s[C.getMonth()],o=C.getFullYear();switch(t){case"YYYY":return`${o}`;case"MMMM YYYY":return`${l} ${o}`;default:return`${n} ${l} ${o}`}}),e.registerHelper("formatDateOrToday",function(a,i){let t=a||new Date().toISOString();return e.helpers.formatDate(a,t,i)}),e.registerHelper("formatDuration",function(a,i){if(!a)return"";if(typeof a=="string"&&i!=="long")return a;let t="",C=[],s,n,l;if(typeof a=="string"){let o=a.split(":");l=o[0],o.length==2?[n="",l=""]=o:o.length==3&&([s="",n="",l=""]=o)}else[s="",n="",l=""]=a;return i==="long"?(s>0&&C.push(`${s} hour${s>1?"s":""}`),n>0&&C.push(`${n} minute${n>1?"s":""}`),l>0&&C.push(`${l} second${l>1?"s":""}`),t=C.join(" ")):(s>0&&C.push(s.toString().padStart(2,0)),C.push(n.toString().padStart(2,0)),C.push(l.toString().padStart(2,0)),t=C.join(":")),t}),e.registerHelper("isdefined",function(a,i){return a!==void 0&&a!==""?a:i}),e.registerHelper("getClassNames",function(a,i){let t=a.split(",").map(s=>s.trim()),C=[];for(let s=0;s<t.length;s++){let n=t[s];if(i){for(let l=0;l<i.length;l++)if(i[l][n]===!0){C.push(n);break}}}return C.length>0?C.join(" "):""}),e.registerHelper("join",function(a,i){return(!i||typeof i!="string")&&(i=" "),Array.isArray(a)?a.join(i):a}),e.registerHelper("toCamelCase",function(a){return typeof a!="string"?a:a.toLowerCase().replace(/(?:^\w|[A-Z]|\b\w|\s+)/g,(i,t)=>t===0?i.toLowerCase():i.toUpperCase()).replace(/\s+/g,"")}),e.registerHelper("stringify",function(a){return JSON.stringify(a)})}typeof Handlebars!="undefined"&&r(Handlebars);var f=`<!-- QGDS Component: Accordion -->
 <div class="accordion-group">
     {{#if toggleAll}}
         <div class="accordion-toggle">
-            <button class="accordion-toggle-btn accordion-toggle-btn--closed" type="button">Open all</button>
+            <button class="accordion-toggle-btn accordion-toggle-btn--closed" type="button" aria-expanded="false" aria-controls="{{#each accordionItems}}collapse-{{id}}{{#unless @last}} {{/unless}}{{/each}}">Open all</button>
         </div>
     {{/if}}
     <div class="accordion" id="{{groupid}}">
@@ -123,7 +123,7 @@
       {{/if}}
     {{/each}}
   </ol>
-</nav>`;var v=`<!-- breadcrumbs-->
+</nav>`;var h=`<!-- breadcrumbs-->
 <div class="container-fluid alt">
   <div class="container">
     <div class="row">
@@ -133,7 +133,7 @@
       </div>
     </div>
   </div>
-</div>`;var h=`{{!-- Button icon partial --}}
+</div>`;var v=`{{!-- Button icon partial --}}
 {{#*inline "buttonIcon"~}}
 <span class="qld-icon qld-icon-md {{iconClass}} {{iconPosition}}" aria-hidden="true"></span>
 {{~/inline}} 
@@ -704,7 +704,7 @@
         <li><a class="nav-link" href="{{ link }}" {{#if target }} target="_blank" {{/if}}>{{ label }}</a></li>
         {{/each }}
     </ul>
-{{/if}}`;var S=`<!-- QGDS Component: Date input -->
+{{/if}}`;var T=`<!-- QGDS Component: Date input -->
 
 <label id="{{id}}-label" class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}" for="{{id}}">
     {{label-text}}
@@ -762,7 +762,7 @@
         </div>
     </div>
 </div>
-`;var T=`<!-- QGDS Component: Details -->
+`;var S=`<!-- QGDS Component: Details -->
 <details class="qld-details{{#if size}} qld-details-{{size}}{{/if}}"{{#if open}} open{{/if}}>
 	<summary class="qld-details-summary">
 		<span class="qld-details-summary-text">{{summaryText}}</span>
@@ -1086,7 +1086,7 @@
     </label>
   </div>
   {{/each}}
-  `;var I=`<!DOCTYPE html>
+  `;var E=`<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -1101,7 +1101,7 @@
   {{> @partial-block }}
 {{/mainContainerWrapper}}
 </body>
-</html>`;var E=`<!-- QGDS Component: Global Alert -->
+</html>`;var I=`<!-- QGDS Component: Global Alert -->
 
 <div class="global-alert-include">
   {{#each alertItems}}
@@ -1144,7 +1144,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"QGDS-1241-search-input-upgrades","tag":"","commit":"274e870a096c5b5bacf4196eb85c8303e2a5602c","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"QGDS-1241-search-input-upgrades","tag":"","commit":"e6abba69d2121d00a71994de11110984f8a55e2f","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1154,7 +1154,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 
 <script type="text/javascript" async src="{{#if cdn }}{{#ifCond cdn '==' 'PROD'}}https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'STAGING'}}https://staging-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'BETA'}}https://beta-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'TEST'}}https://test-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'DEV'}}https://dev-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{cdn}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{else}}missing{{/if}}/assets/js/bootstrap.min.js"><\/script>
 <script type="text/javascript" async src="{{#if cdn }}{{#ifCond cdn '==' 'PROD'}}https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'STAGING'}}https://staging-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'BETA'}}https://beta-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'TEST'}}https://test-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'DEV'}}https://dev-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{cdn}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{else}}missing{{/if}}/assets/js/qld.bootstrap.min.js"><\/script>
-`;var G=`<header class="qld-header
+`;var N=`<header class="qld-header
   {{#if isSubBrand}}is-sub-brand{{/if}} 
   {{#if isCoBrand}}is-co-brand{{/if}} 
   {{#if isEndorsedBrand}}is-endorsed-brand{{/if}} 
@@ -1293,7 +1293,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
             </div>
         </div>
     </div>
-</header>`;var N=`
+</header>`;var G=`
 <div class="qld-header-brand">
     <a class="qld-header-link d-lg-inline-flex align-middle" href="{{url}}"{{#unless logo}}{{#unless siteTitle}} aria-label="Queensland Government"{{/unless}}{{/unless}}>
         <div class="qld-header-brand-image align-self-center">
@@ -2069,9 +2069,10 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 </div>`;var n1=`<!-- 
     QGDS Component: Search input 
 -->
-<{{#if form}}form action="{{form.action}}" method="{{isdefined form.method 'GET'}}" {{else}}div{{/if}} class="qld-search-input {{customClass}}" role="search" {{#if ariaLabelContainer}}aria-label="{{ ariaLabelContainer }}"{{/if}}>
+<{{#if form}}form action="{{form.action}}" method="{{isdefined form.method 'GET'}}" {{else}}div{{/if}} class="qld-search-input {{customClass}}" role="search" {{#if ariaLabelContainer}}aria-label="{{ ariaLabelContainer }}"{{/if}} 
+    {{#if initialSuggestions}}data-suggestions="{{stringify initialSuggestions}}"{{/if}} data-search-delay="{{isdefined searchDelay 300}}" {{#if autocompleteEndpoint}}data-autocomplete-endpoint="{{autocompleteEndpoint}}"{{/if}} {{#if searchResultsEndpoint}}data-search-results-endpoint="{{searchResultsEndpoint}}"{{/if}} {{#if useDefaultSearchHandler}}data-use-default-search-handler="true"{{/if}}>
     <input id="{{ inputID }}" name="{{ inputName }}" class="form-control" type="text" autocomplete="off"
-        aria-label="{{ ariaLabel }}"{{#each tags}} data-{{@key}}="{{this}}"{{/each}} data-search-delay="{{isdefined searchDelay 300}}" placeholder="{{placeholder}}" role="searchbox" enterkeyhint="search"/>
+        aria-label="{{ ariaLabel }}" placeholder="{{placeholder}}" role="searchbox" enterkeyhint="search"/>
     <button class="btn btn-primary js-search-button" type="{{#if form}}submit{{else}}{{isdefined buttonType "button"}}{{/if}}" id="{{ buttonID }}" >
         <span class="btn-icon" aria-hidden="true"></span>
         <span class="btn-label">{{ buttonLabel }}</span>
@@ -2081,43 +2082,11 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
     <input id="{{../inputID}}_{{@key}}" name="{{@key}}" value="{{this}}" type="hidden" />
     {{/each}}
 
-    {{#ifCond hasDynamicSuggestions '||' hasDefaultSuggestions}}
-    
     <div class="suggestions default">
-        {{#if hasDefaultSuggestions}}
-            <div class="default-suggestions">
-                <div class="suggestions-group">
-                    <strong class="suggestions-group-label d-block">{{defaultSuggestions.popularServicesTitle}}</strong>
-                    <ul>
-                        {{#each defaultSuggestions.popularServices}}
-                        <li><a class="suggestions-item" tabindex="0" href="{{link}}"><span>{{title}}</span></a></li>
-                        {{/each}}
-                        {{#if defaultSuggestions.popularServicesLink}}
-                        <li><a tabindex="0" href="{{defaultSuggestions.popularServicesLink.href}}" class="suggestions-item is-view-more">{{#if defaultSuggestions.popularServicesLink.label}}{{defaultSuggestions.popularServicesLink.label}}{{else}}View More{{/if}}</a></li>
-                        {{/if}}
-                    </ul>
-                </div>
-                {{#if defaultSuggestions.categories}}
-                <div class="suggestions-group">
-                    <strong class="suggestions-group-label d-block">{{defaultSuggestions.categoriesTitle}}</strong>
-                    <ul>
-                        {{#each defaultSuggestions.categories}}
-                        <li><a class="suggestions-item" tabindex="0" href="{{link}}"><span>{{title}}</span></a></li>
-                        {{/each}}
-                        {{#if defaultSuggestions.categoriesLink}}
-                            <li><a tabindex="0" href="{{defaultSuggestions.categoriesLink.href}}" class="suggestions-item is-view-more">{{#if defaultSuggestions.categoriesLink.label}}{{defaultSuggestions.categoriesLink.label}}{{else}}View More{{/if}}</a></li>
-                        {{/if}}
-                    </ul>
-                </div>
-                {{/if}}
-            </div>
-        {{/if}}
-        {{#if hasDynamicSuggestions}}
-            <div class="dynamic-suggestions" {{#if dynamicSuggestionsServiceLink.href}}data-view-more="{{dynamicSuggestionsServiceLink.href}}"{{/if}}></div>
-        {{/if}}
-    </div>
-    {{/ifCond}}    
-</div>`;var o1=`<!-- QGDS Component: Select -->
+        <div class="suggestions-inner">
+        </div>
+    </div>  
+</{{#if form}}form{{else}}div{{/if}}>`;var o1=`<!-- QGDS Component: Select -->
 
 <label class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}" for="{{id}}">
     {{label-text}}
@@ -2400,7 +2369,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 <!-- First text input field, described by the hint text above -->
 <textarea id="{{id}}" class="form-control {{customClass}} {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
     placeholder="{{placeholder}}" rows="{{rows}}" tabindex="0" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}
-    {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}}>{{value}}</textarea>`;var v1=`<!-- QGDS Component: Textbox -->
+    {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}}>{{value}}</textarea>`;var h1=`<!-- QGDS Component: Textbox -->
 
 <label class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}"
     for="{{id}}">
@@ -2430,7 +2399,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 
 <input id={{id}} {{#if value}}value="{{value}}"{{/if}}  class="form-control {{customClass}} {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
     type="text" placeholder="{{placeholder}}" tabindex="0" {{#if isDisabled}}disabled{{/if}} {{#if
-    isRequired}}required{{/if}} {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} />`;var h1="<!-- QGDS Partial: typography -->";var b1=`<!-- QGDS Component: Video -->
+    isRequired}}required{{/if}} {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} />`;var v1="<!-- QGDS Partial: typography -->";var b1=`<!-- QGDS Component: Video -->
 
 {{#if analyticsTrackingCode}}
 <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/{{analyticsTrackingCode}}.js">
@@ -2485,6 +2454,6 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
     {{/if}}
 
 </section>
-`;function d(e){e.registerPartial("accordion",f),e.registerPartial("backToTop",p),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",v),e.registerPartial("button",h),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",q),e.registerPartial("contentWrapper",Z),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",S),e.registerPartial("details",T),e.registerPartial("directionLinks",A),e.registerPartial("feedbackForm",D),e.registerPartial("followLinks",P),e.registerPartial("footer",O),e.registerPartial("formcheck",R),e.registerPartial("fullPage",I),e.registerPartial("globalAlert",E),e.registerPartial("head",_),e.registerPartial("header",G),e.registerPartial("headerBrand",N),e.registerPartial("homePage",F),e.registerPartial("icon",Q),e.registerPartial("image",B),e.registerPartial("inpageAlert",j),e.registerPartial("inpagenav",W),e.registerPartial("link",J),e.registerPartial("linkColumns",Y),e.registerPartial("logo",U),e.registerPartial("logoCOADeliveringForQLD",$),e.registerPartial("logoCOALandscape",z),e.registerPartial("logoCOALandscape2Lines",X),e.registerPartial("mainContainerWrapper",K),e.registerPartial("metaDcTerms",e1),e.registerPartial("metaOpenGraph",i1),e.registerPartial("modal",a1),e.registerPartial("navbar",t1),e.registerPartial("pagination",C1),e.registerPartial("promotionalPanel",s1),e.registerPartial("quickexit",l1),e.registerPartial("searchInput",n1),e.registerPartial("select",o1),e.registerPartial("sidenav",r1),e.registerPartial("sidenavWrapper",d1),e.registerPartial("skipLinks",c1),e.registerPartial("spinner",f1),e.registerPartial("table",p1),e.registerPartial("tabs",u1),e.registerPartial("tag",m1),e.registerPartial("textarea",g1),e.registerPartial("textbox",v1),e.registerPartial("typography",h1),e.registerPartial("video",b1)}typeof Handlebars!="undefined"&&d(Handlebars);var L1=!1;function H1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(L1?console.log("HandleBars Helpers And Partials already loaded, loading again"):L1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&H1(Handlebars);})();
+`;function d(e){e.registerPartial("accordion",f),e.registerPartial("backToTop",p),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",h),e.registerPartial("button",v),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",q),e.registerPartial("contentWrapper",Z),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",T),e.registerPartial("details",S),e.registerPartial("directionLinks",A),e.registerPartial("feedbackForm",D),e.registerPartial("followLinks",P),e.registerPartial("footer",O),e.registerPartial("formcheck",R),e.registerPartial("fullPage",E),e.registerPartial("globalAlert",I),e.registerPartial("head",_),e.registerPartial("header",N),e.registerPartial("headerBrand",G),e.registerPartial("homePage",F),e.registerPartial("icon",Q),e.registerPartial("image",B),e.registerPartial("inpageAlert",j),e.registerPartial("inpagenav",W),e.registerPartial("link",J),e.registerPartial("linkColumns",Y),e.registerPartial("logo",U),e.registerPartial("logoCOADeliveringForQLD",$),e.registerPartial("logoCOALandscape",z),e.registerPartial("logoCOALandscape2Lines",X),e.registerPartial("mainContainerWrapper",K),e.registerPartial("metaDcTerms",e1),e.registerPartial("metaOpenGraph",i1),e.registerPartial("modal",a1),e.registerPartial("navbar",t1),e.registerPartial("pagination",C1),e.registerPartial("promotionalPanel",s1),e.registerPartial("quickexit",l1),e.registerPartial("searchInput",n1),e.registerPartial("select",o1),e.registerPartial("sidenav",r1),e.registerPartial("sidenavWrapper",d1),e.registerPartial("skipLinks",c1),e.registerPartial("spinner",f1),e.registerPartial("table",p1),e.registerPartial("tabs",u1),e.registerPartial("tag",m1),e.registerPartial("textarea",g1),e.registerPartial("textbox",h1),e.registerPartial("typography",v1),e.registerPartial("video",b1)}typeof Handlebars!="undefined"&&d(Handlebars);var L1=!1;function H1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(L1?console.log("HandleBars Helpers And Partials already loaded, loading again"):L1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&H1(Handlebars);})();
 //# @qld-gov-au/qgds-bootstrap5 - v2.4.0
 //# sourceMappingURL=handlebars.partials.js.map
