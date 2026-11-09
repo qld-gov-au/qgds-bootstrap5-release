@@ -1086,7 +1086,7 @@
     </label>
   </div>
   {{/each}}
-  `;var E=`<!DOCTYPE html>
+  `;var I=`<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -1101,7 +1101,7 @@
   {{> @partial-block }}
 {{/mainContainerWrapper}}
 </body>
-</html>`;var I=`<!-- QGDS Component: Global Alert -->
+</html>`;var E=`<!-- QGDS Component: Global Alert -->
 
 <div class="global-alert-include">
   {{#each alertItems}}
@@ -1144,7 +1144,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"QGDS-1365-improve-documentation","tag":"","commit":"c171991abd32e778190a9105c6cd59ef85c50c60","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.0","branch":"QGDS-1365-improve-documentation","tag":"","commit":"2c31f40e8688f1efdc2a0581b9dabc52196f6939","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -2069,7 +2069,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 </div>`;var n1=`<!-- 
     QGDS Component: Search input 
 -->
-<{{#if form}}form action="{{form.action}}" method="{{isdefined form.method 'GET'}}" {{else}}div{{/if}} class="qld-search-input {{customClass}}" role="search" {{#if ariaLabelContainer}}aria-label="{{ ariaLabelContainer }}"{{/if}} 
+<{{#if form}}form action="{{form.action}}" method="{{isdefined form.method 'GET'}}" {{else}}div{{/if}} {{#if containerID}}id="{{containerID}}"{{/if}} class="qld-search-input {{customClass}}" role="search" {{#if ariaLabelContainer}}aria-label="{{ ariaLabelContainer }}"{{/if}} 
     {{#if initialSuggestions}}data-suggestions="{{stringify initialSuggestions}}"{{/if}} data-search-delay="{{isdefined searchDelay 300}}" {{#if autocompleteEndpoint}}data-autocomplete-endpoint="{{autocompleteEndpoint}}"{{/if}} {{#if searchResultsEndpoint}}data-search-results-endpoint="{{searchResultsEndpoint}}"{{/if}} {{#if useDefaultSearchHandler}}data-use-default-search-handler="true"{{/if}}>
     <input id="{{ inputID }}" name="{{ inputName }}" class="form-control" type="text" autocomplete="off"
         aria-label="{{ ariaLabel }}" placeholder="{{placeholder}}" role="searchbox" enterkeyhint="search"/>
@@ -2454,6 +2454,6 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
     {{/if}}
 
 </section>
-`;function d(e){e.registerPartial("accordion",f),e.registerPartial("backToTop",p),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",h),e.registerPartial("button",v),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",q),e.registerPartial("contentWrapper",Z),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",T),e.registerPartial("details",S),e.registerPartial("directionLinks",A),e.registerPartial("feedbackForm",D),e.registerPartial("followLinks",P),e.registerPartial("footer",O),e.registerPartial("formcheck",R),e.registerPartial("fullPage",E),e.registerPartial("globalAlert",I),e.registerPartial("head",_),e.registerPartial("header",N),e.registerPartial("headerBrand",G),e.registerPartial("homePage",F),e.registerPartial("icon",Q),e.registerPartial("image",B),e.registerPartial("inpageAlert",j),e.registerPartial("inpagenav",W),e.registerPartial("link",J),e.registerPartial("linkColumns",Y),e.registerPartial("logo",U),e.registerPartial("logoCOADeliveringForQLD",$),e.registerPartial("logoCOALandscape",z),e.registerPartial("logoCOALandscape2Lines",X),e.registerPartial("mainContainerWrapper",K),e.registerPartial("metaDcTerms",e1),e.registerPartial("metaOpenGraph",i1),e.registerPartial("modal",a1),e.registerPartial("navbar",t1),e.registerPartial("pagination",C1),e.registerPartial("promotionalPanel",s1),e.registerPartial("quickexit",l1),e.registerPartial("searchInput",n1),e.registerPartial("select",o1),e.registerPartial("sidenav",r1),e.registerPartial("sidenavWrapper",d1),e.registerPartial("skipLinks",c1),e.registerPartial("spinner",f1),e.registerPartial("table",p1),e.registerPartial("tabs",u1),e.registerPartial("tag",m1),e.registerPartial("textarea",g1),e.registerPartial("textbox",h1),e.registerPartial("typography",v1),e.registerPartial("video",b1)}typeof Handlebars!="undefined"&&d(Handlebars);var L1=!1;function H1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(L1?console.log("HandleBars Helpers And Partials already loaded, loading again"):L1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&H1(Handlebars);})();
+`;function d(e){e.registerPartial("accordion",f),e.registerPartial("backToTop",p),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",h),e.registerPartial("button",v),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",q),e.registerPartial("contentWrapper",Z),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",T),e.registerPartial("details",S),e.registerPartial("directionLinks",A),e.registerPartial("feedbackForm",D),e.registerPartial("followLinks",P),e.registerPartial("footer",O),e.registerPartial("formcheck",R),e.registerPartial("fullPage",I),e.registerPartial("globalAlert",E),e.registerPartial("head",_),e.registerPartial("header",N),e.registerPartial("headerBrand",G),e.registerPartial("homePage",F),e.registerPartial("icon",Q),e.registerPartial("image",B),e.registerPartial("inpageAlert",j),e.registerPartial("inpagenav",W),e.registerPartial("link",J),e.registerPartial("linkColumns",Y),e.registerPartial("logo",U),e.registerPartial("logoCOADeliveringForQLD",$),e.registerPartial("logoCOALandscape",z),e.registerPartial("logoCOALandscape2Lines",X),e.registerPartial("mainContainerWrapper",K),e.registerPartial("metaDcTerms",e1),e.registerPartial("metaOpenGraph",i1),e.registerPartial("modal",a1),e.registerPartial("navbar",t1),e.registerPartial("pagination",C1),e.registerPartial("promotionalPanel",s1),e.registerPartial("quickexit",l1),e.registerPartial("searchInput",n1),e.registerPartial("select",o1),e.registerPartial("sidenav",r1),e.registerPartial("sidenavWrapper",d1),e.registerPartial("skipLinks",c1),e.registerPartial("spinner",f1),e.registerPartial("table",p1),e.registerPartial("tabs",u1),e.registerPartial("tag",m1),e.registerPartial("textarea",g1),e.registerPartial("textbox",h1),e.registerPartial("typography",v1),e.registerPartial("video",b1)}typeof Handlebars!="undefined"&&d(Handlebars);var L1=!1;function H1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(L1?console.log("HandleBars Helpers And Partials already loaded, loading again"):L1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&H1(Handlebars);})();
 //# @qld-gov-au/qgds-bootstrap5 - v2.4.0
 //# sourceMappingURL=handlebars.partials.js.map
