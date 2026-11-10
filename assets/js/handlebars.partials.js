@@ -1,8 +1,8 @@
-"use strict";(()=>{function c(e,a,i){switch(a){case"==":return e==i;case"===":return e===i;case"!=":return e!=i;case"!==":return e!==i;case"<":return e<i;case"<=":return e<=i;case">":return e>i;case">=":return e>=i;case"&&":return e&&i;case"||":return e||i;case"in":return typeof e=="string"&&typeof i=="string"?i.split(",").map(t=>t.trim()).includes(e):!1;case"contains":return typeof e=="string"&&typeof i=="string"?e.toLowerCase().indexOf(i.toLowerCase())>=0:!1;default:return!1}}function r(e){e.registerHelper("contains",function(a,i,t){return a=e.escapeExpression(a),i=e.escapeExpression(i),i.indexOf(a)>-1?t.fn(this):t.inverse(this)}),e.registerHelper("ifCond",function(a,i,t,C){return c(a,i,t)?C.fn(this):C.inverse(this)}),e.registerHelper("cond",(a,i,t)=>c(a,i,t)),e.registerHelper("isType",function(a,i,t){return a===i?t.fn(this):t.inverse(this)}),e.registerHelper("ifAny",function(...a){let i=a.pop();return a.some(t=>!!t)?i.fn(this):i.inverse(this)}),e.registerHelper("ifAll",function(...a){let i=a.pop();return a.every(t=>!!t)?i.fn(this):i.inverse(this)}),e.registerHelper("now",function(){return new Date().toISOString()}),e.registerHelper("formatDate",function(a,i,t){let C;if(a&&(C=new Date(a)),isNaN(C)&&i&&(C=new Date(i)),isNaN(C))return"Invalid Date";var s=["January","February","March","April","May","June","July","August","September","October","November","December"],n=C.getDate(),l=s[C.getMonth()],o=C.getFullYear();switch(t){case"YYYY":return`${o}`;case"MMMM YYYY":return`${l} ${o}`;default:return`${n} ${l} ${o}`}}),e.registerHelper("formatDateOrToday",function(a,i){let t=a||new Date().toISOString();return e.helpers.formatDate(a,t,i)}),e.registerHelper("formatDuration",function(a,i){if(!a)return"";if(typeof a=="string"&&i!=="long")return a;let t="",C=[],s,n,l;if(typeof a=="string"){let o=a.split(":");l=o[0],o.length==2?[n="",l=""]=o:o.length==3&&([s="",n="",l=""]=o)}else[s="",n="",l=""]=a;return i==="long"?(s>0&&C.push(`${s} hour${s>1?"s":""}`),n>0&&C.push(`${n} minute${n>1?"s":""}`),l>0&&C.push(`${l} second${l>1?"s":""}`),t=C.join(" ")):(s>0&&C.push(s.toString().padStart(2,0)),C.push(n.toString().padStart(2,0)),C.push(l.toString().padStart(2,0)),t=C.join(":")),t}),e.registerHelper("isdefined",function(a,i){return a!==void 0&&a!==""?a:i}),e.registerHelper("getClassNames",function(a,i){let t=a.split(",").map(s=>s.trim()),C=[];for(let s=0;s<t.length;s++){let n=t[s];if(i){for(let l=0;l<i.length;l++)if(i[l][n]===!0){C.push(n);break}}}return C.length>0?C.join(" "):""}),e.registerHelper("join",function(a,i){return(!i||typeof i!="string")&&(i=" "),Array.isArray(a)?a.join(i):a}),e.registerHelper("toCamelCase",function(a){return typeof a!="string"?a:a.toLowerCase().replace(/(?:^\w|[A-Z]|\b\w|\s+)/g,(i,t)=>t===0?i.toLowerCase():i.toUpperCase()).replace(/\s+/g,"")})}typeof Handlebars!="undefined"&&r(Handlebars);var f=`<!-- QGDS Component: Accordion -->
+"use strict";(()=>{function c(e,a,i){switch(a){case"==":return e==i;case"===":return e===i;case"!=":return e!=i;case"!==":return e!==i;case"<":return e<i;case"<=":return e<=i;case">":return e>i;case">=":return e>=i;case"&&":return e&&i;case"||":return e||i;case"in":return typeof e=="string"&&typeof i=="string"?i.split(",").map(t=>t.trim()).includes(e):!1;case"contains":return typeof e=="string"&&typeof i=="string"?e.toLowerCase().indexOf(i.toLowerCase())>=0:!1;default:return!1}}function r(e){e.registerHelper("contains",function(a,i,t){return a=e.escapeExpression(a),i=e.escapeExpression(i),i.indexOf(a)>-1?t.fn(this):t.inverse(this)}),e.registerHelper("ifCond",function(a,i,t,C){return c(a,i,t)?C.fn(this):C.inverse(this)}),e.registerHelper("cond",(a,i,t)=>c(a,i,t)),e.registerHelper("isType",function(a,i,t){return a===i?t.fn(this):t.inverse(this)}),e.registerHelper("ifAny",function(...a){let i=a.pop();return a.some(t=>!!t)?i.fn(this):i.inverse(this)}),e.registerHelper("ifAll",function(...a){let i=a.pop();return a.every(t=>!!t)?i.fn(this):i.inverse(this)}),e.registerHelper("now",function(){return new Date().toISOString()}),e.registerHelper("formatDate",function(a,i,t){let C;if(a&&(C=new Date(a)),isNaN(C)&&i&&(C=new Date(i)),isNaN(C))return"Invalid Date";var s=["January","February","March","April","May","June","July","August","September","October","November","December"],n=C.getDate(),l=s[C.getMonth()],o=C.getFullYear();switch(t){case"YYYY":return`${o}`;case"MMMM YYYY":return`${l} ${o}`;default:return`${n} ${l} ${o}`}}),e.registerHelper("formatDateOrToday",function(a,i){let t=a||new Date().toISOString();return e.helpers.formatDate(a,t,i)}),e.registerHelper("formatDuration",function(a,i){if(!a)return"";if(typeof a=="string"&&i!=="long")return a;let t="",C=[],s,n,l;if(typeof a=="string"){let o=a.split(":");l=o[0],o.length==2?[n="",l=""]=o:o.length==3&&([s="",n="",l=""]=o)}else[s="",n="",l=""]=a;return i==="long"?(s>0&&C.push(`${s} hour${s>1?"s":""}`),n>0&&C.push(`${n} minute${n>1?"s":""}`),l>0&&C.push(`${l} second${l>1?"s":""}`),t=C.join(" ")):(s>0&&C.push(s.toString().padStart(2,0)),C.push(n.toString().padStart(2,0)),C.push(l.toString().padStart(2,0)),t=C.join(":")),t}),e.registerHelper("isdefined",function(a,i){return a!==void 0&&a!==""?a:i}),e.registerHelper("getClassNames",function(a,i){let t=a.split(",").map(s=>s.trim()),C=[];for(let s=0;s<t.length;s++){let n=t[s];if(i){for(let l=0;l<i.length;l++)if(i[l][n]===!0){C.push(n);break}}}return C.length>0?C.join(" "):""}),e.registerHelper("join",function(a,i){return(!i||typeof i!="string")&&(i=" "),Array.isArray(a)?a.join(i):a}),e.registerHelper("toCamelCase",function(a){return typeof a!="string"?a:a.toLowerCase().replace(/(?:^\w|[A-Z]|\b\w|\s+)/g,(i,t)=>t===0?i.toLowerCase():i.toUpperCase()).replace(/\s+/g,"")}),e.registerHelper("anyObjectHasKey",function(a,i,t){return Array.isArray(a)?a.some(C=>C&&Object.hasOwn(C,[i])&&!!C[i]):!1}),e.registerHelper("anyObjectHasValue",function(a,i,t){return Array.isArray(a)?a.some(C=>C&&Object.hasOwn(C,[i])&&C[i]===t):!1})}typeof Handlebars!="undefined"&&r(Handlebars);var f=`<!-- QGDS Component: Accordion -->
 <div class="accordion-group">
     {{#if toggleAll}}
         <div class="accordion-toggle">
-            <button class="accordion-toggle-btn accordion-toggle-btn--closed" type="button">Open all</button>
+            <button class="accordion-toggle-btn accordion-toggle-btn--closed" type="button" aria-expanded="false" aria-controls="{{#each accordionItems}}collapse-{{id}}{{#unless @last}} {{/unless}}{{/each}}">Open all</button>
         </div>
     {{/if}}
     <div class="accordion" id="{{groupid}}">
@@ -123,7 +123,7 @@
       {{/if}}
     {{/each}}
   </ol>
-</nav>`;var v=`<!-- breadcrumbs-->
+</nav>`;var h=`<!-- breadcrumbs-->
 <div class="container-fluid alt">
   <div class="container">
     <div class="row">
@@ -133,7 +133,7 @@
       </div>
     </div>
   </div>
-</div>`;var h=`{{!-- Button icon partial --}}
+</div>`;var v=`{{!-- Button icon partial --}}
 {{#*inline "buttonIcon"~}}
 <span class="qld-icon qld-icon-md {{iconClass}} {{iconPosition}}" aria-hidden="true"></span>
 {{~/inline}} 
@@ -401,8 +401,14 @@
 </head>
 
 <body>
-  <!-- Global ALert -->
-  {{> globalAlert globalAlert}}
+  <!-- Global Alert (critical) renders before skip links -->
+  {{> globalAlert globalAlertCritical}}
+
+  <!-- Skip links -->
+  {{> skipLinks}}
+
+  <!-- Global Alert (warning) -->
+  {{> globalAlert globalAlertWarning}}
 
   <!-- Header -->
   {{> header header }}
@@ -435,7 +441,7 @@
       <div class="col-12 col-lg-8 mt-40 mt-lg-0">
 
         <!-- Main Content div, includes a 2rem/32px horizontal padding on large screens and up -->
-        <main class="px-lg-32">
+        <main id="content" class="px-lg-32">
 
           <h1 id="section-heading">Single page form (H1)</h1>
 
@@ -466,6 +472,8 @@
               {{else ifCond type '==' 'textarea'}}
               {{> textarea this}}
               {{else ifCond type '==' 'radio'}}
+              {{> formcheck this}}
+              {{else ifCond type '==' 'checkbox'}}
               {{> formcheck this}}
               {{/ifCond}}
             </div>
@@ -528,8 +536,14 @@
 </head>
 
 <body>
-  <!-- Global ALert -->
-  {{> globalAlert globalAlert}}
+  <!-- Global Alert (critical) renders before skip links -->
+  {{> globalAlert globalAlertCritical}}
+
+  <!-- Skip links -->
+  {{> skipLinks}}
+
+  <!-- Global Alert (warning) -->
+  {{> globalAlert globalAlertWarning}}
 
   <!-- Header -->
   {{> header header }}
@@ -562,7 +576,7 @@
       <div class="col-12 col-lg-8 mt-40 mt-lg-0">
 
         <!-- Main Content div, includes a 2rem/32px horizontal padding on large screens and up -->
-        <main class="px-lg-32">
+        <main id="content" class="px-lg-32">
 
           {{#if inpagenav}}
           <!-- QGDS Inpagenav Component -->
@@ -648,6 +662,21 @@
             <!-- QGDS Table Component -->
             <div class="mt-24">
               {{> table table}}
+            </div>
+            {{/if}}
+          </div>
+
+          <div class="mt-32 mt-lg-64">
+            <h2 id="related-services">Related services (H2)</h2>
+            <p>Lorem ipsum dolor sit amet consectetur. Sed facilisis purus eu convallis ut. Morbi condimentum volutpat
+              feugiat pellentesque. Auctor amet auctor dolor metus eget diam.</p>
+            {{#if cards}}
+            <div class="row">
+              {{#each cards}}
+              <div class="col-12 col-md-6 mb-24">
+                {{> card this}}
+              </div>
+              {{/each}}
             </div>
             {{/if}}
           </div>
@@ -787,7 +816,7 @@
                 </div>
             </div>
         </div>
-    </div>`;var P=`{{#if followLinks }}
+    </div>`;var O=`{{#if followLinks }}
     <ul class="nav footer-link-list footer-link-list--social">    
     {{#each followLinks }}
       <li>
@@ -798,7 +827,7 @@
       </li>
     {{/each }}
     </ul>
-{{/if}}`;var O=`<footer class="qld-footer {{ variantClass }}" role="contentinfo">
+{{/if}}`;var P=`<footer class="qld-footer {{ variantClass }}" role="contentinfo">
   <!-- Footer content container -->
   <div class="container">
     {{#if sitename}}
@@ -918,13 +947,13 @@
 
             {{!default list }}
             <li><a class="nav-link" href="https://www.qld.gov.au/help">Help</a></li>
-            <li><a class="nav-link" href="https://www.qld.gov.au/legal/copyright">Copyright</a></li>  
-            <li><a class="nav-link" href="https://www.qld.gov.au/legal/disclaimer">Disclaimer</a></li>
-            <li><a class="nav-link" href="https://www.qld.gov.au/legal/privacy">Privacy</a></li>
-            <li><a class="nav-link" href="https://www.qld.gov.au/about/rights-accountability/right-to-information">Right to information</a></li>
-            <li><a class="nav-link" href="https://www.qld.gov.au/help/accessibility">Accessibility</a></li>
+            <li><a class="nav-link" href="https://www.qld.gov.au/copyright">Copyright</a></li>  
+            <li><a class="nav-link" href="https://www.qld.gov.au/disclaimer">Disclaimer</a></li>
+            <li><a class="nav-link" href="https://www.qld.gov.au/privacy">Privacy</a></li>
+            <li><a class="nav-link" href="https://www.qld.gov.au/right-to-information">Right to information</a></li>
+            <li><a class="nav-link" href="https://www.qld.gov.au/accessibility">Accessibility</a></li>
             <li><a class="nav-link" href="https://smartjobs.qld.gov.au" target="_blank">Jobs in Queensland Government</a></li>
-            <li><a class="nav-link" href="https://www.qld.gov.au/help/languages">Other languages</a></li>
+            <li><a class="nav-link" href="https://www.qld.gov.au/languages">Other languages</a></li>
 
           {{/if}}
           </ul>
@@ -1127,7 +1156,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.7","branch":"HEAD","tag":"v2.4.7","commit":"d6d255cb5d31fb4f4f7589ee34c853bd21f6964c","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.6","branch":"QGDS-1370-select-options-hardcoded","tag":"","commit":"45db74344df26c26a208a2412061a2714896bd3f","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -1137,7 +1166,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 
 <script type="text/javascript" async src="{{#if cdn }}{{#ifCond cdn '==' 'PROD'}}https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'STAGING'}}https://staging-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'BETA'}}https://beta-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'TEST'}}https://test-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'DEV'}}https://dev-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{cdn}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{else}}missing{{/if}}/assets/js/bootstrap.min.js"><\/script>
 <script type="text/javascript" async src="{{#if cdn }}{{#ifCond cdn '==' 'PROD'}}https://static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'STAGING'}}https://staging-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'BETA'}}https://beta-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'TEST'}}https://test-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{#ifCond cdn '==' 'DEV'}}https://dev-static.qgov.net.au/qgds-bootstrap5/v2/v2.x.x-latest{{else}}{{cdn}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{/ifCond}}{{else}}missing{{/if}}/assets/js/qld.bootstrap.min.js"><\/script>
-`;var N=`<header class="qld-header
+`;var G=`<header class="qld-header
   {{#if isSubBrand}}is-sub-brand{{/if}} 
   {{#if isCoBrand}}is-co-brand{{/if}} 
   {{#if isEndorsedBrand}}is-endorsed-brand{{/if}} 
@@ -1162,7 +1191,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                 </a>
 
                 {{#if preHeader.actions}}
-                <div class="d-none d-lg-flex align-items-baseline">
+                <div class="d-none d-lg-flex align-items-center">
                     {{#each preHeader.actions}}
                     {{#if dropdown}}
                     <div class="dropdown">
@@ -1267,7 +1296,6 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                         <form 
                         class="{{isdefined assets.siteSearch.customClass "site-search"}}" 
                         action="{{isdefined assets.siteSearch.formAction.url "https://www.qld.gov.au/search"}}"
-                        role="search" 
                         >
                           {{{ searchInput }}}
                         </form>
@@ -1277,7 +1305,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
             </div>
         </div>
     </div>
-</header>`;var G=`
+</header>`;var N=`
 <div class="qld-header-brand">
     <a class="qld-header-link d-lg-inline-flex align-middle" href="{{url}}"{{#unless logo}}{{#unless siteTitle}} aria-label="Queensland Government"{{/unless}}{{/unless}}>
         <div class="qld-header-brand-image align-self-center">
@@ -1321,7 +1349,9 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 </head>
 
 <body>
-    {{> globalAlert globalAlert}}
+    {{> globalAlert globalAlertCritical}}
+    {{> skipLinks}}
+    {{> globalAlert globalAlertWarning}}
     {{> header header}}
     {{> navbar navbar}}
 
@@ -1329,7 +1359,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
     {{> banner banner}}
     {{/if}}
 
-    <main>
+    <main id="content">
         <div class="container-fluid p-0">
             {{#if cardGrid}}
             <section class="py-5 mt-md-3">
@@ -1684,7 +1714,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
     <path d="M33.0149 23.765C32.7699 22.19 32.2102 17.745 32.1402 16.275L31.4579 16.31C31.4579 16.555 31.4929 16.8875 31.5279 17.29C30.7232 17.045 29.6561 16.8875 28.5715 16.8875C27.4869 16.8875 26.4198 17.0625 25.6152 17.29C25.6501 16.905 25.6851 16.5725 25.6851 16.31L25.0204 16.2575C24.9504 17.745 24.3906 22.1725 24.1457 23.7475C23.7434 23.905 23.481 24.3075 23.481 25.025C23.481 25.025 27.1546 25.0775 28.589 25.0775C30.0235 25.0775 33.6971 25.025 33.6971 25.025C33.6796 24.3075 33.4172 23.9225 33.0149 23.765ZM28.5715 23.7125C27.9943 24.8325 26.9097 24.7975 25.9475 24.1675C25.5627 23.9225 25.1778 23.7475 24.8105 23.695C24.9679 22.5925 25.2478 20.5275 25.4402 18.7775C26.6648 18.2175 28.1867 18.095 28.554 19.5125C28.9214 18.095 30.4433 18.235 31.6679 18.7775C31.8603 20.5275 32.1402 22.61 32.2976 23.695C31.9478 23.7475 31.5454 23.9225 31.1606 24.1675C30.2509 24.7975 29.1663 24.8325 28.5715 23.7125Z" />
     <path d="M36.1988 6.51C36.2163 6.16 35.569 5.8975 35.3941 5.88C35.1142 5.8625 34.7818 6.44 34.4145 6.79C34.0996 5.11 34.257 4.375 34.432 3.6225C35.1492 4.9175 36.1113 5.1975 36.6186 5.1275C34.9043 3.7625 35.2017 2.52 34.6769 2.45C34.3795 2.415 34.1696 2.4325 34.0121 2.4325C33.4173 2.4325 33.3299 3.605 33.2424 4.13C32.8576 3.4125 32.4727 2.8 31.808 1.96C31.1782 0.3325 30.4085 0.735 29.6213 0C30.2335 0.9275 29.7437 1.505 31.1607 2.17C31.5281 2.52 31.9654 3.08 32.2453 3.5175C32.0004 3.8325 31.8429 4.0075 31.6155 4.235C31.4406 4.4975 31.3531 5.5125 30.8108 6.265C31.6155 5.915 31.9479 5.4075 32.2278 4.935C34.7993 6.8775 32.7176 11.8125 32.1228 12.8975C31.563 12.5125 30.8283 12.3025 30.1811 12.18L30.1111 11.9525L29.5163 10.01H29.7962C30.1111 10.01 30.1986 9.8 30.1461 9.625L31.9129 10.1675L32.7001 10.4125L32.2278 9.7475L31.4056 8.61L32.2278 7.4725L32.7001 6.8075L31.9129 7.0525L30.321 7.5425C30.2161 7.175 29.9187 7 29.5863 6.965L30.1286 5.1625L30.356 4.3925L29.7087 4.865L28.5717 5.6875L27.4346 4.865L26.7873 4.3925L27.0148 5.1625L27.5571 6.965C27.2422 7.0175 26.9273 7.1925 26.8223 7.5425L25.2304 7.0525L24.4432 6.8075L24.9156 7.4725L25.7377 8.61L24.9156 9.7475L24.4432 10.4125L25.2304 10.1675L27.0148 9.625C26.9623 9.8 27.0323 10.01 27.3471 10.01H27.627L27.0323 11.9525L26.9448 12.1975C26.2625 12.32 25.5278 12.5475 24.968 12.9325C23.2362 9.59 23.726 6.195 25.178 5.075C25.1605 5.7925 25.7727 6.755 26.0701 6.9475C25.8777 6.2125 26.2101 4.9 25.8252 4.5675C25.5628 4.34 25.1605 4.235 24.7231 4.235C25.0205 3.745 25.4229 3.1325 26.1051 2.24C27.1197 1.785 27.4171 0.595 27.662 0C26.5599 0.4025 25.7377 0.98 25.5628 1.9075C25.178 2.4325 24.7406 3.045 24.2508 3.7625C24.2858 2.8875 23.796 2.59 23.1662 2.5375C21.3119 2.9225 21.4344 4.27 19.8425 5.1975C20.9271 5.5825 22.6414 3.185 23.2362 3.4475C23.3237 4.9175 22.9913 6.0725 22.9913 6.8775C22.7114 6.5625 22.5714 6.3525 22.3265 6.3175C22.0991 6.2825 21.4694 6.335 21.0495 6.8075C20.9271 7.56 20.962 8.96 20.2623 10.6225C21.2944 9.6775 21.8017 7.805 21.9592 7.2625C22.2216 7.63 22.519 8.435 22.5889 9.135C22.7114 10.465 23.5336 12.705 24.2333 13.7725C24.0409 14.14 23.9884 14.56 24.0584 15.0325C23.5161 15.435 23.4461 15.995 23.6385 16.38C23.8485 16.7825 24.3733 17.0625 25.003 16.8175L25.1954 16.73C25.8602 16.45 27.0847 15.9425 28.5717 15.9425C30.0586 15.9425 31.3006 16.45 31.9479 16.73L32.1403 16.8175C32.7701 17.0625 33.2949 16.7825 33.5048 16.38C33.6972 15.995 33.6273 15.435 33.085 15.0325C33.1549 14.5425 33.085 14.0875 32.8576 13.685L32.875 13.7025C34.1521 11.8825 34.2395 8.4175 35.2891 7.4375C35.3766 8.645 36.0239 9.66 36.6536 9.8C36.1638 8.9425 36.1638 7.28 36.1988 6.51ZM30.3735 8.1375L31.3181 7.84L30.8633 8.47L30.7409 8.6275L30.8633 8.785L31.3181 9.415L30.1286 9.0475C30.216 8.8025 30.3035 8.54 30.3735 8.1375ZM25.8602 9.4325L26.315 8.8025L26.4375 8.645L26.315 8.4875L25.8602 7.8575L26.8048 8.155C26.8573 8.5575 26.9448 8.8375 27.0497 9.0825L25.8602 9.4325ZM29.5863 9.1175H28.8516L28.939 7.805C30.0411 7.2975 29.9536 8.33 29.5863 9.1175ZM29.3764 11.3575L28.7466 10.9025L28.5892 10.78L28.4317 10.9025L27.802 11.3575L28.2043 10.0275H28.974L29.3764 11.3575ZM28.4142 6.265L28.5717 6.3875L28.7291 6.265L29.3764 5.7925L29.009 7.035C28.9915 7.035 28.974 7.035 28.974 7.0525C28.904 6.895 28.7466 6.79 28.5717 6.79C28.3967 6.79 28.2393 6.895 28.1693 7.0525C28.1518 7.0525 28.1518 7.0525 28.1343 7.035L27.767 5.7925L28.4142 6.265ZM27.5745 9.1175C27.2072 8.33 27.1197 7.2975 28.2218 7.805L28.3093 9.1175H27.5745ZM28.5717 11.4625L29.4638 12.11C29.079 12.075 28.7641 12.075 28.5717 12.075C28.3792 12.075 28.0644 12.075 27.6795 12.11L28.5717 11.4625ZM24.933 16.0825L24.7406 16.1525C24.4782 16.2575 24.3033 16.17 24.2333 16.0475C24.1633 15.9075 24.2158 15.68 24.5307 15.4875C24.5657 15.47 24.6182 15.435 24.6706 15.4175L25.3004 15.925C25.1605 15.995 25.038 16.0475 24.933 16.0825ZM27.0672 15.4L26.42 14.77C26.9623 14.63 27.5221 14.5425 28.0644 14.5075L28.4492 15.26C27.9594 15.26 27.4871 15.33 27.0672 15.4ZM30.6709 15.54L30.286 14.665C30.8633 14.77 31.4231 14.945 31.9129 15.155L32.1403 16.065C31.773 15.9075 31.2831 15.6975 30.6709 15.54ZM28.5717 13.8075C27.3471 13.8075 25.9477 14.105 24.8806 14.56C24.8981 14.315 24.9855 14.1225 25.1255 13.93C25.7377 13.1775 27.3646 12.915 28.5542 12.915C29.7437 12.915 31.3706 13.1775 31.9829 13.93C32.1403 14.105 32.2103 14.315 32.2278 14.56C31.1957 14.0875 29.8312 13.8075 28.5717 13.8075Z" />
     <path d="M19.8248 33.32C19.9823 31.9025 19.7549 31.78 19.3525 31.4475C19.0026 31.15 18.4079 31.0625 17.8306 30.66C17.4107 30.3625 17.2883 29.96 16.7635 29.4C16.8684 28.21 17.7256 26.74 18.3554 26.4075C18.4429 26.355 18.4254 24.5 18.4254 24.5C18.4254 24.5 18.8452 24.4825 18.8102 24.465C18.2504 24.115 17.5682 24.3775 17.0784 24.955C16.606 25.34 15.504 26.075 14.7517 26.3375C13.7371 25.48 12.1452 24.71 10.9732 23.555C10.9732 23.555 12.5126 23.5375 13.2298 23.2575C13.4222 23.135 13.9121 22.365 13.7021 21.6125C13.4572 21.525 13.1249 21.35 12.775 21.1575C12.3551 20.9125 11.9528 20.6675 11.7604 20.51C11.0956 20.0025 10.8157 19.565 9.66117 19.2675C9.73114 18.7425 9.85359 18.865 10.3609 18.515C11.0082 18.0775 11.3755 17.5525 11.6379 17.0275C11.8303 16.625 11.6029 15.785 11.0956 16.8525C10.9207 17.22 10.4134 17.7275 9.8361 17.885C9.88858 17.5525 9.90607 17.36 9.90607 17.185C11.6029 15.995 11.428 14.945 11.3055 13.9475C11.2006 13.37 10.6408 13.125 10.6583 13.72C10.6758 14.1225 11.0257 15.2425 9.87109 15.89C9.8361 15.4 9.71365 15.1725 9.60869 14.9275C10.6408 13.5625 10.2035 12.25 9.76613 11.655C9.48623 11.27 8.82148 11.1475 9.11887 11.7425C9.38127 12.2325 9.78362 13.58 9.01391 14.1225C8.75151 13.8075 8.45412 13.6675 8.34916 13.23C8.41913 11.76 8.33167 10.85 8.13924 10.325C7.96431 9.83503 7.49199 9.52003 7.52697 10.255C7.56196 11.0775 7.63193 12.11 7.56196 12.1625C7.49199 12.2325 6.40739 11.2175 5.97006 10.92C5.51523 10.605 4.99043 10.7275 5.49774 11.34C5.97006 11.865 7.35204 12.8975 7.1771 13.23C7.07214 13.44 6.07502 12.6175 5.55022 12.4425C5.02542 12.2675 4.86797 12.5475 5.30531 12.8975C6.02254 13.475 6.49486 13.86 7.66692 14.2625C8.83898 14.6475 9.41626 16.275 9.0489 18.585C9.0314 18.69 8.83898 18.6725 8.71652 18.6375C8.66404 17.7625 8.5066 16.695 8.29668 16.24C8.01679 15.61 7.47449 15.61 7.66692 16.4325C7.82436 17.08 7.91183 17.7975 7.80687 18.6725C6.84473 18.515 6.47737 18.2525 6.07502 18.0075C6.04003 17.5525 6.26745 16.8175 6.30243 16.17C6.33742 15.5225 5.95257 15.12 5.74264 15.925C5.53272 16.7125 5.39278 17.08 5.27032 17.64C4.99043 17.5525 4.69304 17.43 4.57059 17.2725C4.50061 17.2025 4.57059 16.3275 4.50061 15.68C4.43064 14.9625 4.15075 14.98 3.94083 15.61C3.83586 15.9075 3.76589 16.2925 3.7309 16.7475C3.39853 16.555 3.17112 16.17 3.13613 15.8375C3.18861 15.085 3.31106 14.2975 3.39853 13.79C3.4685 13.44 3.2236 12.705 2.9437 13.58C2.73378 14.2275 2.6813 14.7525 2.55885 15.19C2.31394 15.1725 1.99906 13.755 1.82412 12.8275C1.75415 12.425 1.40428 11.9525 1.33431 12.8625C1.26434 13.895 1.47426 14.9275 1.73666 15.3825C1.24684 15.33 0.774521 14.4375 0.424653 13.9125C0.127265 13.4575 -0.0301757 13.93 0.00481111 14.1225C0.302199 15.9425 1.75415 16.59 2.40141 16.7125C3.41602 18.165 5.35779 18.795 7.00217 19.5125C4.86798 19.495 4.30819 20.3525 3.32856 19.7925C3.36354 20.5975 3.76589 20.965 4.15075 21.1575C4.43064 21.28 4.69304 21.315 4.81549 21.35C4.99043 22.33 5.91758 22.2775 6.70478 22.33C6.49486 24.2375 6.73977 26.7575 8.40164 28.63C8.34916 29.5925 8.27919 30.87 8.29668 31.71C6.94969 32.9525 5.72515 35.6125 5.25283 37.0825C4.88547 38.185 4.34317 39.0425 3.50349 39.445C4.18573 40.1625 5.20035 39.8125 5.79512 39.41C5.83011 40.0575 5.98755 40.5125 6.09251 40.8975C5.70766 41.475 5.42776 41.8775 5.46275 42.595C5.02542 42.7175 4.71053 42.9975 4.48312 43.295C4.32568 43.4875 4.50061 44.3625 4.67555 44.73C5.21784 45.955 4.798 48.72 4.69304 49.525C4.92046 49.5425 5.3403 49.5425 5.42776 49.21C5.56771 49.3325 5.90009 49.5775 6.05753 50.1025C6.02254 50.33 5.88259 51.1875 6.31993 51.2925C6.66979 51.38 8.20921 51.3275 8.41913 51.065C8.26169 50.89 7.99929 50.47 7.84185 50.0675C7.84185 49.6475 7.80687 49.14 7.68441 48.93C7.50948 48.615 7.07214 47.915 6.77475 47.635C6.72227 47.1275 6.66979 44.87 6.89721 44.0125C7.29956 43.7325 9.99354 41.7375 10.5533 39.8125C11.0431 39.9875 10.9032 41.3175 10.9032 43.05C10.9032 43.5225 11.463 43.75 11.8129 43.8025C12.5476 43.89 13.5797 44.59 14.7517 46.3225C14.9792 46.0775 15.2765 45.85 15.2765 45.85C15.434 46.06 15.6089 46.55 15.7139 46.865C15.8363 47.11 16.781 47.25 17.4982 47.0225C17.7431 46.935 17.8831 46.9 18.0405 46.6375C17.1308 45.045 16.5711 43.9775 15.399 43.1025C14.8567 42.7 14.122 42.49 13.5097 42.105C13.9121 41.335 15.0316 37.765 14.3669 36.4525C14.1395 36.015 13.2823 35.595 12.2502 35.7875C13.1074 34.755 14.8742 32.69 15.1016 32.06C15.3115 32.305 16.3436 32.13 17.1134 32.445C17.3932 32.5675 18.1804 33.5825 18.2154 33.9325C18.2854 34.5625 18.3204 35.315 17.8831 37.0475C18.1979 36.995 18.1455 36.9775 18.4429 36.855C18.4953 37.31 18.3554 37.6775 17.953 38.3775C18.058 39.0075 18.3379 39.97 18.6353 40.145C19.0201 38.9725 20.4721 37.3275 20.4371 36.3475C20.3671 35.0175 19.7549 33.8975 19.8248 33.32Z" />
-</svg>`;var X=`{{!prettier-ignore}}
+</svg>`;var K=`{{!prettier-ignore}}
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172 56" {{#if fill}}fill="{{fill}}"{{/if}} {{#if className}}class="{{className}}"{{/if}} {{#if width}}width="{{width}}"{{/if}}
     {{#if height}}height="{{height}}"{{/if}}>
     <title>Queensland Government</title>
@@ -1742,7 +1772,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
     <path d="M146.631 45.1073V45.3643C146.631 46.3613 146.755 47.122 147.114 47.6668C147.71 48.5713 148.675 48.9619 149.732 48.9619C150.749 48.9619 151.57 48.6433 152.309 47.9649L152.946 49.0236C152.022 49.8665 150.749 50.329 149.393 50.329C146.477 50.329 144.732 48.2218 144.732 44.727C144.732 42.9487 145.112 41.8077 145.995 40.749C146.837 39.752 147.874 39.2894 149.147 39.2894C150.287 39.2894 151.283 39.6903 152.001 40.4304C152.905 41.3555 153.203 42.3525 153.203 44.8709V45.1073H146.631ZM150.954 41.5097C150.595 40.9443 149.855 40.5845 149.055 40.5845C147.556 40.5845 146.714 41.6844 146.621 43.8636H151.437C151.426 42.7226 151.272 42.0236 150.954 41.5097Z" />
     <path d="M162.206 50.0926V42.9692C162.206 41.8488 162.124 41.5713 161.827 41.2115C161.59 40.9443 161.149 40.7695 160.666 40.7695C159.824 40.7695 158.51 41.4479 157.75 42.2497V50.0926H156.149V41.9722C156.149 40.4714 155.748 39.7519 155.748 39.7519L157.35 39.3099C157.35 39.3099 157.73 40.0911 157.73 40.9545C158.828 39.8547 159.927 39.3305 161.046 39.3305C162.186 39.3305 163.202 39.9472 163.623 40.8723C163.788 41.2526 163.88 41.6741 163.88 42.0955V50.0926H162.206V50.0926Z" />
     <path d="M170.967 40.8106H168.77V47.5948C168.77 48.7563 169.088 49.1572 170.125 49.1572C170.587 49.1572 170.864 49.0955 171.162 48.9413L171.398 50C170.874 50.2776 170.279 50.4215 169.54 50.4215C168.985 50.4215 168.564 50.3187 168.164 50.1234C167.425 49.7636 167.147 49.0852 167.147 48.0265V40.8003H165.772V39.5566H167.147C167.147 38.539 167.312 36.8943 167.312 36.8943L169.037 36.514C169.037 36.514 168.831 38.1586 168.831 39.5566H171.47L170.967 40.8106Z" />
-</svg>`;var K=`{{> header header}}
+</svg>`;var X=`{{> header header}}
 {{> navbar navbar}}
 {{> globalAlert globalAlert}}
 <main>
@@ -1843,13 +1873,13 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
   </div>
 </div>`;var t1=`<!-- QGDS Partial: Primary navigation -->
 
-<nav id="main-nav" class="navbar navbar-expand-lg{{#if metadata.alternativeColor}} dark{{/if}}{{#if metadata.verticalOrientation}} vertical{{/if}}" aria-label="Website navigation" role="navigation">
+<nav id="main-nav" class="navbar navbar-expand-lg{{#if metadata.alternativeColor}} dark{{/if}}{{#if metadata.verticalOrientation}} vertical{{/if}}" aria-label="Main" >
     <div id="navbarNav" class="container">
             <div class="nav-header">
                 <span class="navbar-brand" href="#">{{#if metadata.navbarBrandName}}{{metadata.navbarBrandName}}{{/if}}</span>
                 <button id="burgerCloseBtn" type="button" class="navbar-btn" data-bs-toggle="collapse"
                     aria-label="Close" data-bs-target="#main-nav" aria-expanded="false"
-                    aria-controls="collapseExample">Close</button>
+                    aria-controls="main-nav">Close</button>
             </div>
             <div class="navbar-collapse">
                 <ul class="navbar-nav">
@@ -2053,38 +2083,38 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 </div>`;var n1=`<!-- 
     QGDS Component: Search input 
 -->
-<div class="qld-search-input {{customClass}}">
+<div class="qld-search-input {{customClass}}" role="search" {{#if ariaLabelContainer}}aria-label="{{ ariaLabelContainer }}"{{/if}}>
     <input id="{{ inputID }}" name="{{ inputName }}" class="form-control" type="text" autocomplete="off"
-        aria-label="{{ ariaLabel }}" {{#each tags}} data-{{@key}}="{{this}}" {{/each}} placeholder="{{placeholder}}" />
-    <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}" aria-label="{{ buttonLabel }}">
+        aria-label="{{ ariaLabel }}" {{#each tags}} data-{{@key}}="{{this}}" {{/each}} placeholder="{{placeholder}}" role="searchbox" enterkeyhint="search"/>
+    <button class="btn btn-primary" type="{{ buttonType }}" id="{{ buttonID }}" >
         <span class="btn-icon" aria-hidden="true"></span>
         <span class="btn-label">{{ buttonLabel }}</span>
     </button>
     {{#ifCond hasDynamicSuggestions '||' hasDefaultSuggestions}}
     
-    <div class="suggestions suggestions__group default">
+    <div class="suggestions default">
         {{#if hasDefaultSuggestions}}
             <div class="default-suggestions">
-                <div class="suggestions-category">
-                    <strong class="suggestions-category-label d-block">{{defaultSuggestions.popularServicesTitle}}</strong>
+                <div class="suggestions-group">
+                    <strong class="suggestions-group-label d-block">{{defaultSuggestions.popularServicesTitle}}</strong>
                     <ul>
                         {{#each defaultSuggestions.popularServices}}
-                        <li><a tabindex="0" href="{{link}}">{{title}}</a></li>
+                        <li><a class="suggestions-item" tabindex="0" href="{{link}}"><span>{{title}}</span></a></li>
                         {{/each}}
                         {{#if defaultSuggestions.popularServicesLink}}
-                            <li><a tabindex="0" href="{{defaultSuggestions.popularServicesLink.href}}" class="view-more">{{#if defaultSuggestions.popularServicesLink.label}}{{defaultSuggestions.popularServicesLink.label}}{{else}}View More{{/if}}</a></li>
+                        <li><a tabindex="0" href="{{defaultSuggestions.popularServicesLink.href}}" class="suggestions-item is-view-more">{{#if defaultSuggestions.popularServicesLink.label}}{{defaultSuggestions.popularServicesLink.label}}{{else}}View More{{/if}}</a></li>
                         {{/if}}
                     </ul>
                 </div>
                 {{#if defaultSuggestions.categories}}
-                <div class="suggestions-category">
-                    <strong class="suggestions-category-label d-block">{{defaultSuggestions.categoriesTitle}}</strong>
+                <div class="suggestions-group">
+                    <strong class="suggestions-group-label d-block">{{defaultSuggestions.categoriesTitle}}</strong>
                     <ul>
                         {{#each defaultSuggestions.categories}}
-                        <li><a tabindex="0" href="{{link}}">{{title}}</a></li>
+                        <li><a class="suggestions-item" tabindex="0" href="{{link}}"><span>{{title}}</span></a></li>
                         {{/each}}
                         {{#if defaultSuggestions.categoriesLink}}
-                            <li><a tabindex="0" href="{{defaultSuggestions.categoriesLink.href}}" class="view-more">{{#if defaultSuggestions.categoriesLink.label}}{{defaultSuggestions.categoriesLink.label}}{{else}}View More{{/if}}</a></li>
+                            <li><a tabindex="0" href="{{defaultSuggestions.categoriesLink.href}}" class="suggestions-item is-view-more">{{#if defaultSuggestions.categoriesLink.label}}{{defaultSuggestions.categoriesLink.label}}{{else}}View More{{/if}}</a></li>
                         {{/if}}
                     </ul>
                 </div>
@@ -2125,12 +2155,22 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 
 <select id={{id}} class="form-select {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}} {{customClass}}" 
     {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} tabindex="0" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}} >
-    <option selected value="">{{placeholder}}</option>
-    <option value="1">Option 1</option>
-    <option value="2">Option 2</option>
-    <option value="3">Option 3</option>
+    {{#if placeholder}}<option {{#unless (anyObjectHasValue options "selected" true)}}selected{{/unless}} value="">{{placeholder}}</option>{{/if}}
+
+    {{#*inline "options"}}
+    {{#each options}}
+        <option {{#if this.selected}}selected{{/if}} {{#if this.disabled}}disabled{{/if}} value="{{this.value}}">{{isdefined this.label this.value}}</option>
+    {{/each}}
+    {{/inline}}
+    
+    {{#each optionGroups}}
+    <optgroup label="{{this.groupLabel}}">
+        {{>options options=this.options}}
+    </optgroup>
+    {{/each}}
+    {{>options options=this.options}}
 </select>
-`;var r1=`<nav class="qld-side-navigation" aria-label="Side Navigation">
+`;var r1=`<nav class="qld-side-navigation" aria-label="Secondary">
   <button
     class="accordion-button collapsed d-lg-none"
     type="button"
@@ -2157,7 +2197,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
         <li class="nav-item {{class}}">
 
           {{#contains "active" class}}
-            <span class="nav-link">{{label}}</span>
+            <span class="nav-link" aria-current="page">{{label}}</span>
           {{else}}
             <a class="nav-link" href="{{link}}" target="{{target}}">
               {{label}}
@@ -2218,10 +2258,12 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 <div class="col-12 col-lg-3 pe-lg-0 order-last order-lg-first mt-5 mt-lg-0">
   {{> @partial-block }}
 </div>
-`;var c1=`<nav class="qld-skip-links" aria-label="skip to content links">
-  {{#each skipLinks}}
-    <a class="qld-skip-links__item" href="#{{targetId}}">{{label}}</a>
-  {{/each}}
+`;var c1=`<nav class="qld-skip-links {{#ifCond palette "===" "default"}}default{{else}}{{#ifCond palette "===" "dark-alt"}}dark-alt{{else}}dark{{/ifCond}}{{/ifCond}}" aria-label="skip to content links">
+  <div class="container qld-skip-links__container">
+    {{#each skipLinks}}
+      <a class="qld-skip-links__item" href="#{{targetId}}">{{label}}</a>
+    {{/each}}
+  </div>
 </nav>`;var f1=`<!-- QGDS Component: Loading Spinner -->
 
 <div class="qld-spinner {{#if stacked}}align-center{{/if}}" role="status">
@@ -2294,7 +2336,15 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
         <ul class="nav nav-tabs {{#ifCond type_variant '==' 'section-tabs'}}{{~#if tab_variant}} {{tab_variant}} {{else}} default{{/if~}}{{/ifCond}}"  role="tablist">
             {{#each data.items }}
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link {{#if @first}}active{{/if}}" id="{{toCamelCase this.tab_text}}-tab" data-bs-toggle="tab" data-bs-target="#{{toCamelCase this.tab_text}}-{{../unique_id}}-tab-pane" type="button" role="tab" aria-controls="#{{this.tab_text}}-tab-pane" aria-selected="{{#if @first}}true{{else}}false{{/if}}" {{#if this.disabled}}disabled{{/if}}>
+                    <button 
+                    type="button" 
+                    role="tab" 
+                    class="nav-link {{#if @first}}active{{/if}}" 
+                    id="tab-{{@index}}" 
+                    data-bs-toggle="tab" 
+                    data-bs-target="#tab-pane-{{@index}}-{{../unique_id}}" 
+                    aria-controls="tab-pane-{{@index}}-{{../unique_id}}" 
+                    aria-selected="{{#if @first}}true{{else}}false{{/if}}">
                         <span>
                             {{#if this.icon}}
                                 <i class="{{this.icon}}"></i>
@@ -2302,7 +2352,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                         </span>
                     </button>
                 </li>
-            {{/each }}
+            {{/each}}
         </ul>
         <button class="scroll scroll-left" aria-hidden="true" aria-label="Scroll tab buttons left" tabindex="-1">
             <i></i>
@@ -2313,7 +2363,12 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
     </div>
     <div class="tab-content container">
         {{#each data.items }}
-            <section class="tab-pane fade {{#if @first}}show active{{/if}}" id="{{toCamelCase this.tab_text}}-{{../unique_id}}-tab-pane" role="tabpanel" aria-labelledby="{{this.tab_text}}-tab" tabindex="0">
+            <section 
+              class="tab-pane fade {{#if @first}}show active{{/if}}" 
+              id="tab-pane-{{@index}}-{{../unique_id}}" 
+              role="tabpanel" 
+              aria-labelledby="tab-{{@index}}" 
+              tabindex="0">
                 {{#ifCond ../type_variant '==' 'section-tabs'}}
                     <h2>{{this.title}}</h2>
                 {{else}}
@@ -2366,7 +2421,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 <!-- First text input field, described by the hint text above -->
 <textarea id="{{id}}" class="form-control {{customClass}} {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
     placeholder="{{placeholder}}" rows="{{rows}}" tabindex="0" {{#if isDisabled}}disabled{{/if}} {{#if isRequired}}required{{/if}}
-    {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}}>{{value}}</textarea>`;var v1=`<!-- QGDS Component: Textbox -->
+    {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}}>{{value}}</textarea>`;var h1=`<!-- QGDS Component: Textbox -->
 
 <label class="qld-text-input-label {{#if isRequired}}field-required{{/if}} {{#if isDisabled}}field-disabled{{/if}}"
     for="{{id}}">
@@ -2396,7 +2451,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 
 <input id={{id}} {{#if value}}value="{{value}}"{{/if}}  class="form-control {{customClass}} {{#if isFilled}}is-filled{{/if}} {{#if isValid}}is-valid{{else}}{{#ifCond isValid "===" false}}is-invalid{{/ifCond}}{{/if}}"
     type="text" placeholder="{{placeholder}}" tabindex="0" {{#if isDisabled}}disabled{{/if}} {{#if
-    isRequired}}required{{/if}} {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} />`;var h1="<!-- QGDS Partial: typography -->";var b1=`<!-- QGDS Component: Video -->
+    isRequired}}required{{/if}} {{#if hint-text}}aria-describedby="{{id}}-hint"{{/if}} />`;var v1="<!-- QGDS Partial: typography -->";var b1=`<!-- QGDS Component: Video -->
 
 {{#if analyticsTrackingCode}}
 <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/{{analyticsTrackingCode}}.js">
@@ -2406,20 +2461,18 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
 {{! By default, 'not-ready' class is added and will be removed by javascript event handler.
     When thumbnail attribute is empty / does not exist, 'empty-thumbnail' css class is added. }}
 <section class="video not-ready {{#unless thumbnail}}empty-thumbnail{{/unless}} {{videoSize}}">
-    <div class="video-description">
-        {{{ description }}}
-    </div>
-    {{#if transcriptContent}}
-        {{{ transcriptAccordion }}}
-    {{/if}}
     <div class="video-player ratio ratio-{{aspectRatio}}">
+
         <a href="#" class="video-thumbnail video-controls" title="Play Video" 
             aria-label="Watch video {{#if duration}}- duration {{formatDuration duration "long"}}{{/if}}">
+
             <div class="video-thumbnail-image" style="--thumbnail:url({{thumbnail}})"></div>
+
             <div class="video-nav">
                 <div class="video-watch">
                     <span class="icon"></span><span>Watch</span>
                 </div>
+
                 {{#if duration}}
                     <div title="Video duration" class="video-duration">
                         <span class="icon"></span><span>{{formatDuration duration}}</span>
@@ -2427,6 +2480,7 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                 {{/if}}
             </div>
         </a>
+
         <div class="video-embed ratio ratio-{{aspectRatio}}">
             {{#ifCond source '===' 'vimeo'}}
                 <iframe title="{{isdefined title "Vimeo video"}}" class="embed-responsive-item video-vimeo" allow="autoplay; fullscreen" allowfullscreen muted="muted" src="https://player.vimeo.com/video/{{videoId}}?rel=0&autoplay={{urlParams.autoplay}}&background={{urlParams.background}}&controls={{urlParams.controls}}"><a href="https://player.vimeo.com/video/{{videoId}}">{{isdefined title "Vimeo video"}}</a></iframe>
@@ -2437,11 +2491,21 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
                 src="{{videoId}}"><a href="{{videoId}}">{{isdefined title "Custom video"}}</a></iframe>
             {{else}}
                 <p class="text-center position-absolute top-50">A video has not been provided.</p>
+
             {{/ifCond}}
         </div>
     </div>
+
+    <div class="video-description">
+        {{{ description }}}
+    </div>
+
     {{! Render the transcript content in an accordion template }}
+    {{#if transcriptContent}}
+        {{{ transcriptAccordion }}}
+    {{/if}}
+
 </section>
-`;function d(e){e.registerPartial("accordion",f),e.registerPartial("backToTop",p),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",v),e.registerPartial("button",h),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",q),e.registerPartial("contentWrapper",Z),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",S),e.registerPartial("details",T),e.registerPartial("directionLinks",A),e.registerPartial("feedbackForm",D),e.registerPartial("followLinks",P),e.registerPartial("footer",O),e.registerPartial("formcheck",R),e.registerPartial("fullPage",I),e.registerPartial("globalAlert",E),e.registerPartial("head",_),e.registerPartial("header",N),e.registerPartial("headerBrand",G),e.registerPartial("homePage",F),e.registerPartial("icon",Q),e.registerPartial("image",B),e.registerPartial("inpageAlert",j),e.registerPartial("inpagenav",W),e.registerPartial("link",J),e.registerPartial("linkColumns",Y),e.registerPartial("logo",U),e.registerPartial("logoCOADeliveringForQLD",$),e.registerPartial("logoCOALandscape",z),e.registerPartial("logoCOALandscape2Lines",X),e.registerPartial("mainContainerWrapper",K),e.registerPartial("metaDcTerms",e1),e.registerPartial("metaOpenGraph",i1),e.registerPartial("modal",a1),e.registerPartial("navbar",t1),e.registerPartial("pagination",C1),e.registerPartial("promotionalPanel",s1),e.registerPartial("quickexit",l1),e.registerPartial("searchInput",n1),e.registerPartial("select",o1),e.registerPartial("sidenav",r1),e.registerPartial("sidenavWrapper",d1),e.registerPartial("skipLinks",c1),e.registerPartial("spinner",f1),e.registerPartial("table",p1),e.registerPartial("tabs",u1),e.registerPartial("tag",m1),e.registerPartial("textarea",g1),e.registerPartial("textbox",v1),e.registerPartial("typography",h1),e.registerPartial("video",b1)}typeof Handlebars!="undefined"&&d(Handlebars);var L1=!1;function H1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(L1?console.log("HandleBars Helpers And Partials already loaded, loading again"):L1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&H1(Handlebars);})();
-//# @qld-gov-au/qgds-bootstrap5 - v2.4.7
+`;function d(e){e.registerPartial("accordion",f),e.registerPartial("backToTop",p),e.registerPartial("banner",u),e.registerPartial("blockquote",m),e.registerPartial("breadcrumbs",g),e.registerPartial("breadcrumbsWrapper",h),e.registerPartial("button",v),e.registerPartial("callout",b),e.registerPartial("callToAction",L),e.registerPartial("card",H),e.registerPartial("containerLayout",V),e.registerPartial("contentFooter",M),e.registerPartial("contentFooterWrapper",k),e.registerPartial("contentPageWithForm",y),e.registerPartial("contentPageWithSideNavigation",q),e.registerPartial("contentWrapper",Z),e.registerPartial("correctincorrect",x),e.registerPartial("customLinks",w),e.registerPartial("dateinput",S),e.registerPartial("details",T),e.registerPartial("directionLinks",A),e.registerPartial("feedbackForm",D),e.registerPartial("followLinks",O),e.registerPartial("footer",P),e.registerPartial("formcheck",R),e.registerPartial("fullPage",I),e.registerPartial("globalAlert",E),e.registerPartial("head",_),e.registerPartial("header",G),e.registerPartial("headerBrand",N),e.registerPartial("homePage",F),e.registerPartial("icon",Q),e.registerPartial("image",B),e.registerPartial("inpageAlert",j),e.registerPartial("inpagenav",W),e.registerPartial("link",J),e.registerPartial("linkColumns",Y),e.registerPartial("logo",U),e.registerPartial("logoCOADeliveringForQLD",$),e.registerPartial("logoCOALandscape",z),e.registerPartial("logoCOALandscape2Lines",K),e.registerPartial("mainContainerWrapper",X),e.registerPartial("metaDcTerms",e1),e.registerPartial("metaOpenGraph",i1),e.registerPartial("modal",a1),e.registerPartial("navbar",t1),e.registerPartial("pagination",C1),e.registerPartial("promotionalPanel",s1),e.registerPartial("quickexit",l1),e.registerPartial("searchInput",n1),e.registerPartial("select",o1),e.registerPartial("sidenav",r1),e.registerPartial("sidenavWrapper",d1),e.registerPartial("skipLinks",c1),e.registerPartial("spinner",f1),e.registerPartial("table",p1),e.registerPartial("tabs",u1),e.registerPartial("tag",m1),e.registerPartial("textarea",g1),e.registerPartial("textbox",h1),e.registerPartial("typography",v1),e.registerPartial("video",b1)}typeof Handlebars!="undefined"&&d(Handlebars);var L1=!1;function H1(e){typeof e=="undefined"&&console.error("Handlebars.init requires HandleBars"),typeof e!="undefined"?(L1?console.log("HandleBars Helpers And Partials already loaded, loading again"):L1=!0,r(e),d(e)):console.log("Handlebars not found, init failed")}typeof Handlebars!="undefined"&&H1(Handlebars);})();
+//# @qld-gov-au/qgds-bootstrap5 - v2.4.6
 //# sourceMappingURL=handlebars.partials.js.map
