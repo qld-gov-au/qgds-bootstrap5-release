@@ -23,7 +23,7 @@
                 </a>
 
                 {{#if preHeader.actions}}
-                <div class="d-none d-lg-flex align-items-baseline">
+                <div class="d-none d-lg-flex align-items-center">
                     {{#each preHeader.actions}}
                     {{#if dropdown}}
                     <div class="dropdown">
@@ -128,7 +128,6 @@
                         <form 
                         class="{{isdefined assets.siteSearch.customClass "site-search"}}" 
                         action="{{isdefined assets.siteSearch.formAction.url "https://www.qld.gov.au/search"}}"
-                        role="search" 
                         >
                           {{{ searchInput }}}
                         </form>
