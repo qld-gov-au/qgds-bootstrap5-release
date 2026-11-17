@@ -36,7 +36,7 @@
     <div class="container-fluid">
       <div class="banner-inner">
 
-        {{#if (hasItems breadcrumbs.breadcrumbs)}} 
+        {{#if breadcrumbs.breadcrumbs}} 
         <div class="banner-breadcrumbs">
           {{> breadcrumbs breadcrumbs }}
         </div>
@@ -94,7 +94,8 @@
         {{/ifAll}}
       </div>
     </div>
-  </div>`;var m=`<!-- QGDS Component: Blockquote -->
+  </div>
+`;var m=`<!-- QGDS Component: Blockquote -->
 
 <figure class="blockquote {{classes}}">
 
@@ -1160,7 +1161,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.6","branch":"QGDS-1234-bugfix-empty-breadcrumbs","tag":"","commit":"77e751671c33a8907dc457cd97791966315fde00","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.6","branch":"QGDS-1234-bugfix-empty-breadcrumbs","tag":"","commit":"a6910d0d46a1d01c8b7500340ba4c5d8fe82fa8a","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
