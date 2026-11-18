@@ -36,9 +36,11 @@
     <div class="container-fluid">
       <div class="banner-inner">
 
+        {{#if breadcrumbs.breadcrumbs}} 
         <div class="banner-breadcrumbs">
           {{> breadcrumbs breadcrumbs }}
         </div>
+        {{/if}}
 
         <div class="banner-content">
 
@@ -92,7 +94,8 @@
         {{/ifAll}}
       </div>
     </div>
-  </div>`;var m=`<!-- QGDS Component: Blockquote -->
+  </div>
+`;var m=`<!-- QGDS Component: Blockquote -->
 
 <figure class="blockquote {{classes}}">
 
@@ -104,7 +107,8 @@
 		{{cite-text}}
 	</figcaption>
 
-</figure>`;var g=`<nav aria-label="breadcrumb">
+</figure>`;var g=`{{#if breadcrumbs }}
+<nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     {{#each breadcrumbs}}
       {{! print all breadcrumbs except the current page as links}}
@@ -123,7 +127,9 @@
       {{/if}}
     {{/each}}
   </ol>
-</nav>`;var h=`<!-- breadcrumbs-->
+</nav>
+{{/if}}
+`;var h=`<!-- breadcrumbs-->
 <div class="container-fluid alt">
   <div class="container">
     <div class="row">
@@ -1156,7 +1162,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.6","branch":"QGDS-1241-search-input-upgrades","tag":"","commit":"ea53b2e2ade60cb55d75b30b7a59e99507f9ad22","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.6","branch":"QGDS-1241-search-input-upgrades","tag":"","commit":"87f033dd5ca65097eb52a8c6dc677f40ba40e26c","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
