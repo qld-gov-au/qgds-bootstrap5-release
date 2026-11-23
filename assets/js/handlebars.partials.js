@@ -1162,7 +1162,7 @@
   </section>
   {{/each }}
 </div>`;var _=`
-<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.6","branch":"QGDS-1240-Promo-panel-defects","tag":"","commit":"abb73815eec33abeb7e8ac89656da71bdd3c7a68","majorVersion":"v2"} -->
+<!-- VERSION_DETAILS={"project_id":"@qld-gov-au/qgds-bootstrap5","version":"2.4.6","branch":"QGDS-1240-Promo-panel-defects","tag":"","commit":"0f3fb7e4c5509d87c90dd67f531909e3d8e4f2be","majorVersion":"v2"} -->
 
 {{! Select environment, used verbatium if not using predefind key
 cdn := PROD|STAGING|BETA|TEST|DEV|???
@@ -2077,8 +2077,12 @@ cdn := PROD|STAGING|BETA|TEST|DEV|???
             {{/if}}
             <div class="main">
                 {{#if title}}
-                    <{{isdefined headingTag 'h2'}} class="promo-title">{{~{title}~}}</{{isdefined headingTag 'h2'}}>
-                {{/if}}
+    {{#ifCond headingTag 'in' 'h2,h3,h4,h5,h6'}}
+        <{{headingTag}} class="promo-title">{{~{title}~}}</{{headingTag}}>
+    {{else}}
+        <h2 class="promo-title">{{~{title}~}}</h2>
+    {{/ifCond}}
+{{/if}}
                 {{#if abstract}}
                     <div class="promo-abstract">
                         {{~{abstract}~}}
